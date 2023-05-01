@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.Callbacks;
+using System.Collections.Generic;
 
 public class RoomNodeGraphEditor : EditorWindow
 {
@@ -10,6 +11,8 @@ public class RoomNodeGraphEditor : EditorWindow
     private RoomNodeTypeListSO roomNodeTypeList;
     private RoomNodeSO currentRoomNode = null;
 
+    private Vector2 graphOffset;
+    private Vector2 graphDrag;
 
     //Значения для отрисовки узла в редакторе
     private const float nodeWidth = 200f;
@@ -51,13 +54,13 @@ public class RoomNodeGraphEditor : EditorWindow
         roomNodeTypeList = GameResources.Instance.roomNodeTypeList;
     }
 
+
     private void OnDisable()
     {
         Selection.selectionChanged -= InspectorSelectionChanged;
     }
 
-
-    //Открывает редактор графов при двойном нажатии на ассет
+        //Открывает редактор графов при двойном нажатии на ассет
     [OnOpenAsset(0)] // Вызывает метод при открытии ассета
     public static bool OnDoubleClickAsset (int instanceId, int line)
     {
@@ -94,6 +97,7 @@ public class RoomNodeGraphEditor : EditorWindow
             Repaint();
     }
 
+
     private void DrawDraggedLine ()
     {
         if (currentRoomNodeGraph.linePos != Vector2.zero)
@@ -107,6 +111,10 @@ public class RoomNodeGraphEditor : EditorWindow
     //Обработка событий
     private void ProcessEvents(Event currentEvent)
     {
+        //
+        graphDrag = Vector2.zero;
+
+
         //Получаем узел если ещё не получили или не идёт процесс перемещения узла
         if (currentRoomNode == null || currentRoomNode.isLeftClickDragging == false)
         {
@@ -196,6 +204,9 @@ public class RoomNodeGraphEditor : EditorWindow
         menu.AddSeparator("");
         menu.AddItem(new GUIContent("Выбрать все узлы"), false, SelectAllRoomNodes);
         menu.ShowAsContext();
+        menu.AddSeparator("");
+        menu.AddItem(new GUIContent("Удалить выбранные узлы"), false, DeleteSelectedNodeLinks);
+        menu.ShowAsContext();
     }
 
     //Создание узла в позиции мыши
@@ -230,6 +241,58 @@ public class RoomNodeGraphEditor : EditorWindow
         currentRoomNodeGraph.OnValidate();
     }
 
+    //Удаление выбранных узлов
+    private void DeleteSelectedNodeLinks ()
+    {
+        //очерель удаляемых узлов
+        Queue<RoomNodeSO> nodeDeletionQueue = new Queue<RoomNodeSO>();
+
+        //Удаление из дочерних и родительский списков
+        foreach (RoomNodeSO  node in currentRoomNodeGraph.roomNodeList)
+        {
+            if (node.isSelected && !node.roomNodeType.isEntrance)
+            {
+                nodeDeletionQueue.Enqueue(node);
+
+                foreach (string childNodeID in node.childRoomNodeIDList)
+                {
+                    RoomNodeSO childNode = currentRoomNodeGraph.GetRoomNode(childNodeID);
+
+                    if (childNode != null)
+                    {
+                        childNode.RemoveParendRoomNodeIDFromRoomNode(node.id);
+                    }
+                }
+                
+                foreach (string parentNodeID in node.parentRoomNodeIDList)
+                {
+                    RoomNodeSO parentNode = currentRoomNodeGraph.GetRoomNode(parentNodeID);
+
+                    if (parentNode != null)
+                    {
+                        parentNode.RemoveChildRoomNodeIDFromRoomNode(node.id);
+                    }
+                }
+                
+                
+            }
+        }
+
+        //Удаление узлов через очередь
+        while(nodeDeletionQueue.Count > 0)
+        {
+            //Узел из очереди на позиции 1
+            RoomNodeSO roomNodeToDelete = nodeDeletionQueue.Dequeue();
+
+            //Удалиние узла из слооваря и списка
+            currentRoomNodeGraph.roomNodeDictionary.Remove(roomNodeToDelete.id);
+            currentRoomNodeGraph.roomNodeList.Remove(roomNodeToDelete);
+
+            DestroyImmediate(roomNodeToDelete, true);
+            AssetDatabase.SaveAssets();
+        }
+    }
+
     //Убирает выделение с выбранных узлов
     private void ClearAllSelectOnRoomNodes()
     {
@@ -255,14 +318,18 @@ public class RoomNodeGraphEditor : EditorWindow
     }
 
 
-
     private void ProcessMouseDragEvent(Event currentEvent)
     {
         if (currentEvent.button == 1)
         {
             ProcessRightMouseDragEvent(currentEvent);
         }
+        else if (currentEvent.button == 0)
+        {
+            ProcessLeftMouseDragEvent(currentEvent.delta);
+        }
     }
+
     
     private void ProcessRightMouseDragEvent(Event currentEvent)
     {
@@ -273,12 +340,22 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
+
+    private void ProcessLeftMouseDragEvent (Vector2 dragDelta)
+    {
+        graphDrag = dragDelta;
+        for (int i = 0; i < currentRoomNodeGraph.roomNodeList.Count; i++)
+        {
+            currentRoomNodeGraph.roomNodeList[i].DragNode(dragDelta);
+        }
+        GUI.changed = true;
+    }
+
+
     private void DragConnectingLine(Vector2 delta)
     {
         currentRoomNodeGraph.linePos += delta;
     }
-
-
 
 
     private void DrawRoomNodes ()
@@ -297,6 +374,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
         GUI.changed = true;
     }
+
     
     private void ClearLineDrag()
     {
@@ -304,6 +382,7 @@ public class RoomNodeGraphEditor : EditorWindow
         currentRoomNodeGraph.linePos = Vector2.zero;
         GUI.changed = true;
     }
+
 
     private void DrawRoomConnections()
     {
@@ -322,6 +401,7 @@ public class RoomNodeGraphEditor : EditorWindow
             }
         }
     }
+
 
     private void DrawConnectionLine(RoomNodeSO parentNode, RoomNodeSO childNode)
     {

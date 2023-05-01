@@ -152,7 +152,7 @@ public class RoomNodeSO : ScriptableObject
     }
 
 
-    private void DragNode (Vector2 delta)
+    public void DragNode (Vector2 delta)
     {
         rect.position += delta;
         EditorUtility.SetDirty(this);
@@ -232,6 +232,26 @@ public class RoomNodeSO : ScriptableObject
     {
         parentRoomNodeIDList.Add(parentID);
         return true;//?
+    }
+
+    public bool RemoveChildRoomNodeIDFromRoomNode (string childId)
+    {
+        if (childRoomNodeIDList.Contains(childId))
+        {
+            childRoomNodeIDList.Remove(childId);
+            return true;
+        }
+        return false;
+    }
+
+    public bool RemoveParendRoomNodeIDFromRoomNode(string parentId)
+    {
+        if (parentRoomNodeIDList.Contains(parentId))
+        {
+            parentRoomNodeIDList.Remove(parentId);
+            return true;
+        }
+        return false;
     }
 
 #endif
