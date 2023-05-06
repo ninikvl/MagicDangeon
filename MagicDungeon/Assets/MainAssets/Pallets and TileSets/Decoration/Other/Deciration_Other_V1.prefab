@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1572213334257515688}
   - component: {fileID: 2312134425438657376}
   m_Layer: 0
-  m_Name: Deciration_Other
+  m_Name: Deciration_Other_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,7 +743,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &8643449208392014244
+--- !u!114 &1146161354609497863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
