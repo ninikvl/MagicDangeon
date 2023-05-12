@@ -17,7 +17,7 @@ public static class HelperUtilities
     }
 
     //list empty or contains null valaue check - returns true if there is an error
-    public static bool ValidateCheckEnumeravbleValues (Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
+    public static bool ValidateCheckEnumerableValues (Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
     {
         bool error = false;
         int count = 0;
