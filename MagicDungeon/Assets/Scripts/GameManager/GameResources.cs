@@ -25,7 +25,15 @@ public class GameResources : MonoBehaviour
     #region Tooltip
     [Tooltip("Запонить с помощью спписка RoomNodeTypeListSO")]
     #endregion
-
     public RoomNodeTypeListSO roomNodeTypeList;
+
+    #region Header Materials
+    [Space(10)]
+    [Header("Материалы")]
+    #endregion
+    #region Tooltip
+    [Tooltip("Затемнённый материал")]
+    #endregion
+    public Material dimmedMaterial;
 
 }

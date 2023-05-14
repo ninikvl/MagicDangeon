@@ -14,7 +14,9 @@ public class RoomNodeGraphSO : ScriptableObject
         LoadRoomNodeDictionary();
     }
 
-    //Запполняет словарь
+    /// <summary>
+    /// Запполняет словарь
+    /// </summary>
     private void LoadRoomNodeDictionary()
     {
         roomNodeDictionary.Clear();
@@ -24,6 +26,24 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Получить узел комнаты с помощью типа комнаты
+    /// </summary>
+    public RoomNodeSO GetRoomNode (RoomNodeTypeSO roomNodeType)
+    {
+        foreach (RoomNodeSO node in roomNodeList)
+        {
+            if (node.roomNodeType == roomNodeType)
+            {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Возвращает узел по его id в словаре
+    /// </summary>
     public RoomNodeSO GetRoomNode(string roomNodeId)
     {
         if (roomNodeDictionary.TryGetValue(roomNodeId, out RoomNodeSO roomNode))
@@ -32,6 +52,19 @@ public class RoomNodeGraphSO : ScriptableObject
         }
         return null;
     }
+
+    /// <summary>
+    /// Возвращает дочерние узлы принимая родительскккий узел
+    /// </summary>
+    public IEnumerable<RoomNodeSO> GetChildRoomNodes(RoomNodeSO parentRoom)
+    {
+        foreach (string childNodeId in parentRoom.childRoomNodeIDList)
+        {
+            yield return GetRoomNode(childNodeId);
+        }
+    }
+
+
 
     #region Editor Code
 #if UNITY_EDITOR

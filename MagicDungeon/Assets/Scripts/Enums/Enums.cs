@@ -11,3 +11,18 @@ public enum Orientation
     none
 }
 
+public enum GameState
+{
+    gameStarted,
+    playingLevel,
+    engaginEnemies,
+    bossStage,
+    engaginBoss,
+    levelComplited,
+    gameWon,
+    gameLost,
+    gamePaused,
+    dungeonOverviewMap,
+    restartGame
+}
+
