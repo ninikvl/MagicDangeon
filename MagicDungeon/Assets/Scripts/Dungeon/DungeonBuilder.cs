@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [DisallowMultipleComponent]
 public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
@@ -503,7 +504,23 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
     /// </summary>
     private void InstiateRoomgameObjects()
     {
+        foreach (KeyValuePair<string, Room> keyValuePair in dungeonBuilderRoomDictionary)
+        {
+            Room room = keyValuePair.Value;
 
+            Vector3 roomPosition = new Vector3(room.lowerBounds.x - room.templateLowerBounds.x, 
+                room.lowerBounds.y - room.templateLowerBounds.y, 0f);
+
+            //Создание комнаты на сцене
+            GameObject roomGameObject = Instantiate(room.prefab, roomPosition, Quaternion.identity, transform);
+
+            InstantiatedRoom instatiatedRoom = roomGameObject.GetComponentInChildren<InstantiatedRoom>();
+
+            instatiatedRoom.room = room;
+            instatiatedRoom.Initialise(roomGameObject);
+
+            room.instantiatedRoom = instatiatedRoom;
+        }
     }
 
     /// <summary>

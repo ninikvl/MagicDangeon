@@ -708,7 +708,6 @@ SpriteAtlas:
   - {fileID: -4001578836215930871, guid: ab89f761ffc11b9468624cc72d2c1214, type: 3}
   - {fileID: 2995417168419418900, guid: ab89f761ffc11b9468624cc72d2c1214, type: 3}
   - {fileID: -2878736502288998233, guid: ab89f761ffc11b9468624cc72d2c1214, type: 3}
-  - {fileID: 21300000, guid: abc037715b8d96d4fa8b493c9986cf2c, type: 3}
   - {fileID: 21300000, guid: a2482871b46d396438236c07b6402283, type: 3}
   - {fileID: 21300000, guid: f5bbfa719e97813449039d9a47a70063, type: 3}
   - {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
@@ -1359,7 +1358,6 @@ SpriteAtlas:
   - {fileID: 4488868676253166840, guid: 860b7455f08a5594596ad676217a33f1, type: 3}
   - {fileID: -1198392422965531553, guid: 860b7455f08a5594596ad676217a33f1, type: 3}
   - {fileID: 545367680131803981, guid: 860b7455f08a5594596ad676217a33f1, type: 3}
-  - {fileID: 21300000, guid: 1e100c655539c4940865adc0c42af0ee, type: 3}
   - {fileID: 699784820957134063, guid: 1215cd65b956f024cbdc450abfca077f, type: 3}
   - {fileID: 4099073902070081491, guid: 1215cd65b956f024cbdc450abfca077f, type: 3}
   - {fileID: -36197522339485165, guid: 1215cd65b956f024cbdc450abfca077f, type: 3}
@@ -3455,7 +3453,6 @@ SpriteAtlas:
   - {fileID: -5221719459760263861, guid: 29f289bbbee6a7a418f22bd80c89f907, type: 3}
   - {fileID: 2550291322835500164, guid: 29f289bbbee6a7a418f22bd80c89f907, type: 3}
   - {fileID: 21300000, guid: 039072cb3ad382f4ca7c64a29375b4da, type: 3}
-  - {fileID: 21300000, guid: bac2a5cbe35544f45a76cd9c601b078f, type: 3}
   - {fileID: 3473083412518472487, guid: a59b70dbf628e9042acb4e0d29166ea9, type: 3}
   - {fileID: -4021349336039974562, guid: a59b70dbf628e9042acb4e0d29166ea9, type: 3}
   - {fileID: -7829682651733261499, guid: a59b70dbf628e9042acb4e0d29166ea9, type: 3}
@@ -5538,7 +5535,6 @@ SpriteAtlas:
   - Bottle_Blue_2
   - Bottle_Blue_1
   - Bottle_Blue_0
-  - Collision Tile
   - BulletIcon
   - OrcHand
   - Bullet6x6
@@ -6189,7 +6185,6 @@ SpriteAtlas:
   - buckler2_3
   - buckler2_0
   - buckler2_1
-  - EnemyPreferredPathTile
   - WoodenTableVerticalFlipRight_4
   - WoodenTableVerticalFlipRight_3
   - WoodenTableVerticalFlipRight_2
@@ -8285,7 +8280,6 @@ SpriteAtlas:
   - limestone6_0
   - limestone6_1
   - Bullet2x2
-  - Half Height Collision Tile
   - crystal_floor1_0
   - crystal_floor1_1
   - crystal_floor1_2

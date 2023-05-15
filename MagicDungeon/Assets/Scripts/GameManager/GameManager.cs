@@ -46,6 +46,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
         {
             case GameState.gameStarted:
                 PlayDungeonLevel(currentDungeonLevelListIndex);
+                gameState = GameState.playingLevel;
                 break;
             case GameState.playingLevel:
                 break;
