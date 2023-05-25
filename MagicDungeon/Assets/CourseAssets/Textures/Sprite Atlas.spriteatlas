@@ -867,7 +867,6 @@ SpriteAtlas:
   - {fileID: -4809073822581294746, guid: 5a1c4472a1c15fb468c3659cdfb88220, type: 3}
   - {fileID: 8027563180040728312, guid: 5a1c4472a1c15fb468c3659cdfb88220, type: 3}
   - {fileID: 6458781423639098046, guid: 5a1c4472a1c15fb468c3659cdfb88220, type: 3}
-  - {fileID: 21300000, guid: 86135572fe4fe144aa42fcfaf4fb19fc, type: 3}
   - {fileID: 1934516617170311229, guid: 0f6c089222c0e4045be5f7675c107fa1, type: 3}
   - {fileID: -4349970052565450913, guid: 0f6c089222c0e4045be5f7675c107fa1, type: 3}
   - {fileID: -1706593173915469527, guid: 0f6c089222c0e4045be5f7675c107fa1, type: 3}
@@ -2374,7 +2373,6 @@ SpriteAtlas:
   - {fileID: 1295902935385277455, guid: 5d96b919caaacb140b9a4f7291d96088, type: 3}
   - {fileID: 2358964670992312716, guid: 5d96b919caaacb140b9a4f7291d96088, type: 3}
   - {fileID: 3068211655246267178, guid: 5d96b919caaacb140b9a4f7291d96088, type: 3}
-  - {fileID: 21300000, guid: 94141c29fdd77cc4187800dd98d88dad, type: 3}
   - {fileID: -157196807578894512, guid: 50334e294ac04c144b7be5316e30ec11, type: 3}
   - {fileID: 3913753300373695406, guid: 50334e294ac04c144b7be5316e30ec11, type: 3}
   - {fileID: -3284745951553194677, guid: 50334e294ac04c144b7be5316e30ec11, type: 3}
@@ -4362,7 +4360,6 @@ SpriteAtlas:
   - {fileID: -808241138552300916, guid: 0a7a189e97ec1b344870a45fcae7c90a, type: 3}
   - {fileID: -4933590925828879476, guid: 0a7a189e97ec1b344870a45fcae7c90a, type: 3}
   - {fileID: -6940449557370506318, guid: 0a7a189e97ec1b344870a45fcae7c90a, type: 3}
-  - {fileID: 21300000, guid: daabc6ae20154244f8ef8dd7e5973c4f, type: 3}
   - {fileID: 4761932427048454267, guid: d80aecae538e258409db040fede96598, type: 3}
   - {fileID: -4830006367900054204, guid: d80aecae538e258409db040fede96598, type: 3}
   - {fileID: -540409577665026549, guid: d80aecae538e258409db040fede96598, type: 3}
@@ -5694,7 +5691,6 @@ SpriteAtlas:
   - blood_red04_1
   - blood_red04_2
   - blood_red04_3
-  - Minimap Wall
   - green_bones07_2
   - green_bones07_3
   - green_bones07_0
@@ -7201,7 +7197,6 @@ SpriteAtlas:
   - sigil_sharp_E_NE_0
   - sigil_sharp_E_NE_3
   - sigil_sharp_E_NE_2
-  - Minimap Floor
   - OrcMoveDown_5
   - OrcMoveDown_4
   - OrcMoveDown_1
@@ -9189,7 +9184,6 @@ SpriteAtlas:
   - SkullFaceIdleRight_0
   - SkullFaceIdleRight_1
   - SkullFaceIdleRight_4
-  - Skull
   - green_bones05_0
   - green_bones05_1
   - green_bones05_2

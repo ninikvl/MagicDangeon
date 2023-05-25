@@ -16,6 +16,19 @@ public static class HelperUtilities
         return false;
     }
 
+    /// <summary>
+    /// Проверка сущесвутет ли объект
+    /// </summary>
+    public static bool ValidateCheckNullValue(Object thisObject, string fieldName, Object objectToCheck)
+    {
+        if (objectToCheck == null)
+        {
+            Debug.Log(fieldName + " Объект имеет нулевое значение " + thisObject.name.ToString());
+            return true;
+        }
+        return false;
+    }
+
     //list empty or contains null valaue check - returns true if there is an error
     public static bool ValidateCheckEnumerableValues (Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
     {
@@ -38,13 +51,39 @@ public static class HelperUtilities
             else
             {
                 count++;
-            }
+            }           
         }
 
         if (count == 0)
         {
             Debug.Log(fieldName + " Нету  значений в объекте " + thisObject.name.ToString());
             error = true;
+        }
+        return error;
+    }
+
+    /// <summary>
+    /// Проверка на положительные значения, включая или не включая ноль
+    /// </summary>
+    public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
+    {
+        bool error = false;
+
+        if (isZeroAllowed)
+        {
+            if (valueToCheck < 0)
+            {
+                Debug.Log(fieldName + " Объект содержит отрицательные значения " + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        else
+        {
+            if (valueToCheck <= 0)
+            {
+                Debug.Log(fieldName + " Объект содержит отрицательные или нулевые значения " + thisObject.name.ToString());
+                error = true;
+            }
         }
         return error;
     }

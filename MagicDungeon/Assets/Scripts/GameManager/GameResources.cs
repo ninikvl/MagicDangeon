@@ -27,6 +27,15 @@ public class GameResources : MonoBehaviour
     #endregion
     public RoomNodeTypeListSO roomNodeTypeList;
 
+    #region Header PLAYER
+    [Space(10)]
+    [Header("Игрок")]
+    #endregion
+    #region Tooltip
+    [Tooltip("SO игрока используемое на сцене")]
+    #endregion
+    public CurrentPlayerSO currentPlayer;
+
     #region Header Materials
     [Space(10)]
     [Header("Материалы")]

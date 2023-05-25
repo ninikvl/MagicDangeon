@@ -19,7 +19,9 @@ public class RoomNodeSO : ScriptableObject
     [HideInInspector] public bool isLeftClickDragging = false;
     [HideInInspector] public bool isSelected = false;
 
-    //Инициалиизация узла
+    /// <summary>
+    /// Инициалиизация узла
+    /// </summary>
     public void Initialize(Rect rect, RoomNodeGraphSO nodeGraph, RoomNodeTypeSO roomNodeType)
     {
         this.rect = rect;
@@ -32,7 +34,9 @@ public class RoomNodeSO : ScriptableObject
         roomNodeTypeList = GameResources.Instance.roomNodeTypeList;
     }
 
-    //Отрисовка узла с определённым стилем
+    /// <summary>
+    /// Отрисовка узла с определённым стилем
+    /// </summary>
     public void Draw (GUIStyle nodeStyle)
     {
         //Отрисовка зоны узла
@@ -59,7 +63,9 @@ public class RoomNodeSO : ScriptableObject
         GUILayout.EndArea();
     }
 
-    //массив с типами коинат которые отображаются в граф редактооре
+    /// <summary>
+    /// Получить массив с типами комнат которые отображаются в граф редактооре
+    /// </summary>
     public string[] GetRoomNodeTypesToDisplay ()
     {
         string[] roomArray = new string[roomNodeTypeList.list.Count];
@@ -168,7 +174,9 @@ public class RoomNodeSO : ScriptableObject
         return false;
     }
 
-    //проверка пподключаемой комнаты на правила
+    /// <summary>
+    /// проверка пподключаемой комнаты на правила
+    /// </summary>
     public bool IsChildRoomValid(string childID)
     {
         bool isConnectedBossNodeAlready = false;

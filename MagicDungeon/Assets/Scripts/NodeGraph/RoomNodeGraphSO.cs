@@ -64,15 +64,15 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
-
-
     #region Editor Code
 #if UNITY_EDITOR
 
     [HideInInspector] public RoomNodeSO roomNodeToDrawLineFrom = null;
     [HideInInspector] public Vector2 linePos;
 
-    //Заполняет словарь пппри изменениии в инспекторе
+    /// <summary>
+    /// Заполняет словарь при изменениии в инспекторе
+    /// </summary>
     public void OnValidate()
     {
         LoadRoomNodeDictionary();

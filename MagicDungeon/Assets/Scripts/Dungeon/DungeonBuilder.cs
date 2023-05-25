@@ -250,7 +250,6 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
 
         //Расчёт мировых координат родительского прохода
         Vector2Int parentDoorwayPosition = parentRoom.lowerBounds + doorwayParent.position - parentRoom.templateLowerBounds;
-
         Vector2Int adjjusment = Vector2Int.zero;
 
         switch (doorway.orientation)

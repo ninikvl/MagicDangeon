@@ -155,7 +155,6 @@ public class InstantiatedRoom : MonoBehaviour
             for (int yPos = 0; yPos < doorway.doorwayCopyTileHeight; yPos++)
             {
                 Matrix4x4 transformMatrix = tilemap.GetTransformMatrix(new Vector3Int(startPos.x + xPos, startPos.y - yPos, 0));
-
                 tilemap.SetTile(new Vector3Int(startPos.x + 1 + xPos, startPos.y - yPos, 0),
                     tilemap.GetTile(new Vector3Int(startPos.x + xPos, startPos.y - yPos, 0)));
                 tilemap.SetTransformMatrix(new Vector3Int(startPos.x + 1 + xPos, startPos.y - yPos, 0), transformMatrix);
@@ -190,7 +189,8 @@ public class InstantiatedRoom : MonoBehaviour
     {
         collisionTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
         ignoreAmmoTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
-        minimapTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        //TEST
+        //minimapTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
     }
 }
  

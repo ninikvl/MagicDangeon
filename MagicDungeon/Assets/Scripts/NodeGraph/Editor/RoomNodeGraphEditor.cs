@@ -60,7 +60,9 @@ public class RoomNodeGraphEditor : EditorWindow
         Selection.selectionChanged -= InspectorSelectionChanged;
     }
 
-        //Открывает редактор графов при двойном нажатии на ассет
+    /// <summary>
+    /// Открывает редактор графов при двойном нажатии на ассет
+    /// </summary>
     [OnOpenAsset(0)] // Вызывает метод при открытии ассета
     public static bool OnDoubleClickAsset (int instanceId, int line)
     {
@@ -108,7 +110,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
-    //Обработка событий
+    /// <summary>
+    /// Обработка событий
+    /// </summary>
     private void ProcessEvents(Event currentEvent)
     {
         //
@@ -142,7 +146,9 @@ public class RoomNodeGraphEditor : EditorWindow
         return null;
     }
 
-    //Обработка событий в редакторе графов
+    /// <summary>
+    /// Обработка событий в редакторе графов
+    /// </summary>
     private void ProcessRoomNodeGraphEvents(Event currentEvent)
     {
         switch (currentEvent.type)
@@ -162,7 +168,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
-    //Событие MouseDown при нажатии на область редактора графа
+    /// <summary>
+    /// Событие MouseDown при нажатии на область редактора графа
+    /// </summary>
     private void ProcessMouseDownEvent(Event currentEvent)
     {
         //Вывод контекстного меню при нажатии на пкм
@@ -176,7 +184,11 @@ public class RoomNodeGraphEditor : EditorWindow
             ClearAllSelectOnRoomNodes();
         }
     }
-    
+
+    /// <summary>
+    /// Событие MouseUp при нажатии на область редактора графа
+    /// </summary>
+    /// <param name="currentEvent"></param>
     private void ProcessMouseUpEvent(Event currentEvent)
     {
         if (currentEvent.button == 1 && currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
@@ -196,7 +208,9 @@ public class RoomNodeGraphEditor : EditorWindow
             
     }
 
-    //Создаём и ппоказываем контекстное меню
+    /// <summary>
+    /// Создаём и ппоказываем контекстное меню
+    /// </summary>
     private void ShowContextMenu(Vector2 mousePos)
     {
         GenericMenu menu = new GenericMenu();
@@ -209,7 +223,9 @@ public class RoomNodeGraphEditor : EditorWindow
         menu.ShowAsContext();
     }
 
-    //Создание узла в позиции мыши
+    /// <summary>
+    /// Создание узла в позиции мыши
+    /// </summary>
     private void CreateRoomNode (object mousePosObject)
     {
         if (currentRoomNodeGraph.roomNodeList.Count == 0)
@@ -220,7 +236,9 @@ public class RoomNodeGraphEditor : EditorWindow
         CreateRoomNode(mousePosObject, roomNodeTypeList.list.Find(x => x.isNone));
     }
 
-    //Создание узла
+    /// <summary>
+    /// Создание узла
+    /// </summary>
     private void CreateRoomNode (object mousePosObject, RoomNodeTypeSO roomNodeType)
     {
         Vector2 mousePos = (Vector2)mousePosObject;
@@ -241,7 +259,9 @@ public class RoomNodeGraphEditor : EditorWindow
         currentRoomNodeGraph.OnValidate();
     }
 
-    //Удаление выбранных узлов
+    /// <summary>
+    /// Удаление выбранных узлов
+    /// </summary>
     private void DeleteSelectedNodeLinks ()
     {
         //очерель удаляемых узлов
@@ -293,7 +313,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
-    //Убирает выделение с выбранных узлов
+    /// <summary>
+    /// Убирает выделение с выбранных узлов
+    /// </summary>
     private void ClearAllSelectOnRoomNodes()
     {
         foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
@@ -307,7 +329,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
-    //Выбрать все узлы
+    /// <summary>
+    /// Выбрать все узлы
+    /// </summary>
     private void SelectAllRoomNodes()
     {
         foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
@@ -317,7 +341,9 @@ public class RoomNodeGraphEditor : EditorWindow
         GUI.changed = true;
     }
 
-
+    /// <summary>
+    /// Событие MouseDrah при нажатии на область редактора графа
+    /// </summary>
     private void ProcessMouseDragEvent(Event currentEvent)
     {
         if (currentEvent.button == 1)
@@ -330,7 +356,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
-    
+    /// <summary>
+    /// Событие RightMouseDrag при нажатии на область редактора графа
+    /// </summary>
     private void ProcessRightMouseDragEvent(Event currentEvent)
     {
         if (currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
@@ -340,7 +368,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
     }
 
-
+    /// <summary>
+    /// Событие LeftMouseDrag при нажатии на область редактора графа
+    /// </summary>
     private void ProcessLeftMouseDragEvent (Vector2 dragDelta)
     {
         graphDrag = dragDelta;

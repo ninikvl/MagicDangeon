@@ -49,7 +49,7 @@ public class DungeonLevelSO : ScriptableObject
         bool isEntrance = false;
         bool isEndRoom = false;
 
-        //ѕроверка на оосновные типы комнат в шаблонах
+        //ѕроверка на основные типы комнат в шаблонах
         foreach (RoomTemplateSO roomTemplateSO in roomTemplateList)
         {
             if (roomTemplateSO == null)
