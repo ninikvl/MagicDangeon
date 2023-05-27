@@ -383,7 +383,7 @@ SpriteRenderer:
   m_SortingLayerID: -653709415
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 8bfec4c577b5b024aa49f2bddf33d345, type: 3}
+  m_Sprite: {fileID: -6958703930564338508, guid: a1f05474e9411d849baa007ac81ba935, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -426,18 +426,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.031428576, y: -0.533055}
+  m_Offset: {x: -0.030936271, y: 0.56219465}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2, y: 3}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3147063, y: 0.9323815}
+  m_Size: {x: 1.3131199, y: 1.1256965}
   m_EdgeRadius: 0
 --- !u!60 &7302752567058738350
 PolygonCollider2D:
@@ -455,8 +455,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2, y: 3}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -464,22 +464,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3446164, y: 0.3273119}
-      - {x: 0.21374607, y: 0.48797435}
-      - {x: 0.010631561, y: 0.59069663}
-      - {x: -0.20990562, y: 0.47825977}
-      - {x: -0.35286474, y: 0.30746537}
-      - {x: -0.3590818, y: 0.071799636}
-      - {x: -0.24594545, y: -0.4358847}
-      - {x: -0.26047134, y: -0.55262697}
-      - {x: -0.29449892, y: -0.5989692}
-      - {x: -0.3122434, y: -0.74418616}
-      - {x: 0.4398061, y: -0.7441859}
-      - {x: 0.42935133, y: -0.5960278}
-      - {x: 0.38098288, y: -0.5411702}
-      - {x: 0.36932945, y: -0.42945653}
-      - {x: 0.36800623, y: -0.41297805}
-      - {x: 0.38900042, y: 0.061114315}
+    - - {x: 0.31040332, y: 1.1760339}
+      - {x: 0.21750875, y: 1.4222554}
+      - {x: -0.047803283, y: 1.5169533}
+      - {x: -0.28361848, y: 1.444059}
+      - {x: -0.43680453, y: 1.2455306}
+      - {x: -0.30787808, y: 0.56711835}
+      - {x: -0.44056943, y: 0.18603279}
+      - {x: 0.4382029, y: 0.18617296}
+      - {x: 0.3074707, y: 0.57202846}
 --- !u!50 &7302752567058738351
 Rigidbody2D:
   serializedVersion: 4
@@ -492,7 +485,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.2258079
+  m_Mass: 1.4781744
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
