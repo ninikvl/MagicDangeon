@@ -4,6 +4,77 @@ using UnityEngine;
 
 public static class HelperUtilities 
 {
+    public static Camera mainCamera;
+
+    /// <summary>
+    /// ¬озвращает глобальные координаты мыши
+    /// </summary>
+    public static Vector3 GetMouseWorldPosition()
+    {
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
+        Vector3 mouseScreenPosition = Input.mousePosition;
+
+        mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.x, 0f, Screen.width);
+        mouseScreenPosition.y = Mathf.Clamp(mouseScreenPosition.y, 0f, Screen.width);
+
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
+        worldPosition.z = 0f;
+
+        return worldPosition;
+    }
+
+    /// <summary>
+    /// ѕолучить угол в градусах относительно вектора
+    /// </summary>
+    public static float GetAngleFromVector(Vector3 vector)
+    {
+        float radians = Mathf.Atan2(vector.y, vector.x);
+
+        float degrees = radians * Mathf.Rad2Deg;
+
+        return degrees;
+    }
+
+    /// <summary>
+    /// ќпределить направление курсора мыши отностительно персонажа
+    /// </summary>
+    public static AimDirection GetAimDirection(float angleDegrees)
+    {
+        AimDirection aimDirection;
+        
+        if (angleDegrees >= 22f && angleDegrees <= 67f)
+        {
+            aimDirection = AimDirection.UpRight;
+        }
+        else if (angleDegrees > 67f && angleDegrees <= 122f)
+        {
+            aimDirection = AimDirection.Up;
+        }
+        else if(angleDegrees > 112f && angleDegrees <= 158f)
+        {
+            aimDirection = AimDirection.UpLeft;
+        }
+        else if ((angleDegrees <= 180f && angleDegrees > 158f) || (angleDegrees > -180 && angleDegrees <= -135f))
+        {
+            aimDirection = AimDirection.Left;
+        }
+        else if (angleDegrees > -135f && angleDegrees <= -45f)
+        {
+            aimDirection = AimDirection.Down;
+        }
+        else if ((angleDegrees > -45f && angleDegrees <= 0f) || (angleDegrees > 0 && angleDegrees < 22f))
+        {
+            aimDirection = AimDirection.Right;
+        }
+        else
+        {
+            aimDirection = AimDirection.Right;
+        }
+
+        return aimDirection;
+    }
 
     /// Empty string debug check
     public static bool ValidateCheckEmptyString(Object thisObject, string fieldName, string stringToCheck)
@@ -86,5 +157,34 @@ public static class HelperUtilities
             }
         }
         return error;
+    }
+
+    /// <summary>
+    /// ѕолучить ближайшую позицую спавна
+    /// </summary>
+    public static Vector3 GetSpawnPositionToPlayer(Vector3 playerPosition)
+    {
+        Room currentRoom = GameManager.Instance.GetCurrentRoom();
+
+        Grid grid = currentRoom.instantiatedRoom.grid;
+
+        Vector3 nearestSpawnPosition = new Vector3(10000f, 10000f, 0);
+        /* NEW CODE TEST
+        Vector3 nearestSpawnPosition = grid.CellToWorld((Vector3Int)currentRoom.spawnPositionArray[0]);
+        if (nearestSpawnPosition == null)
+            return playerPosition;
+        */
+
+        foreach (Vector2Int spawnPositionGrid in currentRoom.spawnPositionArray)
+        {
+            Vector3 spawnPositionWorld = grid.CellToWorld((Vector3Int)spawnPositionGrid);
+
+            if (Vector3.Distance(spawnPositionWorld, playerPosition) < Vector3.Distance(nearestSpawnPosition, playerPosition))
+            {
+                nearestSpawnPosition = spawnPositionWorld;
+            }
+        }
+
+        return nearestSpawnPosition;
     }
 }

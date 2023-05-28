@@ -18,8 +18,33 @@ public class GameManager : SingletonMonobehavior<GameManager>
     [Tooltip("Индекс играемого уровня")]
     #endregion Tooltip
     [SerializeField] private  int currentDungeonLevelListIndex = 0;
+    private Room currentRoom;
+    private Room previosRoom;
+    private PlayerDetailsSO playerDetails;
+    private Player player;
 
     [HideInInspector] public GameState gameState;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        playerDetails = GameResources.Instance.currentPlayer.playerDetails;
+
+        InstatiatePlayer();
+    }
+
+    /// <summary>
+    /// Создание персонажа на сцене
+    /// </summary>
+    private void InstatiatePlayer()
+    {
+        GameObject playerGameObject = Instantiate(playerDetails.playerPrefab);
+
+        player = playerGameObject.GetComponent<Player>();
+
+        player.Initialize(playerDetails);
+    }
 
     private void Start()
     {
@@ -74,7 +99,16 @@ public class GameManager : SingletonMonobehavior<GameManager>
     }
 
     /// <summary>
-    /// 
+    /// Установить комнату в которой находится игрок
+    /// </summary>
+    public void SetCurrentRoom(Room room)
+    {
+        previosRoom = currentRoom;
+        currentRoom = room;
+    }
+
+    /// <summary>
+    /// Создание уровня
     /// </summary>
     private void PlayDungeonLevel(int curLevelListIndex)
     {
@@ -84,7 +118,24 @@ public class GameManager : SingletonMonobehavior<GameManager>
         {
             Debug.LogError("Создание уровня не удалось");
         }
+
+        player.gameObject.transform.position = new Vector3((currentRoom.lowerBounds.x + currentRoom.upperBounds.x) / 2f,
+            (currentRoom.lowerBounds.y + currentRoom.upperBounds.y) / 2f, 0f);
+
+        player.gameObject.transform.position = HelperUtilities.GetSpawnPositionToPlayer(player.gameObject.transform.position);
     }
+
+    public Room GetCurrentRoom()
+    {
+        return currentRoom;
+    }
+
+    public Player GetPlayer()
+    {
+        return player;
+    }
+
+
 
     #region Validation
 #if UNITY_EDITOR

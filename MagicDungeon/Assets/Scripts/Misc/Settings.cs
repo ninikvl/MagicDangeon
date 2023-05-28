@@ -11,11 +11,23 @@ public static class Settings
 
     #endregion
 
-
     #region Room settings
 
     //Максимальное количество дочерних узлов у комнаты
     public const int maxChildCorridors = 3;
+
+    #endregion
+
+    #region Animator settings
+
+    public static int aimUp = Animator.StringToHash("aimUP");
+    public static int aimDown = Animator.StringToHash("aimDown");
+    public static int aimUpRight = Animator.StringToHash("aimUPRight");
+    public static int aimUpLeft = Animator.StringToHash("aimUPLeft");
+    public static int aimRight = Animator.StringToHash("aimRight");
+    public static int aimLeft = Animator.StringToHash("aimLeft");
+    public static int isStay = Animator.StringToHash("isStay");
+    public static int isMoving = Animator.StringToHash("isMoving");
 
     #endregion
 }

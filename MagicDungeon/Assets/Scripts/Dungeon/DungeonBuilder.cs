@@ -420,7 +420,7 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
         room.roomNodeType = roomTemplate.roomNodeType;
         room.lowerBounds = roomTemplate.lowerBounds;
         room.upperBounds = roomTemplate.upperBounds;
-        room.spawnPosotionArray = roomTemplate.spawnPosArray;
+        room.spawnPositionArray = roomTemplate.spawnPosArray;
         room.templateLowerBounds = roomTemplate.lowerBounds;
         room.templateUpperBounds = roomTemplate.upperBounds;
 
@@ -431,6 +431,8 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
         {
             room.parentRoomId = "";
             room.isPrviouslyVisited = true;
+
+            GameManager.Instance.SetCurrentRoom(room);
         }
         else
         {

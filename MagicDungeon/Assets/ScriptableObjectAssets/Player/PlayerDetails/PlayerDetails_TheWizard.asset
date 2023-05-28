@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f72e23101cb6b04db9c806ca018ec33, type: 3}
+  m_Name: PlayerDetails_TheWizard
+  m_EditorClassIdentifier: 
+  playerCharacterName: The Wizard
+  playerPrefab: {fileID: 7755023254301170716, guid: 9b559e98073993944a14de9509d26a99, type: 3}
+  runtimeAnimatorController: {fileID: 9100000, guid: 68c292abb5bacaa42bace59c2c27a780, type: 2}
+  playerHealthAmount: 100
+  playerMiniMapIcon: {fileID: 21300000, guid: 6dc9efd319700df40a5b90536c06fe44, type: 3}
+  playerHandSprite: {fileID: 21300000, guid: 87e357f4d8cc4b84b9eb384f2fe76c36, type: 3}

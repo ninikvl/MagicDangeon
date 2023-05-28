@@ -26,3 +26,13 @@ public enum GameState
     restartGame
 }
 
+public enum AimDirection
+{
+    Up,
+    UpRight,
+    UpLeft,
+    Right,
+    Left,
+    Down
+}
+
