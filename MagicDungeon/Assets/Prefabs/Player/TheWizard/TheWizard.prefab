@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 462173856539079129, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
       propertyPath: m_SortingOrder
-      value: -2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4066105230872283143, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
       propertyPath: m_Size.x
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 87e357f4d8cc4b84b9eb384f2fe76c36, type: 3}
     - target: {fileID: 6265735669464758569, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6265735669464758569, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -198,6 +198,10 @@ PrefabInstance:
     - target: {fileID: 7302752567058738350, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.5772388
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302752567058738351, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
+      propertyPath: m_Mass
+      value: 1.4781744
       objectReference: {fileID: 0}
     - target: {fileID: 8472625050299298134, guid: b4f47b6ae42ec20408d18e36107cd779, type: 3}
       propertyPath: m_LocalPosition.x
