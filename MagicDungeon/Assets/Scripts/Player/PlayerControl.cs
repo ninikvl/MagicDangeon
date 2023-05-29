@@ -5,15 +5,22 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     #region Tooltip
+    [Tooltip("Детали передвижения Sriptable Object")]
+    #endregion
+    [SerializeField] private MovementDetailsSO movementDetails;
+
+    #region Tooltip
     [Tooltip("Игровой объект WeaponShootPosition в иерархии")]
     #endregion
     [SerializeField] private Transform weaponShootPosition;
 
     private Player player;
+    private float moveSpeed;
 
     private void Awake()
     {
         player = GetComponent<Player>();
+        moveSpeed = movementDetails.GetMoveSpeed();
     }
 
     private void Update()
@@ -28,7 +35,23 @@ public class PlayerControl : MonoBehaviour
     /// </summary>
     private void MovementInput()
     {
-        player.stayEvent.CallStayEvent();
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float verticlalMovement = Input.GetAxisRaw("Vertical");
+        Vector2 direction = new Vector2(horizontalMovement, verticlalMovement);
+
+        if (horizontalMovement != 0f && verticlalMovement != 0f)
+        {
+            direction *= 0.7f;
+        }
+
+        if (direction != Vector2.zero)
+        {
+            player.movementByVelocityEvent.CallMovementByVelocityEvent(direction, moveSpeed);
+        }
+        else
+        {
+            player.stayEvent.CallStayEvent();
+        }
     }
 
     /// <summary>
@@ -61,4 +84,15 @@ public class PlayerControl : MonoBehaviour
         player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
 
     }
+
+    #region Vakidation
+#if UNITY_EDITOR
+
+    private void OnValidate()
+    {
+        HelperUtilities.ValidateCheckNullValue(this, nameof(movementDetails), movementDetails);
+    }
+
+#endif
+    #endregion
 }

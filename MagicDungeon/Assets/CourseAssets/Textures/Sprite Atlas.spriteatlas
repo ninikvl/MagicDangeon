@@ -2438,7 +2438,6 @@ SpriteAtlas:
   - {fileID: 7576192681518504397, guid: 35a9437910f7f8a48b646b44a8a57ee9, type: 3}
   - {fileID: -5426812785938504249, guid: 35a9437910f7f8a48b646b44a8a57ee9, type: 3}
   - {fileID: -1090770341461893682, guid: 35a9437910f7f8a48b646b44a8a57ee9, type: 3}
-  - {fileID: 21300000, guid: 164ff379b97e3684eb24be7eeb641bc8, type: 3}
   - {fileID: -3262806158643974883, guid: 7fa22979bffda96458674d5143682a87, type: 3}
   - {fileID: 8263668145404606660, guid: 7fa22979bffda96458674d5143682a87, type: 3}
   - {fileID: -4770271019892067136, guid: 7fa22979bffda96458674d5143682a87, type: 3}
@@ -7262,7 +7261,6 @@ SpriteAtlas:
   - frozen0_3
   - frozen0_0
   - frozen0_1
-  - blank1x1
   - limestone0_0
   - limestone0_1
   - limestone0_2

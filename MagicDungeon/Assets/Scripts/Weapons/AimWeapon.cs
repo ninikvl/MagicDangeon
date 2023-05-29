@@ -47,13 +47,23 @@ public class AimWeapon : MonoBehaviour
         switch (aimDirection)
         {
             case AimDirection.UpLeft:
+                weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / 5f - 15f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
+                break;
             case AimDirection.Left:
-            case AimDirection.Up:
                 weaponRotationPointTransform.localScale = new Vector3(1f, -1f, 0f);
                 break;
 
-            
+            case AimDirection.Up:
+                weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / 5f - 15f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
+                break;
+
             case AimDirection.UpRight:
+                weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / 5f - 15f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
+                break;
+
             case AimDirection.Right:
                 weaponRotationPointTransform.localScale = new Vector3(1f, 1f, 0f);
                 break;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-/*
+
 #region Require Components
 [RequireComponent(typeof(SortingGroup))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -17,9 +17,10 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(AimWeapon))]
 [RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(AnimatePlayer))]
+[RequireComponent(typeof(MovementByVelocityEvent))]
+[RequireComponent(typeof(MovementByVelocity))]
 [DisallowMultipleComponent]
 #endregion
-*/
 public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator animator;
 
     [HideInInspector] public StayEvent stayEvent;
+    [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 
         stayEvent = GetComponent<StayEvent>();
+        movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
     }
 

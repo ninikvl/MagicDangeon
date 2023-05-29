@@ -7,6 +7,7 @@ using UnityEngine;
 public class AnimatePlayer : MonoBehaviour
 {
     private Player player;
+    
 
     private void Awake()
     {
@@ -15,16 +16,24 @@ public class AnimatePlayer : MonoBehaviour
 
     private void OnEnable()
     {
+        //Подписки на эвенты
         player.stayEvent.OnStay += StayEvent_OnStay;
-
         player.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponEvent;
+        player.movementByVelocityEvent.OnMovementByVelocity += MovementByVelocityEvent_OnMovementByVelocity;
     }
 
     private void OnDisable()
     {
+        //Подписки на эвенты
         player.stayEvent.OnStay -= StayEvent_OnStay;
-
         player.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponEvent;
+        player.movementByVelocityEvent.OnMovementByVelocity -= MovementByVelocityEvent_OnMovementByVelocity;
+    }
+
+    private void MovementByVelocityEvent_OnMovementByVelocity(MovementByVelocityEvent movementByVelocityEvent,
+        MovementByVelocityArgs movementByVelocityArgs)
+    {
+        SetMovementAnimationParameters();
     }
 
     private void StayEvent_OnStay(StayEvent stayEvent)
@@ -61,6 +70,15 @@ public class AnimatePlayer : MonoBehaviour
     }
 
     /// <summary>
+    /// Установка параметроов передвижения
+    /// </summary>
+    private void SetMovementAnimationParameters()
+    {
+        player.animator.SetBool(Settings.isMoving, true);
+        player.animator.SetBool(Settings.isStay, false);
+    }
+
+    /// <summary>
     /// Установка параметров анимации относительно направления курсора
     /// </summary>
     private void SetAimWeaponAnimationparameters(AimDirection aimDirection)
@@ -89,5 +107,4 @@ public class AnimatePlayer : MonoBehaviour
                 break;
         }
     }
-
 }

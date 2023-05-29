@@ -160,6 +160,53 @@ public static class HelperUtilities
     }
 
     /// <summary>
+    /// Проверка на положительные значения, включая или не включая ноль
+    /// </summary>
+    public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, float valueToCheck, bool isZeroAllowed)
+    {
+        bool error = false;
+
+        if (isZeroAllowed)
+        {
+            if (valueToCheck < 0)
+            {
+                Debug.Log(fieldName + " Объект содержит отрицательные значения " + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        else
+        {
+            if (valueToCheck <= 0)
+            {
+                Debug.Log(fieldName + " Объект содержит отрицательные или нулевые значения " + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        return error;
+    }
+
+    /// <summary>
+    /// Проверка на положительные числа в диапазоне, включая или не включая ноль
+    /// </summary>
+    public static bool vakidateCheckPositiveRange(Object thisObject, string fieldNameMinimum, float valueToCheckMinimum, string fieldNameMaximum,
+        float valueToCheckMaximum, bool isZeroAllowed)
+    {
+        bool error = false;
+        if (valueToCheckMinimum > valueToCheckMaximum)
+        {
+            Debug.Log(fieldNameMinimum + " должен быть меньше чем " + fieldNameMaximum + " в объекте " + thisObject.name.ToString());
+            error = true;
+        }
+
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMinimum, valueToCheckMinimum, isZeroAllowed))
+            error = true;
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMaximum, valueToCheckMaximum, isZeroAllowed))
+            error = true;
+
+        return error;
+    }
+
+    /// <summary>
     /// Получить ближайшую позицую спавна
     /// </summary>
     public static Vector3 GetSpawnPositionToPlayer(Vector3 playerPosition)
