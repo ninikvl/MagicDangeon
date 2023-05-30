@@ -28,6 +28,10 @@ public static class Settings
     public static int aimLeft = Animator.StringToHash("aimLeft");
     public static int isStay = Animator.StringToHash("isStay");
     public static int isMoving = Animator.StringToHash("isMoving");
+    public static int BlinkUP = Animator.StringToHash("BlinkUP");
+    public static int BlinkDown = Animator.StringToHash("BlinkDown");
+    public static int BlinkLeft = Animator.StringToHash("BlinkLeft");
+    public static int BlinkRight = Animator.StringToHash("BlinkRight");
 
     #endregion
 }

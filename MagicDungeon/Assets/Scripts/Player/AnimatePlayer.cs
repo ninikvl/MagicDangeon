@@ -20,6 +20,7 @@ public class AnimatePlayer : MonoBehaviour
         player.stayEvent.OnStay += StayEvent_OnStay;
         player.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponEvent;
         player.movementByVelocityEvent.OnMovementByVelocity += MovementByVelocityEvent_OnMovementByVelocity;
+        player.movementToPositionEvent.OnMovementToPosition += MovementToPositionEvent_OnMovementToPosition;
     }
 
     private void OnDisable()
@@ -28,22 +29,46 @@ public class AnimatePlayer : MonoBehaviour
         player.stayEvent.OnStay -= StayEvent_OnStay;
         player.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponEvent;
         player.movementByVelocityEvent.OnMovementByVelocity -= MovementByVelocityEvent_OnMovementByVelocity;
+        player.movementToPositionEvent.OnMovementToPosition -= MovementToPositionEvent_OnMovementToPosition;
     }
 
+    /// <summary>
+    /// Активация подписки на эвент блинка
+    /// </summary>
+    private void MovementToPositionEvent_OnMovementToPosition(MovementToPositionEvent movementToPositionEvent, 
+        MovementToPositionArgs movementToPositionArgs)
+    {
+        InitializeAimAnimationParameters();
+        InitializeBlinkAnimationParameters();
+        SetMovementToPisitionAnimationParameters(movementToPositionArgs);
+    }
+
+    /// <summary>
+    /// Активация подписки на эвент движения
+    /// </summary>
     private void MovementByVelocityEvent_OnMovementByVelocity(MovementByVelocityEvent movementByVelocityEvent,
         MovementByVelocityArgs movementByVelocityArgs)
     {
         SetMovementAnimationParameters();
+        InitializeBlinkAnimationParameters();
     }
 
+    /// <summary>
+    /// Обработчик подписки на эвент простаивания
+    /// </summary>
     private void StayEvent_OnStay(StayEvent stayEvent)
     {
         SetStayAnimationParameters();
+        InitializeBlinkAnimationParameters();
     }
 
+    /// <summary>
+    /// Обработчик подписки на эвент движения мишы
+    /// </summary>
     private void AimWeaponEvent_OnWeaponEvent(AimWeaponEvent aimWeaponEvent, AimWeaponEventArgs aimWeaponEventArgs)
     {
         InitializeAimAnimationParameters();
+        InitializeBlinkAnimationParameters();
         SetAimWeaponAnimationparameters(aimWeaponEventArgs.aimDirection);
     }
 
@@ -70,12 +95,49 @@ public class AnimatePlayer : MonoBehaviour
     }
 
     /// <summary>
+    /// инициализация параметров анимации блинка
+    /// </summary>
+    private void InitializeBlinkAnimationParameters()
+    {
+        player.animator.SetBool(Settings.BlinkDown, false);
+        player.animator.SetBool(Settings.BlinkRight, false);
+        player.animator.SetBool(Settings.BlinkLeft, false);
+        player.animator.SetBool(Settings.BlinkUP, false);
+    }
+
+    /// <summary>
     /// Установка параметроов передвижения
     /// </summary>
     private void SetMovementAnimationParameters()
     {
         player.animator.SetBool(Settings.isMoving, true);
         player.animator.SetBool(Settings.isStay, false);
+    }
+
+    /// <summary>
+    /// Установка параметров анимации блинка
+    /// </summary>
+    private void SetMovementToPisitionAnimationParameters(MovementToPositionArgs movementToPositionArgs)
+    {
+        if (movementToPositionArgs.isBlinking)
+        {
+            if (movementToPositionArgs.moveDirection.x > 0f)
+            {
+                player.animator.SetBool(Settings.BlinkRight, true);
+            }
+            else if (movementToPositionArgs.moveDirection.x < 0f)
+            {
+                player.animator.SetBool(Settings.BlinkLeft, true);
+            }
+            else if (movementToPositionArgs.moveDirection.y > 0f)
+            {
+                player.animator.SetBool(Settings.BlinkUP, true);
+            }
+            else if (movementToPositionArgs.moveDirection.y < 0f)
+            {
+                player.animator.SetBool(Settings.BlinkDown, true);
+            }
+        }
     }
 
     /// <summary>

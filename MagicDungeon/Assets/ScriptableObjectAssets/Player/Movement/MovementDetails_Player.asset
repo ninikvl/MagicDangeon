@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMoveSpeed: 8
   maxMoveSpeed: 8
+  blinkSpeed: 12
+  blinkDistance: 7
+  blinkColldownTime: 0.2

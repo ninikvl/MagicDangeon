@@ -8,7 +8,6 @@ public class PlayerControl : MonoBehaviour
     [Tooltip("Детали передвижения Sriptable Object")]
     #endregion
     [SerializeField] private MovementDetailsSO movementDetails;
-
     #region Tooltip
     [Tooltip("Игровой объект WeaponShootPosition в иерархии")]
     #endregion
@@ -16,6 +15,10 @@ public class PlayerControl : MonoBehaviour
 
     private Player player;
     private float moveSpeed;
+    private Coroutine playerBlinkCoroutine;
+    private WaitForFixedUpdate waitForFixedUpdate;
+    private bool isPlayerIsBlinking;
+    private float playerBlinkCooldownTimer = 0f;
 
     private void Awake()
     {
@@ -23,11 +26,21 @@ public class PlayerControl : MonoBehaviour
         moveSpeed = movementDetails.GetMoveSpeed();
     }
 
+    private void Start()
+    {
+        waitForFixedUpdate = new WaitForFixedUpdate();
+    }
+
     private void Update()
     {
+        if (isPlayerIsBlinking)
+            return;
+        
         MovementInput();
 
         WeaponInput();
+
+        PlayerBlinkCooldownTimer();
     }
 
     /// <summary>
@@ -37,6 +50,7 @@ public class PlayerControl : MonoBehaviour
     {
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
         float verticlalMovement = Input.GetAxisRaw("Vertical");
+        bool rightMouseButtonDown = Input.GetMouseButtonDown(1);
         Vector2 direction = new Vector2(horizontalMovement, verticlalMovement);
 
         if (horizontalMovement != 0f && verticlalMovement != 0f)
@@ -46,11 +60,58 @@ public class PlayerControl : MonoBehaviour
 
         if (direction != Vector2.zero)
         {
-            player.movementByVelocityEvent.CallMovementByVelocityEvent(direction, moveSpeed);
+            if (!rightMouseButtonDown)
+            {
+                player.movementByVelocityEvent.CallMovementByVelocityEvent(direction, moveSpeed);
+            }
+            else if (playerBlinkCooldownTimer <= 0f)
+            {
+                PlayerRoll((Vector3)direction);
+            }
         }
         else
         {
             player.stayEvent.CallStayEvent();
+        }
+    }
+
+    /// <summary>
+    /// Телепорт персонажа
+    /// </summary>
+    private void PlayerRoll(Vector3 direction)
+    {
+        playerBlinkCoroutine = StartCoroutine(PlayerBlinkCoroutine(direction));
+    }
+
+    private IEnumerator PlayerBlinkCoroutine(Vector3 direction)
+    {
+        float minDistance = 0.2f;
+        isPlayerIsBlinking = true;
+
+        Vector3 targetPosition = player.transform.position + (Vector3)direction * movementDetails.blinkDistance;
+
+        while (Vector3.Distance(player.transform.position, targetPosition) > minDistance)
+        {
+            player.movementToPositionEvent.CallMovementToPositionEvent(targetPosition, player.transform.position, movementDetails.blinkSpeed,
+                direction, isPlayerIsBlinking);
+
+            yield return waitForFixedUpdate;
+        }
+
+        isPlayerIsBlinking = false;
+        playerBlinkCooldownTimer = movementDetails.blinkColldownTime;
+
+        player.transform.position = targetPosition;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void PlayerBlinkCooldownTimer()
+    {
+        if (playerBlinkCooldownTimer >= 0f)
+        {
+            playerBlinkCooldownTimer -= Time.deltaTime;
         }
     }
 
@@ -83,6 +144,25 @@ public class PlayerControl : MonoBehaviour
 
         player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StopPlayerRollCoroutine();
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        StopPlayerRollCoroutine();
+    }
+
+    private void StopPlayerRollCoroutine()
+    {
+        if (playerBlinkCoroutine != null)
+        {
+            StopCoroutine(playerBlinkCoroutine);
+            isPlayerIsBlinking = false;
+        }
     }
 
     #region Vakidation

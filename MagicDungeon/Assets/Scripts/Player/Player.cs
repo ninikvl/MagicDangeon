@@ -19,8 +19,11 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(AnimatePlayer))]
 [RequireComponent(typeof(MovementByVelocityEvent))]
 [RequireComponent(typeof(MovementByVelocity))]
+[RequireComponent(typeof(MovementToPositionEvent))]
+[RequireComponent(typeof(MovementToPosition))]
 [DisallowMultipleComponent]
 #endregion
+
 public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public StayEvent stayEvent;
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
+    [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
 
     private void Awake()
     {
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
         stayEvent = GetComponent<StayEvent>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
+        movementToPositionEvent = GetComponent<MovementToPositionEvent>();
     }
 
     /// <summary>
