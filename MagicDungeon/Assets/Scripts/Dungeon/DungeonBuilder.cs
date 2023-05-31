@@ -18,6 +18,17 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
 
         LoadRoomNodeTypeList();
 
+        //GameResources.Instance.dimmedMaterial.SetFloat("Alpha_Slider", 1f);
+
+    }
+
+    private void OnEnable()
+    {
+        GameResources.Instance.dimmedMaterial.SetFloat("Alpha_Slider", 0f);
+    }
+
+    private void OnDisable()
+    {
         GameResources.Instance.dimmedMaterial.SetFloat("Alpha_Slider", 1f);
     }
 
@@ -430,7 +441,7 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
         if (roomNode.parentRoomNodeIDList.Count == 0)
         {
             room.parentRoomId = "";
-            room.isPrviouslyVisited = true;
+            room.isPreviouslyVisited = true;
 
             GameManager.Instance.SetCurrentRoom(room);
         }
@@ -439,6 +450,11 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
             room.parentRoomId = roomNode.parentRoomNodeIDList[0];
         }
 
+        if (room.roomNodeType.isBossRoom)
+        {
+            Room r = dungeonBuilderRoomDictionary[dungeonBuilderRoomDictionary[room.parentRoomId].parentRoomId];
+            r.isPreviouslyToBoss = true;
+        }
         return room;
     }
 

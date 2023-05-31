@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 0f0078d09b4b3af449642baac9a8a93b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1002644610326088564
+    second: Door_EW_Bottom_0
+  - first:
+      213: -8480904129353847675
+    second: Door_EW_Bottom_1
+  - first:
+      213: -3373212969360592982
+    second: Door_EW_Bottom_2
+  - first:
+      213: 1857222227355851476
+    second: Door_EW_Bottom_3
+  - first:
+      213: -3628964556679959611
+    second: Door_EW_Bottom_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +56,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,7 +104,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Door_EW_Bottom_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.05, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b427af5fb1aed00800000000000000
+      internalID: 1002644610326088564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_EW_Bottom_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.05, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c68bbc0a6cd4a80800000000000000
+      internalID: -8480904129353847675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_EW_Bottom_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.05, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf65892da0ff21d0800000000000000
+      internalID: -3373212969360592982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_EW_Bottom_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.05, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da518a96cd26c910800000000000000
+      internalID: 1857222227355851476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_EW_Bottom_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 16
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.05, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbab9876f353adc0800000000000000
+      internalID: -3628964556679959611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

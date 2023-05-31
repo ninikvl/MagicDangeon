@@ -44,5 +44,7 @@ public class GameResources : MonoBehaviour
     [Tooltip("Затемнённый материал")]
     #endregion
     public Material dimmedMaterial;
+    public Material litMaterial;
+    public Material variableLitShader;
 
 }

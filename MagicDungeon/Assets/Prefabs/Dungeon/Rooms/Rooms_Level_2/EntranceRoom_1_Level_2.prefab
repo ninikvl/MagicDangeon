@@ -28732,6 +28732,7 @@ GameObject:
   - component: {fileID: 590491854058332037}
   - component: {fileID: 536601673192037238}
   - component: {fileID: -4821102503680440587}
+  - component: {fileID: -6209043418706075909}
   m_Layer: 12
   m_Name: EntranceRoom_1_Level_2
   m_TagString: Untagged
@@ -28804,6 +28805,18 @@ MonoBehaviour:
   roomColliderBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+--- !u!114 &-6209043418706075909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273880213612764091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e05b551864813418253dc4a0517fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8251532017529842116
 GameObject:
   m_ObjectHideFlags: 0

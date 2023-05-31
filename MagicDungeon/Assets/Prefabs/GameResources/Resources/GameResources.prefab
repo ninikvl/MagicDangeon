@@ -45,4 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomNodeTypeList: {fileID: 11400000, guid: f55f981e049177740b7f7498b2b0958d, type: 2}
   currentPlayer: {fileID: 11400000, guid: db30be76b811b0c46bf2a3778e21d4cf, type: 2}
-  dimmedMaterial: {fileID: 2100000, guid: b173b7306b851fe4599c6951294e6f33, type: 2}
+  dimmedMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
+  litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  variableLitShader: {fileID: 2100000, guid: a4ea43fe7ddf099428e90d7b7ac44139, type: 2}

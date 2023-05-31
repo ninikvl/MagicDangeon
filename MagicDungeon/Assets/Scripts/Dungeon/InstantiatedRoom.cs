@@ -18,6 +18,7 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap ignoreAmmoTilemap;
     [HideInInspector] public Bounds roomColliderBounds;
 
+
     private BoxCollider2D boxCollider2D;
 
     private void Awake()
@@ -27,6 +28,17 @@ public class InstantiatedRoom : MonoBehaviour
         roomColliderBounds = boxCollider2D.bounds;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == Settings.playerTag && room != GameManager.Instance.GetCurrentRoom())
+        {
+            this.room.isPreviouslyVisited = true;
+            StaticEventHandler.CallRoomChangedEvent(room);
+        }
+        
+        //Если previousToBoss то на крате иконка босса
+    }
+
     /// <summary>
     /// Инициализация созданной комнаты
     /// </summary>
@@ -34,6 +46,7 @@ public class InstantiatedRoom : MonoBehaviour
     {
         PopulateTilemapMemberVariables(roomGameObject);
         BlockOffUnusedDoorWays();
+        AddDoorsToRooms();
         DisableCollisionTilemapRenderer();
     }
 
@@ -76,6 +89,11 @@ public class InstantiatedRoom : MonoBehaviour
             {
                 ignoreAmmoTilemap = tilemap;
             }
+        }
+        
+        foreach (string idChild in room.childRoomIdList)
+        {
+            
         }
     }
 
@@ -180,6 +198,44 @@ public class InstantiatedRoom : MonoBehaviour
             }
         }
 
+    }
+
+    /// <summary>
+    /// Добавление двери, если комната не кориидор
+    /// </summary>
+    private void AddDoorsToRooms()
+    {
+        if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNs)
+            return;
+
+        foreach (Doorway doorway in room.doorWayList)
+        {
+            if (doorway.doorPrefab != null && doorway.isConnected)
+            {
+                float tileDistance = Settings.tileSizePixel / Settings.pixelPerUnit;
+                GameObject door = null;
+
+                switch (doorway.orientation)
+                {
+                    case Orientation.north:
+                        door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                        door.transform.localPosition = new Vector3(doorway.position.x + tileDistance / 2f, doorway.position.y + tileDistance, 0f);
+                        break;
+                    case Orientation.south:
+                        door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                        door.transform.localPosition = new Vector3(doorway.position.x + tileDistance / 2f, doorway.position.y, 0f);
+                        break;
+                    case Orientation.east:
+                        door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                        door.transform.localPosition = new Vector3(doorway.position.x + tileDistance, doorway.position.y + tileDistance * 1.5f, 0f);
+                        break;
+                    case Orientation.west:
+                        door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                        door.transform.localPosition = new Vector3(doorway.position.x, doorway.position.y + tileDistance * 1.5f, 0f);
+                        break;
+                }
+            }
+        }
     }
 
     /// <summary>

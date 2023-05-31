@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorEWClosed
+  m_Name: DoorEWOpen
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: -2.75, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: -2.5, z: 0}
+        inSlope: {x: Infinity, y: 0, z: 0}
+        outSlope: {x: Infinity, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
@@ -36,16 +36,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 6235154995679643765, guid: 94ceb7f4942570649bd0a897ef2a4ed9,
-        type: 3}
+      value: {fileID: -3628964556679959611, guid: 0f0078d09b4b3af449642baac9a8a93b, type: 3}
     attribute: m_Sprite
     path: DoorCollider
     classID: 212
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 7053689574826554501, guid: 8bf4537c840876747a02facf5781dfb0,
-        type: 3}
+      value: {fileID: -100780180085683326, guid: 56b13ffdfc5a6f44182c5d89de174651, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -57,6 +55,13 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
+    - serializedVersion: 2
+      path: 592208984
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
     - serializedVersion: 2
       path: 592208984
       attribute: 0
@@ -71,16 +76,9 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 592208984
-      attribute: 1
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 6235154995679643765, guid: 94ceb7f4942570649bd0a897ef2a4ed9, type: 3}
-    - {fileID: 7053689574826554501, guid: 8bf4537c840876747a02facf5781dfb0, type: 3}
+    - {fileID: -3628964556679959611, guid: 0f0078d09b4b3af449642baac9a8a93b, type: 3}
+    - {fileID: -100780180085683326, guid: 56b13ffdfc5a6f44182c5d89de174651, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -108,9 +106,9 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -126,10 +124,10 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -2.75
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        value: -2.5
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -146,9 +144,9 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
         weightedMode: 0
         inWeight: 0
         outWeight: 0
