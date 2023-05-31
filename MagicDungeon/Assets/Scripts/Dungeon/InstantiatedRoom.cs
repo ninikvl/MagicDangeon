@@ -205,8 +205,8 @@ public class InstantiatedRoom : MonoBehaviour
     /// </summary>
     private void AddDoorsToRooms()
     {
-        if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNs)
-            return;
+        //if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNs)
+            //return;
 
         foreach (Doorway doorway in room.doorWayList)
         {
