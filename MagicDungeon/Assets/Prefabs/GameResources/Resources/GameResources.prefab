@@ -48,3 +48,5 @@ MonoBehaviour:
   dimmedMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: 2100000, guid: a4ea43fe7ddf099428e90d7b7ac44139, type: 2}
+  doorNSBossPrefab: {fileID: 6663797034957476564, guid: ffb1756787ccaff428e20bdc1a3bff45, type: 3}
+  doorEWBossPrefab: {fileID: 8630909517647479556, guid: b1c83c3c128854c4794235e8a12c7cfd, type: 3}

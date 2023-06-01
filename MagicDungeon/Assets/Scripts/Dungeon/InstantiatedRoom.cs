@@ -34,6 +34,7 @@ public class InstantiatedRoom : MonoBehaviour
         {
             this.room.isPreviouslyVisited = true;
             StaticEventHandler.CallRoomChangedEvent(room);
+
         }
         
         //Если previousToBoss то на крате иконка босса
@@ -206,7 +207,9 @@ public class InstantiatedRoom : MonoBehaviour
     private void AddDoorsToRooms()
     {
         //if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNs)
-            //return;
+        //return;
+        if (room.isPreviouslyCorridorToBoss)
+            ReplaceDoorsPrefabsToBossDoors();
 
         foreach (Doorway doorway in room.doorWayList)
         {
@@ -221,14 +224,17 @@ public class InstantiatedRoom : MonoBehaviour
                         door = Instantiate(doorway.doorPrefab, gameObject.transform);
                         door.transform.localPosition = new Vector3(doorway.position.x + tileDistance / 2f, doorway.position.y + tileDistance, 0f);
                         break;
+
                     case Orientation.south:
                         door = Instantiate(doorway.doorPrefab, gameObject.transform);
                         door.transform.localPosition = new Vector3(doorway.position.x + tileDistance / 2f, doorway.position.y, 0f);
                         break;
+
                     case Orientation.east:
                         door = Instantiate(doorway.doorPrefab, gameObject.transform);
                         door.transform.localPosition = new Vector3(doorway.position.x + tileDistance, doorway.position.y + tileDistance * 1.5f, 0f);
                         break;
+
                     case Orientation.west:
                         door = Instantiate(doorway.doorPrefab, gameObject.transform);
                         door.transform.localPosition = new Vector3(doorway.position.x, doorway.position.y + tileDistance * 1.5f, 0f);
@@ -247,6 +253,31 @@ public class InstantiatedRoom : MonoBehaviour
         ignoreAmmoTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
         //TEST
         //minimapTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
+    }
+
+    /// <summary>
+    /// Замена префабов дверей на префабы дверей босса
+    /// </summary>
+    private void ReplaceDoorsPrefabsToBossDoors()
+    {
+        foreach (Doorway doorway in room.doorWayList)
+        {
+            switch (doorway.orientation)
+            {
+                case Orientation.north:
+                    doorway.doorPrefab = GameResources.Instance.doorNSBossPrefab;
+                    break;
+                case Orientation.south:
+                    doorway.doorPrefab = GameResources.Instance.doorNSBossPrefab;
+                    break;
+                case Orientation.east:
+                    doorway.doorPrefab = GameResources.Instance.doorEWBossPrefab;
+                    break;
+                case Orientation.west:
+                    doorway.doorPrefab = GameResources.Instance.doorEWBossPrefab;
+                    break;
+            }
+        }
     }
 }
  

@@ -452,8 +452,10 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
 
         if (room.roomNodeType.isBossRoom)
         {
-            Room r = dungeonBuilderRoomDictionary[dungeonBuilderRoomDictionary[room.parentRoomId].parentRoomId];
-            r.isPreviouslyToBoss = true;
+            Room corridorPreviousToBoss = dungeonBuilderRoomDictionary[room.parentRoomId];
+            Room roomPreviousToBoss = dungeonBuilderRoomDictionary[dungeonBuilderRoomDictionary[room.parentRoomId].parentRoomId];
+            roomPreviousToBoss.isPreviouslyToBoss = true;
+            corridorPreviousToBoss.isPreviouslyCorridorToBoss = true;
         }
         return room;
     }

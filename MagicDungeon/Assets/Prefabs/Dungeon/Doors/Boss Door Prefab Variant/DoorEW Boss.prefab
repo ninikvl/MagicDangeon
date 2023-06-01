@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 2178811863107987615}
   - component: {fileID: -6552520598282054503}
   m_Layer: 13
-  m_Name: DoorEW
+  m_Name: DoorEW Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,13 +145,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -229619225
   m_SortingLayer: 3
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 1482608973534752581, guid: 56b13ffdfc5a6f44182c5d89de174651, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 218257051446782826, guid: b5d555c4753d13546882d899024ed983, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 5.4375}
+  m_Size: {x: 3, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -167,7 +167,7 @@ Animator:
   m_GameObject: {fileID: 8630909517647479556}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fa5f18c0d3a11044690a694e0381e175, type: 2}
+  m_Controller: {fileID: 9100000, guid: db8cae27a910b0d47a2ea150199544df, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -192,9 +192,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.05, y: 0.18}
-    oldSize: {x: 3, y: 5.4375}
-    newSize: {x: 3, y: 5.4375}
+    pivot: {x: 0.135, y: 0.2}
+    oldSize: {x: 3, y: 5}
+    newSize: {x: 3, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -288,8 +288,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1025438153
   m_SortingLayer: 5
-  m_SortingOrder: -2
-  m_Sprite: {fileID: 1002644610326088564, guid: 0f0078d09b4b3af449642baac9a8a93b, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 3196276745446329959, guid: 2085f595ba282834c969a2e39d3486b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -316,7 +316,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 2.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.05, y: 0}
+    pivot: {x: 0.135, y: 0}
     oldSize: {x: 3, y: 4}
     newSize: {x: 3, y: 4}
     adaptiveTilingThreshold: 0.5

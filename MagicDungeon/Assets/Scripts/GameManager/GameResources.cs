@@ -47,4 +47,12 @@ public class GameResources : MonoBehaviour
     public Material litMaterial;
     public Material variableLitShader;
 
+    #region Header Door Boss Prefab
+    [Space(10)]
+    [Header("Префабы дверей босса")]
+    #endregion
+    public GameObject doorNSBossPrefab;
+    public GameObject doorEWBossPrefab;
+    
+
 }
