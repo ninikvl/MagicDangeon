@@ -110,6 +110,7 @@ public static class HelperUtilities
         {
             Debug.Log(fieldName + " Объект имеет нулевое значение " + thisObject.name.ToString());
             error = true;
+            return error;
         }
 
         foreach (var item in enumerableObjectToCheck)

@@ -38,10 +38,17 @@ public static class Settings
 
     //Параметры двери
     public static int open = Animator.StringToHash("open");
+
+    //Базовая скорость анимации 
+    public static float baseSpeedForPlayerAnimations = 8f;
     #endregion
 
     #region GameObects Tags
     public const string playerTag = "Player";
     public const string playerWeapon = "playerWeapon";
+    #endregion
+
+    #region Firing Control
+    public const float useAimAngleDistance = 3.5f;
     #endregion
 }

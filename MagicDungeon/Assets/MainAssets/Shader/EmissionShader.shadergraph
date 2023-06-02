@@ -289,6 +289,8 @@
         "m_GuidSerialized": "9b016918-0a58-46a3-ad97-109149fabb92"
     },
     "m_Name": "MainText",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_9B2C7AF1",
     "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
@@ -483,6 +485,8 @@
         "m_GuidSerialized": "c566f736-faa8-43c5-b52e-b194276b9e3c"
     },
     "m_Name": "EmissionColor",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_1F2DB2F8",
     "m_OverrideReferenceName": "_EmissionColor",
     "m_GeneratePropertyBlock": true,

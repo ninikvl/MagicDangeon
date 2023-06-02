@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     {
         waitForFixedUpdate = new WaitForFixedUpdate();
+
+        SetPlayerAnimationSpeed();
     }
 
     private void Update()
@@ -41,6 +43,14 @@ public class PlayerControl : MonoBehaviour
         WeaponInput();
 
         PlayerBlinkCooldownTimer();
+    }
+
+    /// <summary>
+    /// Установка скорости анимции от сккорости движения персонажа
+    /// </summary>
+    private void SetPlayerAnimationSpeed()
+    {
+        player.animator.speed = moveSpeed / Settings.baseSpeedForPlayerAnimations;
     }
 
     /// <summary>

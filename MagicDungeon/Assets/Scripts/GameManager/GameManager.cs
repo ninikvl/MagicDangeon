@@ -62,6 +62,22 @@ public class GameManager : SingletonMonobehavior<GameManager>
         }
     }
 
+    private void OnEnable()
+    {
+        StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+    }
+
+    private void OnDisable()
+    {
+        StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
+    }
+
+    //TEST
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    {
+        //SetCurrentRoom(roomChangedEventArgs.room);
+    }
+
     /// <summary>
     /// Переключатель игровых состояний
     /// </summary>
