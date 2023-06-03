@@ -141,7 +141,7 @@ public class AmmoDetailsSO : ScriptableObject
         HelperUtilities.vakidateCheckPositiveRange(this, nameof(ammoSpawnAmountMin), ammoSpawnAmountMin, nameof(ammoSpawnAmountMax), 
             ammoSpawnAmountMax, false);
         HelperUtilities.vakidateCheckPositiveRange(this, nameof(ammoSpawnIntervalMin), ammoSpawnIntervalMin, nameof(ammoSpawnIntervalMax), 
-            ammoSpawnIntervalMax, false);
+            ammoSpawnIntervalMax, true);
         if (isAmmoTrail)
         {
             HelperUtilities.ValidateCheckPositiveValue(this, nameof(ammoTrailTime), ammoTrailTime, false);

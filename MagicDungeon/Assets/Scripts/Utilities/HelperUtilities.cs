@@ -38,6 +38,15 @@ public static class HelperUtilities
     }
 
     /// <summary>
+    /// Получить вектор направления от угла в градусах
+    /// </summary>
+    public static Vector3 GetDirectionVectorFromAngle(float angle)
+    {
+        Vector3 directionVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0f);
+        return directionVector;
+    }
+
+    /// <summary>
     /// Определить направление курсора мыши отностительно персонажа
     /// </summary>
     public static AimDirection GetAimDirection(float angleDegrees)

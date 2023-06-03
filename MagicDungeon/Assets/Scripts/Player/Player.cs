@@ -21,8 +21,13 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(MovementByVelocity))]
 [RequireComponent(typeof(MovementToPositionEvent))]
 [RequireComponent(typeof(MovementToPosition))]
+[RequireComponent(typeof(SetAtiveWeaponEvent))]
+[RequireComponent(typeof(ActiveWeapon))]
+[RequireComponent(typeof(FireWeaponEvent))]
+[RequireComponent(typeof(WeaponFiredEvent))]
+[RequireComponent(typeof(FireWeapon))]
 [DisallowMultipleComponent]
-#endregion
+#endregion Require Components
 
 public class Player : MonoBehaviour
 {
@@ -35,6 +40,12 @@ public class Player : MonoBehaviour
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
+    [HideInInspector] public SetAtiveWeaponEvent setAtiveWeaponEvent;
+    [HideInInspector] public ActiveWeapon ativeWeapon;
+    [HideInInspector] public FireWeaponEvent fireWeaponEvent;
+    [HideInInspector] public WeaponFiredEvent weaponFiredEvent;
+
+    public List<Weapon> weaponList = new List<Weapon>();
 
     private void Awake()
     {
@@ -47,6 +58,11 @@ public class Player : MonoBehaviour
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
+        setAtiveWeaponEvent = GetComponent<SetAtiveWeaponEvent>();
+        ativeWeapon = GetComponent<ActiveWeapon>();
+        fireWeaponEvent = GetComponent<FireWeaponEvent>();
+        weaponFiredEvent = GetComponent<WeaponFiredEvent>();
+
     }
 
     /// <summary>
@@ -55,7 +71,20 @@ public class Player : MonoBehaviour
     public void Initialize(PlayerDetailsSO playerDetails)
     {
         this.playerDetails = playerDetails;
+        CreatePlayerStartingWeapons();
         SetPlayerHealth();
+    }
+
+    /// <summary>
+    /// ”становить стартовое оружие персонажа
+    /// </summary>
+    private void CreatePlayerStartingWeapons()
+    {
+        weaponList.Clear();
+        foreach (WeaponDetailsSO weaponDetails in playerDetails.startingWeaponList)
+        {
+            AddWeaponToPlayer(weaponDetails);
+        }
     }
 
     /// <summary>
@@ -64,5 +93,25 @@ public class Player : MonoBehaviour
     private void SetPlayerHealth()
     {
         health.SetStartingHealth(playerDetails.playerHealthAmount);
+    }
+
+    /// <summary>
+    /// ƒобавить оружие в список оружи€ игрока
+    /// </summary>
+    private Weapon AddWeaponToPlayer(WeaponDetailsSO weaponDetails)
+    {
+        Weapon weapon = new Weapon()
+        {
+            weaponDetails = weaponDetails,
+            weaponReloadTimer = 0f,
+            weaponClipRemainingAmmo = weaponDetails.weaponClipAmmoCapacity,
+            weaponRemainingAmmo = weaponDetails.weaponAmmoCapacity,
+            isWeaponReloading = false
+        };
+
+        weaponList.Add(weapon);
+        weapon.weaponListPosition = weaponList.Count;
+        setAtiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
+        return weapon;
     }
 }

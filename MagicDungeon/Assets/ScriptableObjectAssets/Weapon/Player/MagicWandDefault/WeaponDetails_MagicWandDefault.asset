@@ -15,8 +15,9 @@ MonoBehaviour:
   weaponName: "\u041F\u043E\u0441\u043E\u0445 \u0443\u0447\u0435\u043D\u0438\u043A\u0430"
   weaponSprite: {fileID: 21300000, guid: d8b39f0f67611664589957d553eb66df, type: 3}
   weaponShootPosition: {x: 0, y: 1.1, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 63ca1b62fcd69b94486aba514431f616, type: 2}
   hasInfiniteAmmo: 1
-  hasInfiniteClipCapacity: 0
+  hasInfiniteClipCapacity: 1
   weaponClipAmmoCapacity: 10
   weaponAmmoCapacity: 0
   weaponFireRate: 0.25

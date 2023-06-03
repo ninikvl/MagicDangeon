@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2534725011969596833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.125, y: 0, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7281645785086762618}
@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2567086899250788982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.688, y: -0.081, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 894106189158346222}
@@ -318,6 +318,11 @@ GameObject:
   - component: {fileID: -7174652777066118502}
   - component: {fileID: 4805402338141220110}
   - component: {fileID: 6623568240596686937}
+  - component: {fileID: 8452713261401819957}
+  - component: {fileID: 1700675120934600398}
+  - component: {fileID: -6831337894911886300}
+  - component: {fileID: 7653553055537277256}
+  - component: {fileID: 1374719713450205319}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -536,6 +541,10 @@ MonoBehaviour:
   movementByVelocityEvent: {fileID: 0}
   aimWeaponEvent: {fileID: 0}
   movementToPositionEvent: {fileID: 0}
+  setAtiveWeaponEvent: {fileID: 0}
+  ativeWeapon: {fileID: 0}
+  fireWeaponEvent: {fileID: 0}
+  weaponFiredEvent: {fileID: 0}
 --- !u!114 &8661496034119658642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +619,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDetails: {fileID: 11400000, guid: 866a19bece9468749a7a7eea7fc6c503, type: 2}
-  weaponShootPosition: {fileID: 7281645785086762618}
 --- !u!114 &-2727825144311724731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +665,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8359a637fdf436a44acc61c85b4f59ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8452713261401819957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302752567058738338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386c755023a3085418176163cf949f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1700675120934600398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302752567058738338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b191c63c021c7cc4182321aabc43cf37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSpriteRenderer: {fileID: 462173856539079129}
+  weaponPolygonCollider2D: {fileID: 9074625786848253941}
+  weaponShootPositionTransform: {fileID: 7281645785086762618}
+  weaponEffectPositionTransform: {fileID: 894106189158346222}
+--- !u!114 &-6831337894911886300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302752567058738338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb85da93d53bd94d93de88e103e1126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7653553055537277256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302752567058738338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77986bf4955b02043a4d45d8cdc244f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1374719713450205319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302752567058738338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ce93f2fbc44704e84a242ff86a87aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8684844000122614490

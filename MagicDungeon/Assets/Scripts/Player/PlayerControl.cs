@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
+[DisallowMultipleComponent]
 public class PlayerControl : MonoBehaviour
 {
     #region Tooltip
     [Tooltip("Детали передвижения Sriptable Object")]
     #endregion
     [SerializeField] private MovementDetailsSO movementDetails;
-    #region Tooltip
-    [Tooltip("Игровой объект WeaponShootPosition в иерархии")]
-    #endregion
-    [SerializeField] private Transform weaponShootPosition;
 
     private Player player;
+    private int currentWeaponIndex = 1;
     private float moveSpeed;
     private Coroutine playerBlinkCoroutine;
     private WaitForFixedUpdate waitForFixedUpdate;
@@ -31,6 +30,8 @@ public class PlayerControl : MonoBehaviour
         waitForFixedUpdate = new WaitForFixedUpdate();
 
         SetPlayerAnimationSpeed();
+
+        SetStartingWeapon();
     }
 
     private void Update()
@@ -43,6 +44,35 @@ public class PlayerControl : MonoBehaviour
         WeaponInput();
 
         PlayerBlinkCooldownTimer();
+    }
+
+    /// <summary>
+    /// Установка стартового оружия
+    /// </summary>
+    private void SetStartingWeapon()
+    {
+        int index = 1;
+        foreach (Weapon weapon in player.weaponList)
+        {
+            if (weapon.weaponDetails == player.playerDetails.startingWeapon)
+            {
+                SetWeaponByIndex(index);
+                break;
+            }
+            index++;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void SetWeaponByIndex(int weaponIndex)
+    {
+        if (weaponIndex - 1 < player.weaponList.Count)
+        {
+            currentWeaponIndex = weaponIndex;
+            player.setAtiveWeaponEvent.CallSetActiveWeaponEvent(player.weaponList[weaponIndex-1]);
+        }
     }
 
     /// <summary>
@@ -135,6 +165,8 @@ public class PlayerControl : MonoBehaviour
         AimDirection playerAimDirection;
 
         AimWeaponInput(out weaponDirection, out weaponAngleDegrees, out playerAngleDegrees, out playerAimDirection);
+
+        FireWeaponInput(weaponDirection, weaponAngleDegrees, playerAngleDegrees, playerAimDirection);
     }    
 
     private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, 
@@ -142,7 +174,7 @@ public class PlayerControl : MonoBehaviour
     {
         Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
 
-        weaponDirection = (mouseWorldPosition - weaponShootPosition.position);
+        weaponDirection = (mouseWorldPosition - player.ativeWeapon.GetShootPosition());
 
         Vector3 playerDirection = (mouseWorldPosition - transform.position);
 
@@ -154,6 +186,14 @@ public class PlayerControl : MonoBehaviour
 
         player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
 
+    }
+
+    private void FireWeaponInput(Vector3 weaponDirection, float weaponAngleDegrees, float playerAngleDegrees, AimDirection playerAimDirection)
+    {
+        if (Input.GetMouseButton(0))
+        {
+            player.fireWeaponEvent.CallFireWeaponEvent(true, playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

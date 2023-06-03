@@ -26,10 +26,10 @@ public class WeaponDetailsSO : ScriptableObject
     [Tooltip("Точка спавна пуль оружия")]
     #endregion
     public Vector3 weaponShootPosition;
-    //#region Tooltip
-    //[Tooltip("Вид боеприпасов")]
-    //#endregion
-    //public AmmoDetailsSO weaponCurrentAmmo;
+    #region Tooltip
+    [Tooltip("Вид боеприпасов")]
+    #endregion
+    public AmmoDetailsSO weaponCurrentAmmo;
 
     #region Header Weapon Configuration
     [Space(10)]
@@ -69,7 +69,7 @@ public class WeaponDetailsSO : ScriptableObject
     private void OnValidate()
     {
         HelperUtilities.ValidateCheckEmptyString(this, nameof(weaponName), weaponName);
-        //HelperUtilities.ValidateCheckNullValue(this, nameof(weaponCurrentAmmo), weaponCurrentAmmo);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(weaponCurrentAmmo), weaponCurrentAmmo);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponFireRate), weaponFireRate, false);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponPrechargeTime), weaponPrechargeTime, true);
 
