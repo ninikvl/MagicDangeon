@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdc367e2dd8b594e84b4e95ff92cfc6, type: 3}
   m_Name: EnemyDetails_Skelet_Default
   m_EditorClassIdentifier: 
-  enemyName: 
-  enemyPrefab: {fileID: 0}
+  enemyName: Skelet
+  enemyPrefab: {fileID: 8777468637221185707, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 0}
   enemyMaterializeTime: 0
