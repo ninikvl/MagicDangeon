@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SetAtiveWeaponEvent))]
+[RequireComponent(typeof(SetActiveWeaponEvent))]
 [DisallowMultipleComponent]
 public class ActiveWeapon : MonoBehaviour
 {
@@ -22,25 +22,25 @@ public class ActiveWeapon : MonoBehaviour
     #endregion
     [SerializeField] private Transform weaponEffectPositionTransform;
 
-    private SetAtiveWeaponEvent setAtiveWeaponEvent;
+    private SetActiveWeaponEvent setActiveWeaponEvent;
     private Weapon currentWeapon;
 
     private void Awake()
     {
-        setAtiveWeaponEvent = GetComponent<SetAtiveWeaponEvent>();
+        setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
     }
 
     private void OnEnable()
     {
-        setAtiveWeaponEvent.OnSetActiveWeapon += SetAtiveWeaponEvent_OnSetActiveWeapon;
+        setActiveWeaponEvent.OnSetActiveWeapon += SetActiveWeaponEvent_OnSetActiveWeapon;
     }
 
     private void OnDisable()
     {
-        setAtiveWeaponEvent.OnSetActiveWeapon -= SetAtiveWeaponEvent_OnSetActiveWeapon;
+        setActiveWeaponEvent.OnSetActiveWeapon -= SetActiveWeaponEvent_OnSetActiveWeapon;
     }
 
-    private void SetAtiveWeaponEvent_OnSetActiveWeapon(SetAtiveWeaponEvent setAtiveWeaponEvent, SetAtiveWeaponArgs setAtiveWeaponArgs)
+    private void SetActiveWeaponEvent_OnSetActiveWeapon(SetActiveWeaponEvent setAtiveWeaponEvent, SetActiveWeaponEventArgs setAtiveWeaponArgs)
     {
         SetAtiveWeapon(setAtiveWeaponArgs.weapon);
     }

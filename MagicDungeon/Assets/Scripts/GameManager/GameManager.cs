@@ -55,11 +55,11 @@ public class GameManager : SingletonMonobehavior<GameManager>
     {
         HandleGameState();
 
-        // ƒÀﬂ “≈—“¿
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gameState = GameState.gameStarted;
-        }
+        //// ƒÀﬂ “≈—“¿
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    gameState = GameState.gameStarted;
+        //}
     }
 
     private void OnEnable()
@@ -151,6 +151,11 @@ public class GameManager : SingletonMonobehavior<GameManager>
     public Player GetPlayer()
     {
         return player;
+    }
+
+    public Sprite GetPlayerMiniMapIcon()
+    {
+        return playerDetails.playerMiniMapIcon;
     }
 
 

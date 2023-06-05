@@ -21,11 +21,14 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(MovementByVelocity))]
 [RequireComponent(typeof(MovementToPositionEvent))]
 [RequireComponent(typeof(MovementToPosition))]
-[RequireComponent(typeof(SetAtiveWeaponEvent))]
+[RequireComponent(typeof(SetActiveWeaponEvent))]
 [RequireComponent(typeof(ActiveWeapon))]
 [RequireComponent(typeof(FireWeaponEvent))]
 [RequireComponent(typeof(WeaponFiredEvent))]
 [RequireComponent(typeof(FireWeapon))]
+[RequireComponent(typeof(ReloadWeaponEvent))]
+[RequireComponent(typeof(WeaponReloadedEvent))]
+[RequireComponent(typeof(ReloadWeapon))]
 [DisallowMultipleComponent]
 #endregion Require Components
 
@@ -40,10 +43,13 @@ public class Player : MonoBehaviour
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
-    [HideInInspector] public SetAtiveWeaponEvent setAtiveWeaponEvent;
-    [HideInInspector] public ActiveWeapon ativeWeapon;
+    [HideInInspector] public SetActiveWeaponEvent setAtiveWeaponEvent;
+    [HideInInspector] public ActiveWeapon activeWeapon;
     [HideInInspector] public FireWeaponEvent fireWeaponEvent;
     [HideInInspector] public WeaponFiredEvent weaponFiredEvent;
+    [HideInInspector] public ReloadWeaponEvent reloadWeaponEvent;
+    [HideInInspector] public WeaponReloadedEvent weaponReloadedEvent;
+    [HideInInspector] public ReloadWeapon reloadWeapon;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -58,10 +64,14 @@ public class Player : MonoBehaviour
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
-        setAtiveWeaponEvent = GetComponent<SetAtiveWeaponEvent>();
-        ativeWeapon = GetComponent<ActiveWeapon>();
+        setAtiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
+        activeWeapon = GetComponent<ActiveWeapon>();
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
         weaponFiredEvent = GetComponent<WeaponFiredEvent>();
+        reloadWeaponEvent = GetComponent<ReloadWeaponEvent>();
+        weaponReloadedEvent = GetComponent<WeaponReloadedEvent>();
+        reloadWeapon = GetComponent<ReloadWeapon>();
+
 
     }
 
