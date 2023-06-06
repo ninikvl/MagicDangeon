@@ -51,3 +51,15 @@ MonoBehaviour:
   doorNSBossPrefab: {fileID: 6663797034957476564, guid: ffb1756787ccaff428e20bdc1a3bff45, type: 3}
   doorEWBossPrefab: {fileID: 8630909517647479556, guid: b1c83c3c128854c4794235e8a12c7cfd, type: 3}
   ammoIconPrefab: {fileID: 8506673717780857146, guid: 76a7ff85bf1839d4fbaa4e45a3e45e45, type: 3}
+  enemyUnwalkableCollisionTilesArray:
+  - {fileID: 11400000, guid: 37e2c9e0227bfbc409cd632b9bd0c81f, type: 2}
+  - {fileID: 11400000, guid: 98f177f8276c38b429705e6720c48672, type: 2}
+  preferredEnemyPathTile: {fileID: 11400000, guid: 3ce5fb260af53d24887b55c3d50041e2, type: 2}
+  enemyUnwalkableIgnoreAmmoTilesArray:
+  - {fileID: 11400000, guid: 7f5e728cafca6714ab9f60a8e6e36f0c, type: 2}
+  - {fileID: 11400000, guid: bde84f31775a94345806c0d11fa014ed, type: 2}
+  - {fileID: 11400000, guid: 10f629f4f069eeb4cac73193cc575dd5, type: 2}
+  - {fileID: 11400000, guid: ecd7bb87469a9da46b47f84e4bb4a965, type: 2}
+  - {fileID: 11400000, guid: 7fa5ab201613456438796d84c5d5bccc, type: 2}
+  - {fileID: 11400000, guid: 5e92f615fb4f24b43aeb0a9c5e757e21, type: 2}
+  - {fileID: 11400000, guid: 94d41b0c3e9951d4fa22ed8a0030baf6, type: 2}
