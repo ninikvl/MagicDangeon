@@ -7,7 +7,7 @@ public class MovementToPositionEvent : MonoBehaviour
 {
     public event Action<MovementToPositionEvent, MovementToPositionArgs> OnMovementToPosition;
 
-    public void CallMovementToPositionEvent(Vector3 movePosition, Vector3 currentPosition, float moveSpeed, Vector2 moveDirection, bool isBlinking)
+    public void CallMovementToPositionEvent(Vector3 movePosition, Vector3 currentPosition, float moveSpeed, Vector2 moveDirection, bool isBlinking = false)
     {
         OnMovementToPosition?.Invoke(this, new MovementToPositionArgs()
         {

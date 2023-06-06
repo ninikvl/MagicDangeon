@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1203414590636020123, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 39702e99af8433f4394bad91d6a516eb, type: 2}
     - target: {fileID: 1368701009136890018, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -75,6 +79,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skelet_Mage_Default
       objectReference: {fileID: 0}
+    - target: {fileID: 3708551919410876829, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: f0ce3b540cce59944bcc1b3556f85272, type: 2}
     - target: {fileID: 4495858144104857969, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

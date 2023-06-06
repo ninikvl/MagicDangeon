@@ -153,6 +153,14 @@ public class GameManager : SingletonMonobehavior<GameManager>
         return player;
     }
 
+    /// <summary>
+    /// Получить играемый уровнь подземелья
+    /// </summary>
+    public DungeonLevelSO GetCurrentDungeonLevel()
+    {
+        return dungeonLevelsList[currentDungeonLevelListIndex];
+    }
+
     public Sprite GetPlayerMiniMapIcon()
     {
         return playerDetails.playerMiniMapIcon;

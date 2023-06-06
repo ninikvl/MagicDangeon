@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7075472
       objectReference: {fileID: 0}
+    - target: {fileID: 515429022525776699, guid: 554445144653acd4a89772af02e2ec0e, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: b2d2e9aad8c05224b985cdb71abf17c2, type: 2}
     - target: {fileID: 646819619762735070, guid: 554445144653acd4a89772af02e2ec0e, type: 3}
       propertyPath: m_Name
       value: Skelet_Roque_Red
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2658008426397213501, guid: 554445144653acd4a89772af02e2ec0e, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 638d676fdc7ce6247b10943cc6f0df53, type: 2}
     - target: {fileID: 4757287539829771402, guid: 554445144653acd4a89772af02e2ec0e, type: 3}
       propertyPath: m_Color.b
       value: 0.43137255

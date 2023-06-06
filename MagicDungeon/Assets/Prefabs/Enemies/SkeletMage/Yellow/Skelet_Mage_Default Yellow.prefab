@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2209593138244604648, guid: 38e14025bfffcef45bf78347a96bbb6c, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c0e652ec444088429f466899d9532c2, type: 2}
     - target: {fileID: 2842342796861133784, guid: 38e14025bfffcef45bf78347a96bbb6c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skelet_Mage_Default Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 4426477834252325614, guid: 38e14025bfffcef45bf78347a96bbb6c, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e26ba1f19d85bd4a9d771cb003fbb0a, type: 2}
     - target: {fileID: 4549756309761913815, guid: 38e14025bfffcef45bf78347a96bbb6c, type: 3}
       propertyPath: m_Color.b
       value: 0.34158066

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6184856985383717960, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a14c03b39e99a9458606b704611161d, type: 2}
     - target: {fileID: 7785892931471822200, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -51,9 +55,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8507591938622753870, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d5355748a19c9c429564cc0b7c1aa01, type: 2}
     - target: {fileID: 8777468637221185707, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
       propertyPath: m_Name
-      value: Skelet_Default
+      value: Skelet_Default Yellow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}

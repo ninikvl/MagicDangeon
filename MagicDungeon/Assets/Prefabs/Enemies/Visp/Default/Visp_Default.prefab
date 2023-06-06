@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1203414590636020123, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c8823f428b2e464a95ee0e14196beba, type: 2}
     - target: {fileID: 1368701009136890018, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Visp_Default
       objectReference: {fileID: 0}
+    - target: {fileID: 3708551919410876829, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: b72b5b4dc1b3ce146afad076a4ddd3de, type: 2}
     - target: {fileID: 4755862419704624592, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1

@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1572256868600902006, guid: 04cb5b746435cf84bbf225a6bd6f1c5a, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: d9e4805fd7a503142b04a6cab1d7cb80, type: 2}
     - target: {fileID: 1701303117429903439, guid: 04cb5b746435cf84bbf225a6bd6f1c5a, type: 3}
       propertyPath: m_Color.b
       value: 0.4801976
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skelet_Warrior_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 3897241132713259376, guid: 04cb5b746435cf84bbf225a6bd6f1c5a, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: e0e69b8977a6b4a4693e405b1c4afaa8, type: 2}
     - target: {fileID: 5833194449965850311, guid: 04cb5b746435cf84bbf225a6bd6f1c5a, type: 3}
       propertyPath: m_Color.b
       value: 0.48235294

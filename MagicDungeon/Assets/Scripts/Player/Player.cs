@@ -106,6 +106,14 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
+    /// получить позицию игрока
+    /// </summary>
+    public Vector3 GetPlayerPosition()
+    {
+        return transform.position;
+    }
+
+    /// <summary>
     /// Добавить оружие в список оружия игрока
     /// </summary>
     private Weapon AddWeaponToPlayer(WeaponDetailsSO weaponDetails)

@@ -19,11 +19,11 @@ using UnityEngine.Rendering;
 //[RequireComponent(typeof(ReloadWeaponEvent))]
 //[RequireComponent(typeof(ReloadWeapon))]
 //[RequireComponent(typeof(WeaponReloadedEvent))]
-//[RequireComponent(typeof(EnemyMovementAI))]
-//[RequireComponent(typeof(MovementToPositionEvent))]
-//[RequireComponent(typeof(MovementToPosition))]
-//[RequireComponent(typeof(IdleEvent))]
-//[RequireComponent(typeof(Idle))]
+[RequireComponent(typeof(EnemyMovementAI))]
+[RequireComponent(typeof(MovementToPositionEvent))]
+[RequireComponent(typeof(MovementToPosition))]
+[RequireComponent(typeof(StayEvent))]
+[RequireComponent(typeof(Stay))]
 //[RequireComponent(typeof(AnimateEnemy))]
 //[RequireComponent(typeof(MaterializeEffect))]
 [RequireComponent(typeof(SortingGroup))]
@@ -37,16 +37,20 @@ using UnityEngine.Rendering;
 [DisallowMultipleComponent]
 public class Enemy : MonoBehaviour
 {
-    [HideInInspector] public EnemyDetailsSO enemyDetails;
+    public EnemyDetailsSO enemyDetails;
+
     //private HealthEvent healthEvent;
     private Health health;
+
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     [HideInInspector] public FireWeaponEvent fireWeaponEvent;
     private FireWeapon fireWeapon;
     private SetActiveWeaponEvent setActiveWeaponEvent;
-    //private EnemyMovementAI enemyMovementAI;
+
+    private EnemyMovementAI enemyMovementAI;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
-    //[HideInInspector] public IdleEvent idleEvent;
+    [HideInInspector] public StayEvent stayEvent;
+
     //private MaterializeEffect materializeEffect;
     private CircleCollider2D circleCollider2D;
     private PolygonCollider2D polygonCollider2D;
@@ -62,9 +66,9 @@ public class Enemy : MonoBehaviour
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
         fireWeapon = GetComponent<FireWeapon>();
         setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
-        //enemyMovementAI = GetComponent<EnemyMovementAI>();
+        enemyMovementAI = GetComponent<EnemyMovementAI>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
-        //idleEvent = GetComponent<IdleEvent>();
+        stayEvent = GetComponent<StayEvent>();
         //materializeEffect = GetComponent<MaterializeEffect>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();

@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7058824
       objectReference: {fileID: 0}
+    - target: {fileID: 6184856985383717960, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 60d93ca99c8d5f04eaafd18fd1b35d10, type: 2}
     - target: {fileID: 7785892931471822200, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -87,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7075472
       objectReference: {fileID: 0}
+    - target: {fileID: 8507591938622753870, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c55f5a352f35f2448a1ae97cb829e3b, type: 2}
     - target: {fileID: 8777468637221185707, guid: e3df8d8a8e4ed634abfb946000d47172, type: 3}
       propertyPath: m_Name
       value: Skelet_Default Red
