@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdc367e2dd8b594e84b4e95ff92cfc6, type: 3}
+  m_Name: EnemyDetails_Skelet_Mage_Default
+  m_EditorClassIdentifier: 
+  enemyName: Skelet Mage Default
+  enemyPrefab: {fileID: 3652664283602712075, guid: 38e14025bfffcef45bf78347a96bbb6c, type: 3}
+  chaseDistance: 50
+  enemyStandardMaterial: {fileID: 0}
+  enemyMaterializeTime: 0
+  enemyMaterializeShader: {fileID: 0}
+  enemyMaterializeColor: {r: 0, g: 0, b: 0, a: 0}
+  enemyWeapon: {fileID: 0}
+  firingIntervalMin: 0.1
+  firingIntervalMax: 1
+  firingDurationMin: 1
+  firingDurationMax: 2
+  firingLineOfSightRequired: 0
+  isImmuneAfterHit: 0
+  hitImmunityTime: 0
+  isHealthBarDisplayed: 0
