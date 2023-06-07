@@ -298,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementDetails: {fileID: 0}
   moveSpeed: 0
+  updateFrameNumber: 1
 --- !u!114 &8836780650509845933
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1240,6 +1240,8 @@
         "m_GuidSerialized": "34ef7101-0ed8-4645-b060-ac308374c5d1"
     },
     "m_Name": "Scale",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_C3650F27",
     "m_OverrideReferenceName": "_Scale",
     "m_GeneratePropertyBlock": true,
@@ -2042,6 +2044,8 @@
         "m_GuidSerialized": "2806b38f-cdea-4a1a-ad46-c1a85b098a6a"
     },
     "m_Name": "EmissionColor",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_7407FDD3",
     "m_OverrideReferenceName": "_EmissionColor",
     "m_GeneratePropertyBlock": true,
@@ -2195,6 +2199,8 @@
         "m_GuidSerialized": "7a3c2766-6e54-473c-af13-6d914e016665"
     },
     "m_Name": "MainTex",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_EFD9D854",
     "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
@@ -2203,7 +2209,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"93356131eec0f44458223985928ac6e3\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"f64daa7b0bceeb1439cc7124f91a8d09\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_Modifiable": true,
@@ -2235,6 +2241,8 @@
         "m_GuidSerialized": "6761f033-64f0-402f-9720-ea07b6f1227f"
     },
     "m_Name": "EffectSpeed",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_65032C7D",
     "m_OverrideReferenceName": "_EffectSpeed",
     "m_GeneratePropertyBlock": true,
@@ -2575,6 +2583,8 @@
         "m_GuidSerialized": "00e8b069-3d5b-4170-975a-f50daeb85412"
     },
     "m_Name": "DissolveAmount",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_82E81041",
     "m_OverrideReferenceName": "_DissolveAmount",
     "m_GeneratePropertyBlock": true,
@@ -3040,6 +3050,8 @@
         "m_GuidSerialized": "2e906260-ba76-4cb7-bed0-df8fb1c95aa8"
     },
     "m_Name": "EffectIntensity",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_6FBFC5AF",
     "m_OverrideReferenceName": "_EffectIntensity",
     "m_GeneratePropertyBlock": true,

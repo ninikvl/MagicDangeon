@@ -438,6 +438,9 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
         room.childRoomIdList = CopyStringList(roomNode.childRoomNodeIDList);
         room.doorWayList = CopyDoorwayList(roomTemplate.doorwaysList);
 
+        room.enemiesByLevelList = roomTemplate.enemiesByLevelList;
+        room.roomLevelEnemySpawnParametersList = roomTemplate.roomEnemySpawnParametersList;
+
         if (roomNode.parentRoomNodeIDList.Count == 0)
         {
             room.parentRoomId = "";
@@ -457,6 +460,12 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
             roomPreviousToBoss.isPreviouslyToBoss = true;
             corridorPreviousToBoss.isPreviouslyCorridorToBoss = true;
         }
+        // If there are no enemies to spawn then default the room to be clear of enemies
+        if (room.GetNumberOfEnemiesToSpawn(GameManager.Instance.GetCurrentDungeonLevel()) == 0)
+        {
+            room.isClearedOfEnemies = true;
+        }
+
         return room;
     }
 

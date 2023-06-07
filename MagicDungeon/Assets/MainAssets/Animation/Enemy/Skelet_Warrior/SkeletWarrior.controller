@@ -234,7 +234,7 @@ AnimatorStateTransition:
     m_ConditionEvent: aimRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: isIdle
+    m_ConditionEvent: isStay
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1897021675264876513}
@@ -417,9 +417,9 @@ AnimatorStateMachine:
   - {fileID: -8034819474524366408}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -7804498224739370663}
-    second: []
   - first: {fileID: -5971925178607783192}
+    second: []
+  - first: {fileID: -7804498224739370663}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 900, y: 310, z: 0}
@@ -519,49 +519,49 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: aimUpRight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: aimUpLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: aimRight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: aimLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: aimDown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: isIdle
+    m_Controller: {fileID: 0}
+  - m_Name: isStay
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isMoving
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -664,7 +664,7 @@ AnimatorStateTransition:
     m_ConditionEvent: aimUpLeft
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: isIdle
+    m_ConditionEvent: isStay
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8556069615119192140}
@@ -692,7 +692,7 @@ AnimatorStateTransition:
     m_ConditionEvent: aimUpRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: isIdle
+    m_ConditionEvent: isStay
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6382536696177755895}
@@ -748,7 +748,7 @@ AnimatorStateTransition:
     m_ConditionEvent: aimDown
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: isIdle
+    m_ConditionEvent: isStay
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7392714579281972068}
@@ -821,7 +821,7 @@ AnimatorStateTransition:
     m_ConditionEvent: aimUp
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: isIdle
+    m_ConditionEvent: isStay
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8516936868330219847}
@@ -926,7 +926,7 @@ AnimatorStateTransition:
     m_ConditionEvent: aimLeft
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: isIdle
+    m_ConditionEvent: isStay
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4978411254244612697}

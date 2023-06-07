@@ -102,27 +102,27 @@ public class EnemyDetailsSO : ScriptableObject
 
 
 
-//    #region Validation
-//#if UNITY_EDITOR
-//    // Validate the scriptable object details entered
-//    private void OnValidate()
-//    {
-//        HelperUtilities.ValidateCheckEmptyString(this, nameof(enemyName), enemyName);
-//        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyPrefab), enemyPrefab);
-//        HelperUtilities.ValidateCheckPositiveValue(this, nameof(chaseDistance), chaseDistance, false);
-//        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyStandardMaterial), enemyStandardMaterial);
-//        HelperUtilities.ValidateCheckPositiveValue(this, nameof(enemyMaterializeTime), enemyMaterializeTime, true);
-//        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyMaterializeShader), enemyMaterializeShader);
-//        HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax), firingIntervalMax, false);
-//        HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax), firingDurationMax, false);
-//        HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyHealthDetailsArray), enemyHealthDetailsArray);
-//        if (isImmuneAfterHit)
-//        {
-//            HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
-//        }
-//    }
+    #region Validation
+#if UNITY_EDITOR
+    // Validate the scriptable object details entered
+    private void OnValidate()
+    {
+        HelperUtilities.ValidateCheckEmptyString(this, nameof(enemyName), enemyName);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyPrefab), enemyPrefab);
+        HelperUtilities.ValidateCheckPositiveValue(this, nameof(chaseDistance), chaseDistance, false);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyStandardMaterial), enemyStandardMaterial);
+        HelperUtilities.ValidateCheckPositiveValue(this, nameof(enemyMaterializeTime), enemyMaterializeTime, true);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyMaterializeShader), enemyMaterializeShader);
+        //HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax), firingIntervalMax, false);
+        //HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax), firingDurationMax, false);
+        //HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyHealthDetailsArray), enemyHealthDetailsArray);
+        //if (isImmuneAfterHit)
+        //{
+        //    HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
+        //}
+    }
 
-//#endif
-//    #endregion
+#endif
+    #endregion
 
 }

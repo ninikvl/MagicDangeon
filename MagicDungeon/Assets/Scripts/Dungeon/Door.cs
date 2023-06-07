@@ -67,6 +67,15 @@ public class Door : MonoBehaviour
         doorTrigger.enabled = false;
 
         animator.SetBool(Settings.open, false);
+
+        //Отключение дверей корридора при входе и закрытии двери комнаты
+        if (GameManager.Instance.GetPreviouslyRoom().roomNodeType.isCorridorEW || GameManager.Instance.GetPreviouslyRoom().roomNodeType.isCorridorNs)
+        {
+            foreach (Door door in GameManager.Instance.GetPreviouslyRoom().doorArray)
+            {
+                door.gameObject.SetActive(false);
+            }
+        }
     }
 
     /// <summary>

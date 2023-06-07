@@ -18,7 +18,8 @@ public class EnemyMovementAI : MonoBehaviour
     private WaitForFixedUpdate waitForFixedUpdate;
     [HideInInspector] public float moveSpeed;
     private bool chasePlayer = false;
-    //[HideInInspector] public int updateFrameNumber = 1; // default value.  This is set by the enemy spawner.
+    [HideInInspector] public int updateFrameNumber = 1; // default value.  This is set by the enemy spawner.
+
     //private List<Vector2Int> surroundingPositionList = new List<Vector2Int>();
 
     private void Awake()
@@ -64,8 +65,9 @@ public class EnemyMovementAI : MonoBehaviour
         if (!chasePlayer)
             return;
 
-        //// Only process A Star path rebuild on certain frames to spread the load between enemies
-        //if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber) return;
+        // Only process A Star path rebuild on certain frames to spread the load between enemies
+        if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber) 
+            return;
 
         // if the movement cooldown timer reached or player has moved more than required distance
         // then rebuild the enemy path and move the enemy
@@ -158,13 +160,13 @@ public class EnemyMovementAI : MonoBehaviour
         }
     }
 
-    //    /// <summary>
-    //    /// Set the frame number that the enemy path will be recalculated on - to avoid performance spikes
-    //    /// </summary>
-    //    public void SetUpdateFrameNumber(int updateFrameNumber)
-    //    {
-    //        this.updateFrameNumber = updateFrameNumber;
-    //    }
+    /// <summary>
+    /// Set the frame number that the enemy path will be recalculated on - to avoid performance spikes
+    /// </summary>
+    public void SetUpdateFrameNumber(int updateFrameNumber)
+    {
+        this.updateFrameNumber = updateFrameNumber;
+    }
 
     /// <summary>
     /// Get the nearest position to the player that isn't on an obstacle

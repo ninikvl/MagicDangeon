@@ -550,6 +550,7 @@ MonoBehaviour:
   weaponFiredEvent: {fileID: 0}
   reloadWeaponEvent: {fileID: 0}
   weaponReloadedEvent: {fileID: 0}
+  reloadWeapon: {fileID: 0}
 --- !u!114 &8661496034119658642
 MonoBehaviour:
   m_ObjectHideFlags: 0

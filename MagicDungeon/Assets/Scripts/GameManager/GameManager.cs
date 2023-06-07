@@ -24,6 +24,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
     private Player player;
 
     [HideInInspector] public GameState gameState;
+    [HideInInspector] public GameState previousGameState;
 
     protected override void Awake()
     {
@@ -48,6 +49,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
 
     private void Start()
     {
+        previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
     }
 
@@ -71,11 +73,10 @@ public class GameManager : SingletonMonobehavior<GameManager>
     {
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
     }
-
-    //TEST
+    
     private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
-        //SetCurrentRoom(roomChangedEventArgs.room);
+        SetCurrentRoom(roomChangedEventArgs.room);
     }
 
     /// <summary>
@@ -146,6 +147,11 @@ public class GameManager : SingletonMonobehavior<GameManager>
     public Room GetCurrentRoom()
     {
         return currentRoom;
+    }
+
+    public Room GetPreviouslyRoom()
+    {
+        return previosRoom;
     }
 
     public Player GetPlayer()

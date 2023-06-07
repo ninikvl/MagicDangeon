@@ -20,8 +20,8 @@ public class AnimateEnemy : MonoBehaviour
         // Subscribe to idle event
         enemy.stayEvent.OnStay += StayEvent_OnStay;
 
-        // Subscribe to weapon aim event
-        enemy.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponAim;
+        //// Subscribe to weapon aim event
+        //enemy.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponAim;
     }
 
     private void OnDisable()
@@ -32,8 +32,8 @@ public class AnimateEnemy : MonoBehaviour
         // Unsubscribe from idle event
         enemy.stayEvent.OnStay -= StayEvent_OnStay;
 
-        // Unsubscribe from weapon aim event event
-        enemy.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
+        //// Unsubscribe from weapon aim event event
+        //enemy.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
     }
 
     /// <summary>
