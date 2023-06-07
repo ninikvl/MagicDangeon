@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ac7eafde2802844bfc0d7c85dc268b, type: 3}
   m_Name: AmmoDetails_Kosa
   m_EditorClassIdentifier: 
-  ammoName: 
-  isPlayerAmmo: 0
-  ammoSprite: {fileID: 0}
-  ammoPrefabArray: []
-  ammoMaterial: {fileID: 0}
+  ammoName: Kosa
+  isPlayerAmmo: 1
+  ammoSprite: {fileID: 21300000, guid: dea231e4dc8f19649802b54c5cba5ec6, type: 3}
+  ammoPrefabArray:
+  - {fileID: 2188732956512051053, guid: 22bbbd63ad99a1146878c858bda126b3, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
   ammoChargeTime: 0.1
   ammoChargeMaterial: {fileID: 0}
-  ammoDamage: 1
-  ammoSpeedMin: 20
-  ammoSpeedMax: 20
-  ammoRange: 20
+  ammoDamage: 7
+  ammoSpeedMin: 13
+  ammoSpeedMax: 13
+  ammoRange: 18
   ammoRotationSpeed: 1
-  ammoSpreadMin: 0
-  ammoSpreadMax: 0
+  ammoSpreadMin: 1
+  ammoSpreadMax: 3
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0
