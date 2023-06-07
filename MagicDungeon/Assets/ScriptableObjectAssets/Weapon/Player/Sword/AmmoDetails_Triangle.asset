@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66ac7eafde2802844bfc0d7c85dc268b, type: 3}
-  m_Name: AmmoDetails_Kosa
+  m_Name: AmmoDetails_Triangle
   m_EditorClassIdentifier: 
-  ammoName: Kosa
+  ammoName: Triangle
   isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: dea231e4dc8f19649802b54c5cba5ec6, type: 3}
+  ammoSprite: {fileID: 21300000, guid: c11fcc33e34f55942ab23297223860f1, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: 22bbbd63ad99a1146878c858bda126b3, type: 3}
-  ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
+  - {fileID: 2188732956512051053, guid: edcc5f066027d114c8c81fbb0d2de7bd, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: 33a55999e44f4724191171c59fc64319, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
   ammoDamage: 7
@@ -25,8 +25,8 @@ MonoBehaviour:
   ammoSpeedMax: 13
   ammoRange: 18
   ammoRotationSpeed: 1
-  ammoSpreadMin: 1
-  ammoSpreadMax: 3
+  ammoSpreadMin: 0
+  ammoSpreadMax: 0
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0
