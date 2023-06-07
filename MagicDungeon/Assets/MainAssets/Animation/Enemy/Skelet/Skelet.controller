@@ -61,7 +61,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimUpRight
+    m_ConditionEvent: aimUPRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isMoving
@@ -367,7 +367,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimUp
+    m_ConditionEvent: aimUP
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isMoving
@@ -514,19 +514,19 @@ AnimatorController:
   m_Name: Skelet
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: aimUp
+  - m_Name: aimUP
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: aimUpRight
+  - m_Name: aimUPRight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: aimUpLeft
+  - m_Name: aimUPLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -661,7 +661,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimUpLeft
+    m_ConditionEvent: aimUPLeft
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isStay
@@ -689,7 +689,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimUpRight
+    m_ConditionEvent: aimUPRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isStay
@@ -717,7 +717,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimUpLeft
+    m_ConditionEvent: aimUPLeft
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isMoving
@@ -818,7 +818,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimUp
+    m_ConditionEvent: aimUP
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isStay

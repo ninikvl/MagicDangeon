@@ -8,17 +8,17 @@ using UnityEngine.Rendering;
 //[RequireComponent(typeof(DealContactDamage))]
 //[RequireComponent(typeof(DestroyedEvent))]
 //[RequireComponent(typeof(Destroyed))]
-//[RequireComponent(typeof(EnemyWeaponAI))]
-//[RequireComponent(typeof(AimWeaponEvent))]
-//[RequireComponent(typeof(AimWeapon))]
-//[RequireComponent(typeof(FireWeaponEvent))]
-//[RequireComponent(typeof(FireWeapon))]
-//[RequireComponent(typeof(SetActiveWeaponEvent))]
-//[RequireComponent(typeof(ActiveWeapon))]
-//[RequireComponent(typeof(WeaponFiredEvent))]
-//[RequireComponent(typeof(ReloadWeaponEvent))]
-//[RequireComponent(typeof(ReloadWeapon))]
-//[RequireComponent(typeof(WeaponReloadedEvent))]
+[RequireComponent(typeof(EnemyWeaponAI))]
+[RequireComponent(typeof(AimWeaponEvent))]
+[RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(FireWeaponEvent))]
+[RequireComponent(typeof(FireWeapon))]
+[RequireComponent(typeof(SetActiveWeaponEvent))]
+[RequireComponent(typeof(ActiveWeapon))]
+[RequireComponent(typeof(WeaponFiredEvent))]
+[RequireComponent(typeof(ReloadWeaponEvent))]
+[RequireComponent(typeof(ReloadWeapon))]
+[RequireComponent(typeof(WeaponReloadedEvent))]
 [RequireComponent(typeof(EnemyMovementAI))]
 [RequireComponent(typeof(MovementToPositionEvent))]
 [RequireComponent(typeof(MovementToPosition))]
@@ -62,13 +62,16 @@ public class Enemy : MonoBehaviour
         // Load components
         //healthEvent = GetComponent<HealthEvent>();
         health = GetComponent<Health>();
+
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
         fireWeapon = GetComponent<FireWeapon>();
         setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
+
         enemyMovementAI = GetComponent<EnemyMovementAI>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
         stayEvent = GetComponent<StayEvent>();
+
         materializeEffect = GetComponent<MaterializeEffect>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
@@ -120,7 +123,7 @@ public class Enemy : MonoBehaviour
 
         //SetEnemyStartingHealth(dungeonLevel);
 
-        //SetEnemyStartingWeapon();
+        SetEnemyStartingWeapon();
 
         SetEnemyAnimationSpeed();
 
@@ -163,7 +166,14 @@ public class Enemy : MonoBehaviour
         // Process if enemy has a weapon
         if (enemyDetails.enemyWeapon != null)
         {
-            Weapon weapon = new Weapon() { weaponDetails = enemyDetails.enemyWeapon, weaponReloadTimer = 0f, weaponClipRemainingAmmo = enemyDetails.enemyWeapon.weaponClipAmmoCapacity, weaponRemainingAmmo = enemyDetails.enemyWeapon.weaponAmmoCapacity, isWeaponReloading = false };
+            Weapon weapon = new Weapon() 
+            { 
+                weaponDetails = enemyDetails.enemyWeapon, 
+                weaponReloadTimer = 0f, 
+                weaponClipRemainingAmmo = enemyDetails.enemyWeapon.weaponClipAmmoCapacity, 
+                weaponRemainingAmmo = enemyDetails.enemyWeapon.weaponAmmoCapacity, 
+                isWeaponReloading = false 
+            };
 
             //Set weapon for enemy
             setActiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
@@ -202,8 +212,8 @@ public class Enemy : MonoBehaviour
         // Enable/Disable movement AI
         enemyMovementAI.enabled = isEnabled;
 
-        //// Enable / Disable Fire Weapon
-        //fireWeapon.enabled = isEnabled;
+        // Enable / Disable Fire Weapon
+        fireWeapon.enabled = isEnabled;
 
     }
 }
