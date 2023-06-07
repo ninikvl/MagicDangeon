@@ -17,8 +17,8 @@ MonoBehaviour:
   ammoSprite: {fileID: 21300000, guid: dea231e4dc8f19649802b54c5cba5ec6, type: 3}
   ammoPrefabArray:
   - {fileID: 2188732956512051053, guid: 22bbbd63ad99a1146878c858bda126b3, type: 3}
-  ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
-  ammoChargeTime: 0.1
+  ammoMaterial: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
+  ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
   ammoDamage: 7
   ammoSpeedMin: 13

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
-  m_Name: WeaponDetails_MagicWandBone 1
+  m_Name: WeaponDetails_MagicShieldEmerald
   m_EditorClassIdentifier: 
-  weaponName: Bone Magic Wand
-  weaponSprite: {fileID: 21300000, guid: b82ac73bc4a29914f9f547edd4c6884e, type: 3}
-  weaponShootPosition: {x: 0, y: 1.1, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: d6dd7539cc28baa4786e78c93749b8a5, type: 2}
+  weaponName: Magic Shield
+  weaponSprite: {fileID: 21300000, guid: 0806e067641a68a4c909629202b89ecf, type: 3}
+  weaponShootPosition: {x: 0, y: 0, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 8f0376e16f78b9641a755da5492c2d18, type: 2}
   hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
-  weaponClipAmmoCapacity: 8
-  weaponAmmoCapacity: 150
-  weaponFireRate: 0.3
+  weaponClipAmmoCapacity: 50
+  weaponAmmoCapacity: 800
+  weaponFireRate: 0.01
   weaponPrechargeTime: 0
-  weaponReloadTime: 1.5
+  weaponReloadTime: 1.2
