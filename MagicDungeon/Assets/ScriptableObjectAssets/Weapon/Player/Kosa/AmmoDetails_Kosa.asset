@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ac7eafde2802844bfc0d7c85dc268b, type: 3}
+  m_Name: AmmoDetails_Kosa
+  m_EditorClassIdentifier: 
+  ammoName: 
+  isPlayerAmmo: 0
+  ammoSprite: {fileID: 0}
+  ammoPrefabArray: []
+  ammoMaterial: {fileID: 0}
+  ammoChargeTime: 0.1
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 1
+  ammoSpeedMin: 20
+  ammoSpeedMax: 20
+  ammoRange: 20
+  ammoRotationSpeed: 1
+  ammoSpreadMin: 0
+  ammoSpreadMax: 0
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 0
+  ammoTrailTime: 3
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0
