@@ -18,6 +18,7 @@ public class Ammo : MonoBehaviour, IFireable
     private float ammoChargeTimer;
     private bool isAmmoMaterialSet = false;
     private bool overrideAmmoMovement;
+    private bool isColliding = false;
 
     private void Awake()
     {
@@ -44,13 +45,63 @@ public class Ammo : MonoBehaviour, IFireable
         ammoRange -= distanceVector.magnitude;
         if (ammoRange < 0f)
         {
+            if (ammoDetailsSO.isPlayerAmmo)
+            {
+                StaticEventHandler.CallMultiplierEvent(false);
+            }
             DisableAmmo();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isColliding)
+        {
+            return;
+        }
+        
+        // Deal Damage To Collision Object
+        DealDamage(collision);
+
         DisableAmmo();
+
+    }
+
+    private void DealDamage(Collider2D collision)
+    {
+        Health health = collision.GetComponent<Health>();
+
+        bool enemyHit = false;
+
+        if (health != null)
+        {
+            // Set isColliding to prevent ammo dealing damage multiple times
+            isColliding = true;
+
+            health.TakeDamage(ammoDetailsSO.ammoDamage);
+
+            // Enemy hit
+            if (health.enemy != null)
+            {
+                enemyHit = true;
+            }
+        }
+
+        // If player ammo then update multiplier
+        if (ammoDetailsSO.isPlayerAmmo)
+        {
+            if (enemyHit)
+            {
+                // multiplier
+                StaticEventHandler.CallMultiplierEvent(true);
+            }
+            else
+            {
+                // no multiplier
+                StaticEventHandler.CallMultiplierEvent(false);
+            }
+        }
+
     }
 
     /// <summary>
@@ -112,6 +163,8 @@ public class Ammo : MonoBehaviour, IFireable
     {
         float randomSpeed = Random.Range(ammoDetails.ammoSpreadMin, ammoDetails.ammoSpreadMax);
         int spreadToggle = Random.Range(0, 2) * 2 - 1;
+
+        isColliding = false;
 
         if (weaponAimDirectionVector.magnitude < Settings.useAimAngleDistance)
         {

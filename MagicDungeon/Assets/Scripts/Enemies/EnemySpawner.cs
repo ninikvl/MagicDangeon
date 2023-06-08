@@ -75,15 +75,14 @@ public class EnemySpawner : SingletonMonobehavior<EnemySpawner>
     /// </summary>
     private void SpawnEnemies()
     {
-        //// Set gamestate engaging boss
-        //if (GameManager.Instance.gameState == GameState.bossStage)
-        //{
-        //    GameManager.Instance.previousGameState = GameState.bossStage;
-        //    GameManager.Instance.gameState = GameState.engagingBoss;
-        //}
-
-        // Set gamestate engaging enemies
-        /*else*/ if(GameManager.Instance.gameState == GameState.playingLevel)
+        // Set gamestate engaging boss
+        if (GameManager.Instance.gameState == GameState.bossStage)
+        {
+            GameManager.Instance.previousGameState = GameState.bossStage;
+            GameManager.Instance.gameState = GameState.engaginBoss;
+        }
+        //Set gamestate engaging enemies
+        /*else*/ if (GameManager.Instance.gameState == GameState.playingLevel)
         {
             GameManager.Instance.previousGameState = GameState.playingLevel;
             GameManager.Instance.gameState = GameState.engaginEnemies;
@@ -160,51 +159,51 @@ public class EnemySpawner : SingletonMonobehavior<EnemySpawner>
         // Initialize Enemy
         enemy.GetComponent<Enemy>().EnemyInitialization(enemyDetails, enemiesSpawnedSoFar, dungeonLevel);
 
-        //// subscribe to enemy destroyed event
-        //enemy.GetComponent<DestroyedEvent>().OnDestroyed += Enemy_OnDestroyed;
+        // subscribe to enemy destroyed event
+        enemy.GetComponent<DestroyedEvent>().OnDestroyed += Enemy_OnDestroyed;
 
     }
 
-    ///// <summary>
-    ///// Process enemy destroyed
-    ///// </summary>
-    //private void Enemy_OnDestroyed(DestroyedEvent destroyedEvent, DestroyedEventArgs destroyedEventArgs)
-    //{
-    //    // Unsubscribe from event
-    //    destroyedEvent.OnDestroyed -= Enemy_OnDestroyed;
+    /// <summary>
+    /// Process enemy destroyed
+    /// </summary>
+    private void Enemy_OnDestroyed(DestroyedEvent destroyedEvent, DestroyedEventArgs destroyedEventArgs)
+    {
+        // Unsubscribe from event
+        destroyedEvent.OnDestroyed -= Enemy_OnDestroyed;
 
-    //    // reduce current enemy count
-    //    currentEnemyCount--;
+        // reduce current enemy count
+        currentEnemyCount--;
 
-    //    // Score points - call points scored event
-    //    StaticEventHandler.CallPointsScoredEvent(destroyedEventArgs.points);
+        // Score points - call points scored event
+        StaticEventHandler.CallPointsScoredEvent(destroyedEventArgs.points);
 
-    //    if (currentEnemyCount <= 0 && enemiesSpawnedSoFar == enemiesToSpawn)
-    //    {
-    //        currentRoom.isClearedOfEnemies = true;
+        if (currentEnemyCount <= 0 && enemiesSpawnedSoFar == enemiesToSpawn)
+        {
+            currentRoom.isClearedOfEnemies = true;
 
-    //        // Set game state
-    //        if (GameManager.Instance.gameState == GameState.engagingEnemies)
-    //        {
-    //            GameManager.Instance.gameState = GameState.playingLevel;
-    //            GameManager.Instance.previousGameState = GameState.engagingEnemies;
-    //        }
+            // Set game state
+            if (GameManager.Instance.gameState == GameState.engaginEnemies)
+            {
+                GameManager.Instance.gameState = GameState.playingLevel;
+                GameManager.Instance.previousGameState = GameState.engaginEnemies;
+            }
 
-    //        else if (GameManager.Instance.gameState == GameState.engagingBoss)
-    //        {
-    //            GameManager.Instance.gameState = GameState.bossStage;
-    //            GameManager.Instance.previousGameState = GameState.engagingBoss;
-    //        }
+            else if (GameManager.Instance.gameState == GameState.engaginEnemies)
+            {
+                GameManager.Instance.gameState = GameState.bossStage;
+                GameManager.Instance.previousGameState = GameState.engaginEnemies;
+            }
 
-    //        // unlock doors
-    //        currentRoom.instantiatedRoom.UnlockDoors(Settings.doorUnlockDelay);
+            // unlock doors
+            currentRoom.instantiatedRoom.UnlockDoors(Settings.doorUnlockDelay);
 
-    //        // Update music for room
-    //        MusicManager.Instance.PlayMusic(currentRoom.ambientMusic, 0.2f, 2f);
+            //// Update music for room
+            //MusicManager.Instance.PlayMusic(currentRoom.ambientMusic, 0.2f, 2f);
 
-    //        // Trigger room enemies defeated event
-    //        StaticEventHandler.CallRoomEnemiesDefeatedEvent(currentRoom);
-    //    }
-    //}
+            // Trigger room enemies defeated event
+            StaticEventHandler.CallRoomEnemiesDefeatedEvent(currentRoom);
+        }
+    }
 
 }

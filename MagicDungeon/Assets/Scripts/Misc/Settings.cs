@@ -17,8 +17,8 @@ public static class Settings
     #region Room settings
     //Максимальное количество дочерних узлов у комнаты
     public const int maxChildCorridors = 3;
-
     public const float fadeInTime = 0.5f;
+    public const float doorUnlockDelay = 1f;
     #endregion
 
     #region Animator settings
@@ -55,8 +55,12 @@ public static class Settings
     #endregion
 
     #region UI PARAMETERS
-    public const float uiHeartSpacing = 16f;
+    public const float uiHeartSpacing = 17f;
     public const float uiAmmoIconSpacing = 5f;
+    #endregion
+
+    #region ENEMY PARAMETERS
+    public const int defaultEnemyHealth = 20;
     #endregion
 
     #region ASTAR PATHFINDING PARAMETERS
@@ -66,5 +70,9 @@ public static class Settings
     public const float enemyPathRebuildCooldown = 2f;
     public const int targetFrameRateToSpreadPathfindingOver = 60;
 
+    #endregion
+
+    #region CONTACT DAMAGE PARAMETERS
+    public const float contactDamageCollisionResetDelay = 0.5f;
     #endregion
 }

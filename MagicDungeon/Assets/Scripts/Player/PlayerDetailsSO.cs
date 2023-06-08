@@ -33,6 +33,14 @@ public class PlayerDetailsSO : ScriptableObject
     [Tooltip("Стартовое здоровье игрока")]
     #endregion
     public int playerHealthAmount;
+    #region Tooltip
+    [Tooltip("Select if has immunity period immediately after being hit.  If so specify the immunity time in seconds in the other field")]
+    #endregion
+    public bool isImmuneAfterHit = false;
+    #region Tooltip
+    [Tooltip("Immunity time in seconds after being hit")]
+    #endregion
+    public float hitImmunityTime;
 
     #region Header Weapon
     [Space(10)]

@@ -17,8 +17,9 @@ public class PlayerControl : MonoBehaviour
     private float moveSpeed;
     private Coroutine playerBlinkCoroutine;
     private WaitForFixedUpdate waitForFixedUpdate;
-    private bool isPlayerIsBlinking;
+    [HideInInspector] public bool isPlayerIsBlinking;
     private float playerBlinkCooldownTimer = 0f;
+    private bool isPlayerMovementDisabled = false;
 
     private void Awake()
     {
@@ -37,6 +38,9 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
+        if (isPlayerMovementDisabled)
+            return;
+
         if (isPlayerIsBlinking)
             return;
         
@@ -342,6 +346,23 @@ public class PlayerControl : MonoBehaviour
             StopCoroutine(playerBlinkCoroutine);
             isPlayerIsBlinking = false;
         }
+    }
+
+    /// <summary>
+    /// Enable the player movement
+    /// </summary>
+    public void EnablePlayer()
+    {
+        isPlayerMovementDisabled = false;
+    }
+
+    /// <summary>
+    /// Disable the player movement
+    /// </summary>
+    public void DisablePlayer()
+    {
+        isPlayerMovementDisabled = true;
+        player.stayEvent.CallStayEvent();
     }
 
     /// <summary>

@@ -83,10 +83,10 @@ public class EnemyDetailsSO : ScriptableObject
     [Space(10)]
     [Header("ENEMY HEALTH")]
     #endregion
-    //#region Tooltip
-    //[Tooltip("The health of the enemy for each level")]
-    //#endregion
-    //public EnemyHealthDetails[] enemyHealthDetailsArray;
+    #region Tooltip
+    [Tooltip("The health of the enemy for each level")]
+    #endregion
+    public EnemyHealthDetails[] enemyHealthDetailsArray;
     #region Tooltip
     [Tooltip("Select if has immunity period immediately after being hit.  If so specify the immunity time in seconds in the other field")]
     #endregion
@@ -113,13 +113,13 @@ public class EnemyDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckNullValue(this, nameof(enemyStandardMaterial), enemyStandardMaterial);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(enemyMaterializeTime), enemyMaterializeTime, true);
         HelperUtilities.ValidateCheckNullValue(this, nameof(enemyMaterializeShader), enemyMaterializeShader);
-        //HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax), firingIntervalMax, false);
-        //HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax), firingDurationMax, false);
-        //HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyHealthDetailsArray), enemyHealthDetailsArray);
-        //if (isImmuneAfterHit)
-        //{
-        //    HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
-        //}
+        HelperUtilities.vakidateCheckPositiveRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax), firingIntervalMax, false);
+        HelperUtilities.vakidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax), firingDurationMax, false);
+        HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyHealthDetailsArray), enemyHealthDetailsArray);
+        if (isImmuneAfterHit)
+        {
+            HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
+        }
     }
 
 #endif

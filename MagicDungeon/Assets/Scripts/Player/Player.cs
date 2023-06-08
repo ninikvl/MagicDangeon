@@ -11,6 +11,9 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(HealthEvent))]
+[RequireComponent(typeof(DestroyedEvent))]
+[RequireComponent(typeof(Destroyed))]
 [RequireComponent(typeof(StayEvent))]
 [RequireComponent(typeof(Stay))]
 [RequireComponent(typeof(AimWeaponEvent))]
@@ -29,6 +32,8 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(ReloadWeaponEvent))]
 [RequireComponent(typeof(WeaponReloadedEvent))]
 [RequireComponent(typeof(ReloadWeapon))]
+[RequireComponent(typeof(DealContactDamage))]
+[RequireComponent(typeof(ReceiveContactDamage))]
 [DisallowMultipleComponent]
 #endregion Require Components
 
@@ -36,6 +41,9 @@ public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
     [HideInInspector] public Health health;
+    [HideInInspector] public HealthEvent healthEvent;
+    [HideInInspector] public DestroyedEvent destroyedEvent;
+
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
@@ -43,6 +51,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
+    [HideInInspector] public PlayerControl playerControl;
+
     [HideInInspector] public SetActiveWeaponEvent setAtiveWeaponEvent;
     [HideInInspector] public ActiveWeapon activeWeapon;
     [HideInInspector] public FireWeaponEvent fireWeaponEvent;
@@ -57,10 +67,15 @@ public class Player : MonoBehaviour
     {
         //загрузка компонентов
         health = GetComponent<Health>();
+        healthEvent = GetComponent<HealthEvent>();
+        destroyedEvent = GetComponent<DestroyedEvent>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
+
         stayEvent = GetComponent<StayEvent>();
+        playerControl = GetComponent<PlayerControl>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
@@ -83,6 +98,30 @@ public class Player : MonoBehaviour
         this.playerDetails = playerDetails;
         CreatePlayerStartingWeapons();
         SetPlayerHealth();
+    }
+
+    private void OnEnable()
+    {
+        // Subscribe to player health event
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe from player health event
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
+    }
+
+    /// <summary>
+    /// Handle health changed event
+    /// </summary>
+    private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        // If player has died
+        if (healthEventArgs.healthAmount <= 0f)
+        {
+            destroyedEvent.CallDestroyedEvent(true, 0);
+        }
     }
 
     /// <summary>

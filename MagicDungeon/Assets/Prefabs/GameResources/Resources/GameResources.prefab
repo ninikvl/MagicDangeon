@@ -50,6 +50,8 @@ MonoBehaviour:
   variableLitShader: {fileID: 2100000, guid: a4ea43fe7ddf099428e90d7b7ac44139, type: 2}
   doorNSBossPrefab: {fileID: 6663797034957476564, guid: ffb1756787ccaff428e20bdc1a3bff45, type: 3}
   doorEWBossPrefab: {fileID: 8630909517647479556, guid: b1c83c3c128854c4794235e8a12c7cfd, type: 3}
+  heartPrefab: {fileID: 9142516888701839656, guid: 5992a97580d2bb94aa47793857b92d76, type: 3}
+  heartEmptyPrefab: {fileID: 9142516888701839656, guid: 2126c2ce4f7362b42b6f741681ba03c2, type: 3}
   ammoIconPrefab: {fileID: 8506673717780857146, guid: 76a7ff85bf1839d4fbaa4e45a3e45e45, type: 3}
   enemyUnwalkableCollisionTilesArray:
   - {fileID: 11400000, guid: 37e2c9e0227bfbc409cd632b9bd0c81f, type: 2}
