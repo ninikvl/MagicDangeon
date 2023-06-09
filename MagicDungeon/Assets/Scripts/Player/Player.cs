@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// ƒобавить оружие в список оружи€ игрока
     /// </summary>
-    private Weapon AddWeaponToPlayer(WeaponDetailsSO weaponDetails)
+    public Weapon AddWeaponToPlayer(WeaponDetailsSO weaponDetails)
     {
         Weapon weapon = new Weapon()
         {
@@ -170,5 +170,19 @@ public class Player : MonoBehaviour
         weapon.weaponListPosition = weaponList.Count;
         setAtiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
         return weapon;
+    }
+
+    /// <summary>
+    /// Returns true if the weapon is held by the player - otherwise returns false
+    /// </summary>
+    public bool IsWeaponHeldByPlayer(WeaponDetailsSO weaponDetails)
+    {
+
+        foreach (Weapon weapon in weaponList)
+        {
+            if (weapon.weaponDetails == weaponDetails) return true;
+        }
+
+        return false;
     }
 }

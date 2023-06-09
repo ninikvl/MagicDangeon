@@ -184,9 +184,9 @@ public class Health : MonoBehaviour
     /// </summary>
     public void AddHealth(int healthPercent)
     {
-        int healthIncrease = Mathf.RoundToInt((startingHealth * healthPercent) / 100f);
+        //int healthIncrease = Mathf.RoundToInt((startingHealth * healthPercent) / 100f);
 
-        int totalHealth = currentHealth + healthIncrease;
+        int totalHealth = currentHealth + healthPercent;
 
         if (totalHealth > startingHealth)
         {
@@ -199,4 +199,6 @@ public class Health : MonoBehaviour
 
         CallHealthEvent(0);
     }
+
+
 }

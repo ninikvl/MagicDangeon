@@ -47,6 +47,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
     private long gameScore;
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
+    private bool isFading = false;
 
     [HideInInspector] public GameState gameState;
     [HideInInspector] public GameState previousGameState;
@@ -194,15 +195,34 @@ public class GameManager : SingletonMonobehavior<GameManager>
                 break;
 
             case GameState.playingLevel:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
                 break;
 
             case GameState.engaginEnemies:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    PauseGameMenu();
                 break;
 
             case GameState.bossStage:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    PauseGameMenu();
+
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
                 break;
 
             case GameState.engaginBoss:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    PauseGameMenu();
                 break;
 
             case GameState.levelComplited:
@@ -225,9 +245,17 @@ public class GameManager : SingletonMonobehavior<GameManager>
                 break;
 
             case GameState.gamePaused:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    PauseGameMenu();
                 break;
 
             case GameState.dungeonOverviewMap:
+                // Key released
+                if (Input.GetKeyUp(KeyCode.Tab))
+                {
+                    // Clear dungeonOverviewMap
+                    DungeonMap.Instance.ClearDungeonOverViewMap();
+                }
                 break;
 
             case GameState.restartGame:
@@ -301,6 +329,32 @@ public class GameManager : SingletonMonobehavior<GameManager>
     }
 
     /// <summary>
+    /// Pause game menu - also called from resume game button on pause menu
+    /// </summary>
+    public void PauseGameMenu()
+    {
+        if (gameState != GameState.gamePaused)
+        {
+            pauseMenu.SetActive(true);
+            GetPlayer().playerControl.DisablePlayer();
+
+            // Set game state
+            previousGameState = gameState;
+            gameState = GameState.gamePaused;
+        }
+        else if (gameState == GameState.gamePaused)
+        {
+            pauseMenu.SetActive(false);
+            GetPlayer().playerControl.EnablePlayer();
+
+            // Set game state
+            gameState = previousGameState;
+            previousGameState = GameState.gamePaused;
+
+        }
+    }
+
+    /// <summary>
     /// Создание уровня
     /// </summary>
     private void PlayDungeonLevel(int curLevelListIndex)
@@ -322,6 +376,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
         // Display Dungeon Level Text
         StartCoroutine(DisplayDungeonLevelText());
     }
+
 
     /// <summary>
     /// Display the dungeon level text
@@ -594,7 +649,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
     /// </summary>
     public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
     {
-        //isFading = true;
+        isFading = true;
 
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backgroundColor;
@@ -608,8 +663,21 @@ public class GameManager : SingletonMonobehavior<GameManager>
             yield return null;
         }
 
-        //isFading = false;
+        isFading = false;
 
+    }
+
+    /// <summary>
+    /// Dungeon Map Screen Display
+    /// </summary>
+    private void DisplayDungeonOverviewMap()
+    {
+        // return if fading
+        if (isFading)
+            return;
+
+        // Display dungeonOverviewMap
+        DungeonMap.Instance.DisplayDungeonOverViewMap();
     }
 
 

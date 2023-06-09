@@ -48,8 +48,12 @@ MonoBehaviour:
   dimmedMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: 2100000, guid: a4ea43fe7ddf099428e90d7b7ac44139, type: 2}
+  materializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
   doorNSBossPrefab: {fileID: 6663797034957476564, guid: ffb1756787ccaff428e20bdc1a3bff45, type: 3}
   doorEWBossPrefab: {fileID: 8630909517647479556, guid: b1c83c3c128854c4794235e8a12c7cfd, type: 3}
+  chestItemPrefab: {fileID: 1693773696260874621, guid: b22417078646cb5419976337de0cd8c2, type: 3}
+  heartIcon: {fileID: 21300000, guid: 75cb42dbfa6fa2d42a3f4236744e07a9, type: 3}
+  bulletIcon: {fileID: 21300000, guid: 15f1a6f21c923554ea08715718e6a420, type: 3}
   heartPrefab: {fileID: 9142516888701839656, guid: 5992a97580d2bb94aa47793857b92d76, type: 3}
   heartEmptyPrefab: {fileID: 9142516888701839656, guid: 2126c2ce4f7362b42b6f741681ba03c2, type: 3}
   ammoIconPrefab: {fileID: 8506673717780857146, guid: 76a7ff85bf1839d4fbaa4e45a3e45e45, type: 3}

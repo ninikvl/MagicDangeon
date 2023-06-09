@@ -39,6 +39,9 @@ public static class Settings
     //Параметры двери
     public static int open = Animator.StringToHash("open");
 
+    //chest
+    public static int use = Animator.StringToHash("use");
+
     //Базовая скорость анимации 
     public static float baseSpeedForPlayerAnimations = 8f;
     // Animator parameters - Enemy

@@ -20,7 +20,7 @@ public class EnemyMovementAI : MonoBehaviour
     private bool chasePlayer = false;
     [HideInInspector] public int updateFrameNumber = 1; // default value.  This is set by the enemy spawner.
 
-    //private List<Vector2Int> surroundingPositionList = new List<Vector2Int>();
+    private List<Vector2Int> surroundingPositionList = new List<Vector2Int>();
 
     private void Awake()
     {
@@ -179,8 +179,8 @@ public class EnemyMovementAI : MonoBehaviour
 
         Vector2Int adjustedPlayerCellPositon = new Vector2Int(playerCellPosition.x - currentRoom.templateLowerBounds.x, playerCellPosition.y - currentRoom.templateLowerBounds.y);
 
-        int obstacle = Mathf.Min(currentRoom.instantiatedRoom.aStarMovementPenalty[adjustedPlayerCellPositon.x, adjustedPlayerCellPositon.y]);
-        //,currentRoom.instantiatedRoom.aStarItemObstacles[adjustedPlayerCellPositon.x, adjustedPlayerCellPositon.y])
+        int obstacle = Mathf.Min(currentRoom.instantiatedRoom.aStarMovementPenalty[adjustedPlayerCellPositon.x, adjustedPlayerCellPositon.y],
+        currentRoom.instantiatedRoom.aStarItemObstacles[adjustedPlayerCellPositon.x, adjustedPlayerCellPositon.y]);
 
         // if the player isn't on a cell square marked as an obstacle then return that position
         if (obstacle != 0)
@@ -191,8 +191,8 @@ public class EnemyMovementAI : MonoBehaviour
         // and tables the player can be on a grid square that is marked as an obstacle
         else
         {
-            //// Empty surrounding position list
-            //surroundingPositionList.Clear();
+            // Empty surrounding position list
+            surroundingPositionList.Clear();
 
             // Populate surrounding position list - this will hold the 8 possible vector locations surrounding a (0,0) grid square
             for (int i = -1; i <= 1; i++)
@@ -201,57 +201,43 @@ public class EnemyMovementAI : MonoBehaviour
                 {
                     if (j == 0 && i == 0) continue;
 
-                    //surroundingPositionList.Add(new Vector2Int(i, j));
-
-                    try
-                    {
-                        obstacle = Mathf.Min(currentRoom.instantiatedRoom.aStarMovementPenalty[adjustedPlayerCellPositon.x + i,
-                            adjustedPlayerCellPositon.y + j]);
-                        // If no obstacle return the cell position to navigate to
-                        if (obstacle != 0)
-                        {
-                            return new Vector3Int(playerCellPosition.x + i, playerCellPosition.y + j, 0);
-                        }
-                    }
-                    // Catch errors where the surrounding positon is outside the grid
-                    catch
-                    {
-                        continue;
-                    }
+                    surroundingPositionList.Add(new Vector2Int(i, j));
                 }
             }
 
-            //// Loop through all positions
-            //for (int l = 0; l < 8; l++)
-            //{
-            //    // Generate a random index for the list
-            //    int index = Random.Range(0, surroundingPositionList.Count);
+            // Loop through all positions
+            for (int l = 0; l < 8; l++)
+            {
+                // Generate a random index for the list
+                int index = Random.Range(0, surroundingPositionList.Count);
 
-            //    // See if there is an obstacle in the selected surrounding position
-            //    try
-            //    {
-            //        obstacle = Mathf.Min(currentRoom.instantiatedRoom.aStarMovementPenalty[adjustedPlayerCellPositon.x + surroundingPositionList[index].x, adjustedPlayerCellPositon.y + surroundingPositionList[index].y], currentRoom.instantiatedRoom.aStarItemObstacles[adjustedPlayerCellPositon.x + surroundingPositionList[index].x, adjustedPlayerCellPositon.y + surroundingPositionList[index].y]);
+                // See if there is an obstacle in the selected surrounding position
+                try
+                {
+                    obstacle = Mathf.Min(currentRoom.instantiatedRoom.aStarMovementPenalty[adjustedPlayerCellPositon.x + surroundingPositionList[index].x, 
+                        adjustedPlayerCellPositon.y + surroundingPositionList[index].y], 
+                        currentRoom.instantiatedRoom.aStarItemObstacles[adjustedPlayerCellPositon.x + surroundingPositionList[index].x, 
+                        adjustedPlayerCellPositon.y + surroundingPositionList[index].y]);
 
-            //        // If no obstacle return the cell position to navigate to
-            //        if (obstacle != 0)
-            //        {
-            //            return new Vector3Int(playerCellPosition.x + surroundingPositionList[index].x, playerCellPosition.y + surroundingPositionList[index].y, 0);
-            //        }
+                    // If no obstacle return the cell position to navigate to
+                    if (obstacle != 0)
+                    {
+                        return new Vector3Int(playerCellPosition.x + surroundingPositionList[index].x, playerCellPosition.y + surroundingPositionList[index].y, 0);
+                    }
 
-            //    }
-            //    // Catch errors where the surrounding positon is outside the grid
-            //    catch
-            //    {
+                }
+                // Catch errors where the surrounding positon is outside the grid
+                catch
+                {
 
-            //    }
+                }
 
-            //    // Remove the surrounding position with the obstacle so we can try again
-            //    surroundingPositionList.RemoveAt(index);
-            //}
+                // Remove the surrounding position with the obstacle so we can try again
+                surroundingPositionList.RemoveAt(index);
+            }
 
-            //// If no non-obstacle cells found surrounding the player - send the enemy in the direction of an enemy spawn position
-            //return (Vector3Int)currentRoom.spawnPositionArray[Random.Range(0, currentRoom.spawnPositionArray.Length)];
-            return playerCellPosition;
+            // If no non-obstacle cells found surrounding the player - send the enemy in the direction of an enemy spawn position
+            return (Vector3Int)currentRoom.spawnPositionArray[Random.Range(0, currentRoom.spawnPositionArray.Length)];
         }
     }
 
