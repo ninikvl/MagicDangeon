@@ -247,8 +247,8 @@ public class WeaponStatusUI : MonoBehaviour
     /// </summary>
     private IEnumerator UpdateWeaponReloadBarRoutine(Weapon currentWeapon)
     {
-        // set the reload bar to red
-        barImage.color = Color.blue;
+        // set the reload bar to blue
+        barImage.color = new Color (0.34f, 0.65f, 0.94f, 1f);
 
         // Animate the weapon reload bar
         while (currentWeapon.isWeaponReloading)
@@ -271,7 +271,7 @@ public class WeaponStatusUI : MonoBehaviour
         StopReloadWeaponCoroutine();
 
         // set bar color as green
-        barImage.color = Color.green;
+        barImage.color = Color.white;
 
         // set bar scale to 1
         reloadBar.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -297,7 +297,7 @@ public class WeaponStatusUI : MonoBehaviour
         if ((!weapon.weaponDetails.hasInfiniteClipCapacity) && (weapon.weaponClipRemainingAmmo <= 0 || weapon.isWeaponReloading))
         {
             // set the reload bar to red
-            barImage.color = Color.red;
+            barImage.color = new Color(0.34f, 0.65f, 0.94f, 1f);
 
             StopBlinkingReloadTextCoroutine();
 

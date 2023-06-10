@@ -8991,7 +8991,7 @@ SpriteAtlas:
   - floor_vines2_1
   - floor_vines2_2
   - floor_vines2_3
-  - Button
+  - button
   - SlimeBlockKingMoveDown_5
   - SlimeBlockKingMoveDown_4
   - SlimeBlockKingMoveDown_3
