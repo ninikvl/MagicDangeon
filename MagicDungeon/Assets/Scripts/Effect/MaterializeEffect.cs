@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MaterializeEffect : MonoBehaviour
 {
-    /// <summary>
-    /// Materialize effect coroutine - used for the materialiuse special effect
-    /// </summary>
     public IEnumerator MaterializeRoutine(Shader materializeShader, Color materializeColor, float materializeTime, 
         SpriteRenderer[] spriteRendererArray, Material normalMaterial)
     {
@@ -14,7 +11,7 @@ public class MaterializeEffect : MonoBehaviour
 
         materializeMaterial.SetColor("_EmissionColor", materializeColor);
 
-        // Set materialize material in sprite renderers
+        // установить материализацию материала в средствах визуализации спрайтов
         foreach (SpriteRenderer spriteRenderer in spriteRendererArray)
         {
             spriteRenderer.material = materializeMaterial;
@@ -22,7 +19,7 @@ public class MaterializeEffect : MonoBehaviour
 
         float dissolveAmount = 0f;
 
-        // materialize enemy
+        // материализовать врага
         while (dissolveAmount < 1f)
         {
             dissolveAmount += Time.deltaTime / materializeTime;
@@ -33,12 +30,10 @@ public class MaterializeEffect : MonoBehaviour
 
         }
 
-
-        // Set standard material in sprite renderers
+        // установить стандартный материал в средствах визуализации спрайтов
         foreach (SpriteRenderer spriteRenderer in spriteRendererArray)
         {
             spriteRenderer.material = normalMaterial;
         }
-
     }
 }

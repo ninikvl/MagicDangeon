@@ -17,8 +17,8 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap minimapTilemap;
     [HideInInspector] public Tilemap ignoreAmmoTilemap;
     [HideInInspector] public Bounds roomColliderBounds;
-    [HideInInspector] public int[,] aStarMovementPenalty;  // use this 2d array to store movement penalties from the tilemaps to be used in AStar pathfinding
-    [HideInInspector] public int[,] aStarItemObstacles; // use to store position of moveable items that are obstacles
+    [HideInInspector] public int[,] aStarMovementPenalty;  //  массив для хранения штрафов за перемещение из tilemaps, которые будут использоваться при поиске пути AStar
+    [HideInInspector] public int[,] aStarItemObstacles; // используется для сохранения положения подвижных предметов, которые являются препятствиями
     [HideInInspector] public List<MoveItem> moveableItemsList = new List<MoveItem>();
 
 
@@ -215,24 +215,22 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Update obstacles used by AStar pathfinmding.
+    /// Обновить препятствия, используемые AStar при поиске пути.
     /// </summary>
     private void AddObstaclesAndPreferredPaths()
     {
-        // this array will be populated with wall obstacles 
+        // этот массив будет заполнен стеновыми препятствиями
         aStarMovementPenalty = new int[room.templateUpperBounds.x - room.templateLowerBounds.x + 1,
             room.templateUpperBounds.y - room.templateLowerBounds.y + 1];
 
-
-        // Loop thorugh all grid squares
         for (int x = 0; x < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); x++)
         {
             for (int y = 0; y < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); y++)
             {
-                // Set default movement penalty for grid sqaures
+                // установить штраф за перемещение по умолчанию для квадратов сетки
                 aStarMovementPenalty[x, y] = Settings.defaultAStarMovementPenalty;
 
-                // Add obstacles for collision tiles the enemy can't walk on
+                // Добавьте препятствия для столкновения плиток, по которым враг не сможет пройти
                 TileBase tile = collisionTilemap.GetTile(new Vector3Int(x + room.templateLowerBounds.x, y + room.templateLowerBounds.y, 0));
 
                 foreach (TileBase collisionTile in GameResources.Instance.enemyUnwalkableCollisionTilesArray)
@@ -254,8 +252,8 @@ public class InstantiatedRoom : MonoBehaviour
                     }
                 }
 
-                // Add preferred path for enemies (1 is the preferred path value, default value for
-                // a grid location is specified in the Settings).
+                // добавить предпочтительный путь для врагов (1 - предпочтительное значение пути, значение по умолчанию для
+                // местоположение в сетке указано в настройках).
                 if (tile == GameResources.Instance.preferredEnemyPathTile)
                 {
                     aStarMovementPenalty[x, y] = Settings.preferredPathAStarMovementPenalty;
@@ -312,7 +310,7 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Отключение визуализации уу слоя с коллизией
+    /// Отключение визуализации у слоя с коллизией
     /// </summary>
     private void DisableCollisionTilemapRenderer()
     {
@@ -323,24 +321,24 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Lock the room doors
+    /// Закрытие дверей
     /// </summary>
     public void LockDoors()
     {
         Door[] doorArray = GetComponentsInChildren<Door>();
 
-        // Trigger lock doors
+        // триггер закрытия дверей
         foreach (Door door in doorArray)
         {
             door.LockDoor();
         }
 
-        // Disable room trigger collider
+        // Отключить триггер коллайдер
         DisableRoomCollider();
     }
 
     /// <summary>
-    /// Unlock the room doors
+    /// Открыть двери комнаты
     /// </summary>
     public void UnlockDoors(float doorUnlockDelay)
     {
@@ -348,7 +346,7 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Unlock the room doors routine
+    /// Открытие дверей Coroutine
     /// </summary>
     private IEnumerator UnlockDoorsRoutine(float doorUnlockDelay)
     {
@@ -357,18 +355,18 @@ public class InstantiatedRoom : MonoBehaviour
 
         Door[] doorArray = GetComponentsInChildren<Door>();
 
-        // Trigger open doors
+        // активировать открытие дверей
         foreach (Door door in doorArray)
         {
             door.UnlockDoor();
         }
 
-        // Enable room trigger collider
+        // Включить триггерный коллайдер
         EnableRoomCollider();
     }
 
     /// <summary>
-    /// Disable the room trigger collider that is used to trigger when the player enters a room
+    /// отключить коллайдер room , который используется для срабатывания, когда игрок входит в комнату
     /// </summary>
     public void DisableRoomCollider()
     {
@@ -376,7 +374,7 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Enable the room trigger collider that is used to trigger when the player enters a room
+    /// включить коллайдер room , который используется для срабатывания, когда игрок входит в комнату
     /// </summary>
     public void EnableRoomCollider()
     {
@@ -410,7 +408,7 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Update the array of moveable obstacles
+    /// обновить набор подвижных препятствий
     /// </summary>
     public void UpdateMoveableObstacles()
     {
@@ -421,7 +419,7 @@ public class InstantiatedRoom : MonoBehaviour
             Vector3Int colliderBoundsMin = grid.WorldToCell(moveItem.boxCollider2D.bounds.min);
             Vector3Int colliderBoundsMax = grid.WorldToCell(moveItem.boxCollider2D.bounds.max);
 
-            // Loop through and add moveable item collider bounds to obstacle array
+            //  добавьть границы коллайдера подвижных элементов к массиву препятствий
             for (int i = colliderBoundsMin.x; i <= colliderBoundsMax.x; i++)
             {
                 for (int j = colliderBoundsMin.y; j <= colliderBoundsMax.y; j++)
@@ -433,16 +431,16 @@ public class InstantiatedRoom : MonoBehaviour
     }
 
     /// <summary>
-    /// Create Item Obstacles Array
+    /// Создать массив препятствий для элементов
     /// </summary>
     private void CreateItemObstaclesArray()
     {
-        // this array will be populated during gameplay with any moveable obstacles
+        // этот массив будет заполнен во время игрового процесса подвижными препятствиями
         aStarItemObstacles = new int[room.templateUpperBounds.x - room.templateLowerBounds.x + 1, room.templateUpperBounds.y - room.templateLowerBounds.y + 1];
     }
 
     /// <summary>
-    /// Initialize Item Obstacles Array With Default AStar Movement Penalty Values
+    /// Инициализировать массив препятствий элемента со значениями штрафа для перемещение AStar по умолчанию
     /// </summary>
     private void InitializeItemObstaclesArray()
     {
@@ -450,31 +448,9 @@ public class InstantiatedRoom : MonoBehaviour
         {
             for (int y = 0; y < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); y++)
             {
-                // Set default movement penalty for grid sqaures
+                // установить штраф за перемещение по умолчанию для квадратов сетки
                 aStarItemObstacles[x, y] = Settings.defaultAStarMovementPenalty;
             }
         }
-    }
-
-    /// <summary>
-    /// This is used for debugging - shows the position of the table obstacles. 
-    /// (MUST BE COMMENTED OUT BEFORE UPDATING ROOM PREFABS)
-    /// </summary>
-    private void OnDrawGizmos()
-    {
-
-        for (int i = 0; i < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); i++)
-        {
-            for (int j = 0; j < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); j++)
-            {
-                if (aStarItemObstacles[i, j] == 0)
-                {
-                    Vector3 worldCellPos = grid.CellToWorld(new Vector3Int(i + room.templateLowerBounds.x, j + room.templateLowerBounds.y, 0));
-
-                    Gizmos.DrawWireCube(new Vector3(worldCellPos.x + 0.5f, worldCellPos.y + 0.5f, 0), Vector3.one);
-                }
-            }
-        }
-
     }
 }

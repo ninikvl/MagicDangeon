@@ -27,12 +27,12 @@ MonoBehaviour:
   ammoRotationSpeed: 1
   ammoSpreadMin: 2
   ammoSpreadMax: 4
-  ammoSpawnAmountMin: 1
-  ammoSpawnAmountMax: 1
+  ammoSpawnAmountMin: 4
+  ammoSpawnAmountMax: 8
   ammoSpawnIntervalMin: 0
   ammoSpawnIntervalMax: 0
-  isAmmoTrail: 0
-  ammoTrailTime: 0
-  ammoTrailMaterial: {fileID: 0}
-  ammoTrailStartWidth: 0
-  ammoTrailEndWidth: 0
+  isAmmoTrail: 1
+  ammoTrailTime: 2
+  ammoTrailMaterial: {fileID: 2100000, guid: f40d05d451e2ae24f91e9e3314c280da, type: 2}
+  ammoTrailStartWidth: 0.109
+  ammoTrailEndWidth: 0.392

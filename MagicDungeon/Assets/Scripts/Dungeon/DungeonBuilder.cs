@@ -460,7 +460,7 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
             roomPreviousToBoss.isPreviouslyToBoss = true;
             corridorPreviousToBoss.isPreviouslyCorridorToBoss = true;
         }
-        // If there are no enemies to spawn then default the room to be clear of enemies
+        // Если врагов для появления нет, то по умолчанию комната должна быть очищена от врагов
         if (room.GetNumberOfEnemiesToSpawn(GameManager.Instance.GetCurrentDungeonLevel()) == 0)
         {
             room.isClearedOfEnemies = true;

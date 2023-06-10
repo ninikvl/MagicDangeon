@@ -31,7 +31,7 @@ public class GridNodes
         }
         else
         {
-            Debug.Log("Requested grid node is out of range");
+            Debug.Log("«апрошенный узел сетки находитс€ вне зоны действи€");
             return null;
         }
     }

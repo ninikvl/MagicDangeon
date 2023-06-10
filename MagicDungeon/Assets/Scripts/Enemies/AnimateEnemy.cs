@@ -8,36 +8,29 @@ public class AnimateEnemy : MonoBehaviour
 
     private void Awake()
     {
-        // Load components
         enemy = GetComponent<Enemy>();
     }
 
     private void OnEnable()
     {
-        // Subscribe to movement event
         enemy.movementToPositionEvent.OnMovementToPosition += MovementToPositionEvent_OnMovementToPosition;
 
-        // Subscribe to idle event
         enemy.stayEvent.OnStay += StayEvent_OnStay;
 
-        // Subscribe to weapon aim event
         enemy.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponAim;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe from movement event
         enemy.movementToPositionEvent.OnMovementToPosition -= MovementToPositionEvent_OnMovementToPosition;
 
-        // Unsubscribe from idle event
         enemy.stayEvent.OnStay -= StayEvent_OnStay;
 
-        // Unsubscribe from weapon aim event event
         enemy.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
     }
 
     /// <summary>
-    /// On weapon aim event handler
+    /// Обработчик события OnWeaponAim
     /// </summary>
     private void AimWeaponEvent_OnWeaponAim(AimWeaponEvent aimWeaponEvent, AimWeaponEventArgs aimWeaponEventArgs)
     {
@@ -46,7 +39,7 @@ public class AnimateEnemy : MonoBehaviour
     }
 
     /// <summary>
-    /// On movement event handler
+    /// Обработчик события OnMovementToPosition
     /// </summary>
     private void MovementToPositionEvent_OnMovementToPosition(MovementToPositionEvent movementToPositionEvent, MovementToPositionArgs movementToPositionArgs)
     {
@@ -54,7 +47,7 @@ public class AnimateEnemy : MonoBehaviour
     }
 
     /// <summary>
-    /// On idle event handler
+    /// Обработчик события OnStay
     /// </summary>
     private void StayEvent_OnStay(StayEvent idleEvent)
     {
@@ -62,7 +55,7 @@ public class AnimateEnemy : MonoBehaviour
     }
 
     /// <summary>
-    /// Initialise aim animation parameters
+    /// Инициализация параметров анимации прицеливания
     /// </summary>
     private void InitialiseAimAnimationParameters()
     {
@@ -75,32 +68,28 @@ public class AnimateEnemy : MonoBehaviour
     }
 
     /// <summary>
-    /// Set movement animation parameters
+    /// установить параметры анимации движения
     /// </summary>
     private void SetMovementAnimationParameters()
     {
-        // Set Moving
         enemy.animator.SetBool(Settings.isStay, false);
         enemy.animator.SetBool(Settings.isMoving, true);
     }
 
-
     /// <summary>
-    /// Set idle animation parameters
+    ///  установить параметр анимации стояниия
     /// </summary>
     private void SetIdleAnimationParameters()
     {
-        // Set idle
         enemy.animator.SetBool(Settings.isMoving, false);
         enemy.animator.SetBool(Settings.isStay, true);
     }
 
     /// <summary>
-    /// Set aim animation parameters
+    /// установить параметры анимации прицеливания
     /// </summary>
     private void SetAimWeaponAnimationParameters(AimDirection aimDirection)
     {
-        // Set aim direction
         switch (aimDirection)
         {
             case AimDirection.Up:

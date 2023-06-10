@@ -34,7 +34,6 @@ public class Chest : MonoBehaviour, IUseable
 
     private void Awake()
     {
-        //  Cache components
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         materializeEffect = GetComponent<MaterializeEffect>();
@@ -42,7 +41,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Initialize Chest and either make it visible immediately or materialize it
+    /// Инициализировать сундук и либо сделать его видимым, либо реализовать его
     /// </summary>
     public void Initialize(bool shouldMaterialize, int healthPercent, WeaponDetailsSO weaponDetails, int ammoPercent)
     {
@@ -61,7 +60,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Materialise the chest
+    /// материализовать сундук
     /// </summary>
     private IEnumerator MaterializeChest()
     {
@@ -73,7 +72,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Enable the chest
+    /// Включение сундука
     /// </summary>
     private void EnableChest()
     {
@@ -82,7 +81,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Use the chest - action will vary depending on the chest state
+    /// действие будет различаться в зависимости от состояния сундука.
     /// </summary>
     public void UseItem()
     {
@@ -115,16 +114,16 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Open the chest on first use
+    /// Открытие сундука при первом использовании
     /// </summary>
     private void OpenChest()
     {
         animator.SetBool(Settings.use, true);
 
-        //// chest open sound effect
+        //// звуковой эффект открытия сундука
         //SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.chestOpen);
 
-        // Check if player alreay has the weapon - if so set weapon to null
+        // Проверка, есть ли у игрока уже оружие - если да, установка  для оружия значение null
         if (weaponDetails != null)
         {
             if (GameManager.Instance.GetPlayer().IsWeaponHeldByPlayer(weaponDetails))
@@ -135,7 +134,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Create items based on what should be spawned and the chest state
+    /// Создание предметов, основываясь на том, что должно быть создано, и состоянии сундука
     /// </summary>
     private void UpdateChestState()
     {
@@ -161,7 +160,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Instantiate a chest item
+    /// создание экземпляра предмета из сундука
     /// </summary>
     private void InstantiateItem()
     {
@@ -171,7 +170,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Instantiate a health item for the player to collect
+    /// создание экземпляра предмета здоровья, который игрок должен собрать
     /// </summary>
     private void InstantiateHealthItem()
     {
@@ -182,17 +181,16 @@ public class Chest : MonoBehaviour, IUseable
 
 
     /// <summary>
-    /// Collect the health item and add it to the players health
+    /// сбор здоровья и добавление его к здоровью игроков
     /// </summary>
     private void CollectHealthItem()
     {
-        // Check item exists and has been materialized
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
-        // Add health to player
+        // Добавление здоровья игроку
         GameManager.Instance.GetPlayer().health.AddHealth(healthPercent);
 
-        //// Play pickup sound effect
+        //// Воспроизведение звукового эффекта
         //SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
 
         healthPercent = 0;
@@ -203,7 +201,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Instantiate a ammo item for the player to collect
+    /// Создание экземпляра предмета боеприпаса, который игрок должен собрать
     /// </summary>
     private void InstantiateAmmoItem()
     {
@@ -214,19 +212,18 @@ public class Chest : MonoBehaviour, IUseable
 
 
     /// <summary>
-    /// Collect an ammo item and add it to the ammo in the players current weapon
+    /// Сбор боеприпасов и добавление к боеприпасам в текущем оружии игрока
     /// </summary>
     private void CollectAmmoItem()
     {
-        // Check item exists and has been materialized
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
         Player player = GameManager.Instance.GetPlayer();
 
-        // Update ammo for current weapon
+        // обновление боеприпасов для текущего оружия
         player.reloadWeaponEvent.CallReloadWeaponEvent(player.activeWeapon.GetCurrentWeapon(), ammoPercent);
 
-        //// Play pickup sound effect
+        //// Воспроизведение звукового эффекта
         //SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.ammoPickup);
 
         ammoPercent = 0;
@@ -237,7 +234,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Instantiate a weapon item for the player to collect
+    /// создание экземпляра предмета оружия, который игрок должен собрать
     /// </summary>
     private void InstantiateWeaponItem()
     {
@@ -247,26 +244,25 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Collect the weapon and add it to the players weapons list
+    /// Подбор оружия и добавление его к игроку
     /// </summary>
     private void CollectWeaponItem()
     {
-        // Check item exists and has been materialized
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
-        // If the player doesn't already have the weapon, then add to player
+        // Если у игрока еще нет оружия, то добавление его в список игроков
         if (!GameManager.Instance.GetPlayer().IsWeaponHeldByPlayer(weaponDetails))
         {
-            // Add weapon to player
+            // добавление оружия игроку
             GameManager.Instance.GetPlayer().AddWeaponToPlayer(weaponDetails);
 
-            //// Play pickup sound effect
+            //// Воспроизведение звукового эффекта
             //SoundEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
         }
 
         else
         {
-            // display message saying you already have the weapon
+            // отобразить сообщение о том, что уже есть оружие
             StartCoroutine(DisplayMessage("WEAPON\nALREADY\nEQUIPPED", 5f));
 
         }
@@ -278,7 +274,7 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     /// <summary>
-    /// Display message above chest
+    /// отобразить сообщение над сундуком
     /// </summary>
     private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)
     {

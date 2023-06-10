@@ -4,20 +4,20 @@ using UnityEngine;
 public static class AStar
 {
     /// <summary>
-    /// Builds a path for the room, from the startGridPosition to the endGridPosition, and adds
-    /// movement steps to the returned Stack. Returns null if no path is found.
+    /// Строит путь для комнаты от начальной позиции сетки до конечной позиции сетки и добавляет
+    /// шаги перемещения в возвращаемый стек. Возвращает значение null, если путь не найден.
     /// </summary>
     public static Stack<Vector3> BuildPath(Room room, Vector3Int startGridPosition, Vector3Int endGridPosition)
     {
-        // Adjust positions by lower bounds
+        // Корректировка позиции по нижним границам
         startGridPosition -= (Vector3Int)room.templateLowerBounds;
         endGridPosition -= (Vector3Int)room.templateLowerBounds;
 
-        // Create open list and closed hashset
+        // Создание открытытого списока и закрытый хэш-набор
         List<Node> openNodeList = new List<Node>();
         HashSet<Node> closedNodeHashSet = new HashSet<Node>();
 
-        // Create gridnodes for path finding
+        // создание узлов сетки для поиска пути
         GridNodes gridNodes = new GridNodes(room.templateUpperBounds.x - room.templateLowerBounds.x + 1, 
             room.templateUpperBounds.y - room.templateLowerBounds.y + 1);
 
@@ -35,33 +35,34 @@ public static class AStar
     }
 
     /// <summary>
-    /// Find the shortest path - returns the end Node if a path has been found, else returns null.
+    /// получить кратчайший путь - возвращает конечный узел, если путь был найден, 
+    /// в противном случае возвращает значение null.
     /// </summary>
     private static Node FindShortestPath(Node startNode, Node targetNode, GridNodes gridNodes, List<Node> openNodeList, HashSet<Node> closedNodeHashSet, InstantiatedRoom instantiatedRoom)
     {
-        // Add start node to open list
+        // добавление начального узла в список открытых
         openNodeList.Add(startNode);
 
-        // Loop through open node list until empty
+        // Перебор списока открытых узлов до тех пор, пока он не опустеет
         while (openNodeList.Count > 0)
         {
-            // Sort List
+            // Сортировка списка
             openNodeList.Sort();
 
-            // current node = the node in the open list with the lowest fCost
+            // текущий узел = узел в открытом списке с наименьшей стоимостью
             Node currentNode = openNodeList[0];
             openNodeList.RemoveAt(0);
 
-            // if the current node = target node then finish
+            // если текущий узел = целевой узел, то завершение
             if (currentNode == targetNode)
             {
                 return currentNode;
             }
 
-            // add current node to the closed list
+            // добавление текущего узла в закрытый список
             closedNodeHashSet.Add(currentNode);
 
-            // evaluate fcost for each neighbour of the current node
+            // Вычисление стоимости для каждого соседа текущего узла
             EvaluateCurrentNodeNeighbours(currentNode, targetNode, gridNodes, openNodeList, closedNodeHashSet, instantiatedRoom);
         }
 
@@ -71,7 +72,7 @@ public static class AStar
 
 
     /// <summary>
-    ///  Create a Stack<Vector3> containing the movement path 
+    ///  Создание стек<Vector3>, содержащий путь перемещения
     /// </summary>
     private static Stack<Vector3> CreatePathStack(Node targetNode, Room room)
     {
@@ -79,17 +80,17 @@ public static class AStar
 
         Node nextNode = targetNode;
 
-        // Get mid point of cell
+        // получить среднюю точку ячейки
         Vector3 cellMidPoint = room.instantiatedRoom.grid.cellSize * 0.5f;
         cellMidPoint.z = 0f;
 
         while (nextNode != null)
         {
-            // Convert grid position to world position
+            // Преобразовать положение сетки в мировое положение
             Vector3 worldPosition = room.instantiatedRoom.grid.CellToWorld(new Vector3Int(nextNode.gridPosition.x + room.templateLowerBounds.x,
                 nextNode.gridPosition.y + room.templateLowerBounds.y, 0));
 
-            // Set the world position to the middle of the grid cell
+            // установка мирового положения на середину ячейки сетки
             worldPosition += cellMidPoint;
 
             movementPathStack.Push(worldPosition);
@@ -101,7 +102,7 @@ public static class AStar
     }
 
     /// <summary>
-    /// Evaluate neighbour nodes
+    /// Оценка соседних узлов
     /// </summary>
     private static void EvaluateCurrentNodeNeighbours(Node currentNode, Node targetNode, GridNodes gridNodes, List<Node> openNodeList, 
         HashSet<Node> closedNodeHashSet, InstantiatedRoom instantiatedRoom)
@@ -110,7 +111,7 @@ public static class AStar
 
         Node validNeighbourNode;
 
-        // Loop through all directions
+        // цикл во всех направлениях
         for (int i = -1; i <= 1; i++)
         {
             for (int j = -1; j <= 1; j++)
@@ -122,12 +123,12 @@ public static class AStar
 
                 if (validNeighbourNode != null)
                 {
-                    // Calculate new gcost for neighbour
+                    // Рассчёт новой стоимости для соседа
                     int newCostToNeighbour;
 
-                    // Get the movement penalty
-                    // Unwalkable paths have a value of 0. Default movement penalty is set in
-                    // Settings and applies to other grid squares.
+                    // получить штраф за передвижение
+                    // Непроходимые пути имеют значение 0. Штраф за перемещение по умолчанию устанавливается в
+                    // настройках и применяется к другим квадратам сетки.
                     int movementPenaltyForGridSpace = instantiatedRoom.aStarMovementPenalty[validNeighbourNode.gridPosition.x, 
                         validNeighbourNode.gridPosition.y];
 
@@ -153,7 +154,7 @@ public static class AStar
 
 
     /// <summary>
-    /// Returns the distance int between nodeA and nodeB
+    /// Возвращает расстояние между узлами NodeA и NodeB
     /// </summary>
     private static int GetDistance(Node nodeA, Node nodeB)
     {
@@ -161,17 +162,17 @@ public static class AStar
         int dstY = Mathf.Abs(nodeA.gridPosition.y - nodeB.gridPosition.y);
 
         if (dstX > dstY)
-            return 14 * dstY + 10 * (dstX - dstY);  // 10 used instead of 1, and 14 is a pythagoras approximation SQRT(10*10 + 10*10) - to avoid using floats
+            return 14 * dstY + 10 * (dstX - dstY);  // 10 используется вместо 1, а 14 - это приближение Пифагора SQRT(10*10 + 10*10)
         return 14 * dstX + 10 * (dstY - dstX);
     }
 
     /// <summary>
-    /// Evaluate a neighbour node at neighboutNodeXPosition, neighbourNodeYPosition, using the
-    /// specified gridNodes, closedNodeHashSet, and instantiated room.  Returns null if the node isn't valid
+    /// вычислить соседний узел в Neighbouroutnodexposition, соседний узел yPosition, используя
+    /// указанные узлы сетки, хэш-набор закрытых узлов и созданную комнату.Возвращает значение null, если узел недействителен
     /// </summary>
     private static Node GetValidNodeNeighbour(int neighbourNodeXPosition, int neighbourNodeYPosition, GridNodes gridNodes, HashSet<Node> closedNodeHashSet, InstantiatedRoom instantiatedRoom)
     {
-        // If neighbour node position is beyond grid then return null
+        // Если позиция соседнего узла находится за пределами сетки, то возвращает значение null
         if (neighbourNodeXPosition >= instantiatedRoom.room.templateUpperBounds.x - instantiatedRoom.room.templateLowerBounds.x || 
             neighbourNodeXPosition < 0 || 
             neighbourNodeYPosition >= instantiatedRoom.room.templateUpperBounds.y - instantiatedRoom.room.templateLowerBounds.y || 
@@ -180,17 +181,17 @@ public static class AStar
             return null;
         }
 
-        // Get neighbour node
+        // Получить соседний узел
         Node neighbourNode = gridNodes.GetGridNode(neighbourNodeXPosition, neighbourNodeYPosition);
 
-        // check for obstacle at that position
+        // нет ли препятствий в этом положении
         int movementPenaltyForGridSpace = instantiatedRoom.aStarMovementPenalty[neighbourNodeXPosition, neighbourNodeYPosition];
 
-        // check for moveable obstacle at that position
+        // нет ли подвижного препятствия в этом положении
         int itemObstacleForGridSpace = instantiatedRoom.aStarItemObstacles[neighbourNodeXPosition, neighbourNodeYPosition];
 
 
-        // if neighbour is an obstacle or neighbour is in the closed list then skip
+        // если сосед является препятствием или сосед находится в закрытом списке, то null
         if (movementPenaltyForGridSpace == 0 || itemObstacleForGridSpace == 0 || closedNodeHashSet.Contains(neighbourNode))
         {
             return null;
