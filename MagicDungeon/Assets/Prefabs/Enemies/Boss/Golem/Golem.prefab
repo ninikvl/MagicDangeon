@@ -151,5 +151,13 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7556791408884045834, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556791408884045834, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6875
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22434eedba0802e4a849ef91ba4c227f, type: 3}
