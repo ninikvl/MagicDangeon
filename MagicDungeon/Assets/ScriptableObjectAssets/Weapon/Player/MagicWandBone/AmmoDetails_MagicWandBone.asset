@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: AmmoDetails_MagicWandBone
   m_EditorClassIdentifier: 
   ammoName: MagicWandBone Ammo
-  isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: f64daa7b0bceeb1439cc7124f91a8d09, type: 3}
+  isPlayerAmmo: 0
+  ammoSprite: {fileID: 21300000, guid: 99e8ba7868bc2394ca7a239da638ee8f, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: a4f67880167136f4b95d1aa6e974a2c2, type: 3}
+  - {fileID: 2188732956512051053, guid: 3414390acc828f54ca8908e9c336d192, type: 3}
   ammoMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}

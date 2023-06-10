@@ -40,6 +40,8 @@ public class Minimap : MonoBehaviour
         {
             spriteRenderer.sprite = GameManager.Instance.GetPlayerMiniMapIcon();
         }
+
+      
     }
 
     private void Update()
@@ -57,6 +59,10 @@ public class Minimap : MonoBehaviour
         {
             SetPositionBossMinimapIcon();
         }
+        else if (roomChangedEventArgs.room.roomNodeType.isEndRoom)
+        {
+            DisableBossMinmapIcon();
+        }
     }
 
     public void SetPositionBossMinimapIcon()
@@ -67,10 +73,16 @@ public class Minimap : MonoBehaviour
 
             if (room.roomNodeType.isBossRoom)
             {
-                miniMapBoss.transform.position = new Vector3(room.lowerBounds.x + room.templateUpperBounds.x / 2, room.lowerBounds.y + room.templateUpperBounds.y / 2, 0f);
+                
+                miniMapBoss.transform.position = new Vector3(room.lowerBounds.x + (room.upperBounds.x - room.lowerBounds.x) / 2, room.lowerBounds.y + (room.upperBounds.y - room.lowerBounds.y) / 2, 0f);
                 miniMapBoss.SetActive(true);
             }
         }
+    }
+
+    private void DisableBossMinmapIcon()
+    {
+        miniMapBoss.SetActive(false);
     }
 
     #region Validation

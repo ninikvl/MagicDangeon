@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: MagicWandDefault Ammo
   isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 4dbcf0fa6c6ca2e46aa85378d541e3fc, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: dc1b1eb599a34e347a17435ca781bdc6, type: 3}
+  - {fileID: 2188732956512051053, guid: 25ced2458b7271a4fb8cff1980392ded, type: 3}
   ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
@@ -27,12 +27,12 @@ MonoBehaviour:
   ammoRotationSpeed: 1
   ammoSpreadMin: 2
   ammoSpreadMax: 4
-  ammoSpawnAmountMin: 4
-  ammoSpawnAmountMax: 8
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0
   ammoSpawnIntervalMax: 0
-  isAmmoTrail: 1
-  ammoTrailTime: 2
+  isAmmoTrail: 0
+  ammoTrailTime: 0
   ammoTrailMaterial: {fileID: 2100000, guid: f40d05d451e2ae24f91e9e3314c280da, type: 2}
   ammoTrailStartWidth: 0.109
   ammoTrailEndWidth: 0.392

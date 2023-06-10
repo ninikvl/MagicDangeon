@@ -295,15 +295,13 @@ public class GameManager : SingletonMonobehavior<GameManager>
                 bossRoom = keyValuePair.Value.instantiatedRoom;
                 continue;
             }
-
-            //// check if other rooms have been cleared of enemies
-            //if (!keyValuePair.Value.isClearedOfEnemies)
-            //{
-            //    isDungeonClearOfRegularEnemies = false;
-            //    break;
-            //}
+            // check if other rooms have been cleared of enemies
+            if (!keyValuePair.Value.isClearedOfEnemies)
+            {
+                isDungeonClearOfRegularEnemies = false;
+                break;
+            }
         }
-
         // Set game state
         // If dungeon level completly cleared (i.e. dungeon cleared apart from boss and there is no boss room OR dungeon cleared apart from boss and boss room is also cleared)
         if ((isDungeonClearOfRegularEnemies && bossRoom == null) || (isDungeonClearOfRegularEnemies && bossRoom.room.isClearedOfEnemies))
@@ -318,14 +316,6 @@ public class GameManager : SingletonMonobehavior<GameManager>
                 gameState = GameState.gameWon;
             }
         }
-        // Else if dungeon level cleared apart from boss room
-        else if (isDungeonClearOfRegularEnemies)
-        {
-            gameState = GameState.bossStage;
-
-            StartCoroutine(BossStage());
-        }
-
     }
 
     /// <summary>
@@ -463,31 +453,6 @@ public class GameManager : SingletonMonobehavior<GameManager>
     }
 
     /// <summary>
-    /// Enter boss stage
-    /// </summary>
-    private IEnumerator BossStage()
-    {
-        // Activate boss room
-        bossRoom.gameObject.SetActive(true);
-
-        //// Unlock boss room
-        //bossRoom.UnlockDoors(0f);
-
-        // Wait 2 seconds
-        yield return new WaitForSeconds(2f);
-
-        // Fade in canvas to display text message
-        yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
-
-        // Display boss message
-        yield return StartCoroutine(DisplayMessageRoutine("WELL DONE  " + GameResources.Instance.currentPlayer.playerName + "!  YOU'VE SURVIVED ....SO FAR\n\nNOW FIND AND DEFEAT THE BOSS....GOOD LUCK!", Color.white, 5f));
-
-        // Fade out canvas
-        yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
-
-    }
-
-    /// <summary>
     /// Show level as being completed - load next level
     /// </summary>
     private IEnumerator LevelCompleted()
@@ -497,17 +462,6 @@ public class GameManager : SingletonMonobehavior<GameManager>
 
         // Wait 2 seconds
         yield return new WaitForSeconds(2f);
-
-        // Fade in canvas to display text message
-        yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
-
-        // Display level completed
-        yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! \n\nYOU'VE SURVIVED THIS DUNGEON LEVEL", Color.white, 5f));
-
-        yield return StartCoroutine(DisplayMessageRoutine("COLLECT ANY LOOT ....THEN PRESS RETURN\n\nTO DESCEND FURTHER INTO THE DUNGEON", Color.white, 5f));
-
-        // Fade out canvas
-        yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
 
         // When player presses the return key proceed to the next level
         while (!Input.GetKeyDown(KeyCode.Return))

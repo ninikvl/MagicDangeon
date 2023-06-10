@@ -167,6 +167,10 @@ public class FireWeapon : MonoBehaviour
             activeWeapon.GetCurrentWeapon().weaponClipRemainingAmmo--;
             activeWeapon.GetCurrentWeapon().weaponRemainingAmmo--;
         }
+        if (activeWeapon.GetCurrentWeapon().weaponDetails.hasInfiniteClipCapacity && !activeWeapon.GetCurrentWeapon().weaponDetails.hasInfiniteAmmo)
+        {
+            activeWeapon.GetCurrentWeapon().weaponRemainingAmmo--;
+        }
 
         // Call weapon fired event
         weaponFiredEvent.CallFireWeaponEvent(activeWeapon.GetCurrentWeapon());

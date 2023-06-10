@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: Kosa
   isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: dea231e4dc8f19649802b54c5cba5ec6, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 9f94b683fa0c47b4db47eb30d42380f4, type: 3}
   ammoPrefabArray:
   - {fileID: 2188732956512051053, guid: 22bbbd63ad99a1146878c858bda126b3, type: 3}
   ammoMaterial: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
@@ -24,7 +24,9 @@ MonoBehaviour:
   ammoSpeedMin: 13
   ammoSpeedMax: 13
   ammoRange: 18
-  ammoRotationSpeed: 1
+  isAmmoSriteRotation: 1
+  ammoSpriteRotationSpeed: 3
+  ammoPatternRotationSpeed: 1
   ammoSpreadMin: 1
   ammoSpreadMax: 3
   ammoSpawnAmountMin: 1

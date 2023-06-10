@@ -19,6 +19,9 @@ public class Ammo : MonoBehaviour, IFireable
     private bool isAmmoMaterialSet = false;
     private bool overrideAmmoMovement;
     private bool isColliding = false;
+    private float ammoRotation = 0;
+
+    //private float r;
 
     private void Awake()
     {
@@ -43,6 +46,19 @@ public class Ammo : MonoBehaviour, IFireable
 
         transform.position += distanceVector;
         ammoRange -= distanceVector.magnitude;
+
+        //Вращение спрайта снаряда
+        if (ammoDetailsSO.isAmmoSriteRotation)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.forward * ammoRotation);
+            ammoRotation += ammoDetailsSO.ammoSpriteRotationSpeed;
+            if (ammoRotation > 360)
+            {
+                ammoRotation = 1;
+            }
+        }
+
+
         if (ammoRange < 0f)
         {
             if (ammoDetailsSO.isPlayerAmmo)
@@ -156,7 +172,7 @@ public class Ammo : MonoBehaviour, IFireable
     }
 
     /// <summary>
-    /// Установка направления и угола стрельбы боеприпасами на основе входного угла и направления, скорректированных
+    /// Установка направления и угла стрельбы боеприпасами на основе входного угла и направления, скорректированных
     /// случайным разбросом
     /// </summary>
     private void SetFireDirection(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, Vector3 weaponAimDirectionVector)

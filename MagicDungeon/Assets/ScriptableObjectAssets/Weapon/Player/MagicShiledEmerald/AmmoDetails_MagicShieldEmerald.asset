@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: MagicShieldEmerald Ammo
   isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: e94532f7f529cb2448bb44387080d1e2, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 4dbcf0fa6c6ca2e46aa85378d541e3fc, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: 029e76f8b1d5c9f4fae76907bbca86c8, type: 3}
+  - {fileID: 2188732956512051053, guid: 25ced2458b7271a4fb8cff1980392ded, type: 3}
   ammoMaterial: {fileID: 2100000, guid: 33a55999e44f4724191171c59fc64319, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
@@ -25,7 +25,7 @@ MonoBehaviour:
   ammoSpeedMax: 15
   ammoRange: 20
   ammoRotationSpeed: 1
-  ammoSpreadMin: 0
+  ammoSpreadMin: 1
   ammoSpreadMax: 160
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1

@@ -61,9 +61,17 @@ public class AmmoDetailsSO : ScriptableObject
     #endregion
     public float ammoRange = 20f;
     #region Tooltip
+    [Tooltip("Крутится ли боеприпас?")]
+    #endregion
+    public bool isAmmoSriteRotation = false;
+    #region Tooltip
+    [Tooltip("Скорость поворота  боеприпаса")]
+    #endregion
+    public float ammoSpriteRotationSpeed = 0f;
+    #region Tooltip
     [Tooltip("Скорость поворота паттерна боеприпаса")]
     #endregion
-    public float ammoRotationSpeed = 1f;
+    public float ammoPatternRotationSpeed = 1f;
 
     #region Header Ammo Spread Parameters
     [Space(10)]

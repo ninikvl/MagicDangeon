@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
+  m_Name: WeaponDetails_MagicSteelRed
+  m_EditorClassIdentifier: 
+  weaponName: Magic Wand Steel Red
+  weaponSprite: {fileID: 21300000, guid: 22b941ce8b1e08949aacdce68f150ffd, type: 3}
+  weaponShootPosition: {x: 0, y: 1, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 35348303f7610554a96045762be014a1, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 1
+  weaponClipAmmoCapacity: 50
+  weaponAmmoCapacity: 800
+  weaponFireRate: 0.9
+  weaponPrechargeTime: 0
+  weaponReloadTime: 1.2

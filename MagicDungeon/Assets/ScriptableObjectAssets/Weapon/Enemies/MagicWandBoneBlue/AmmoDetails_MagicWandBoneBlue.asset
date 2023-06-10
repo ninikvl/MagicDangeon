@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: MagicWandBoneBlue Ammo
   isPlayerAmmo: 0
-  ammoSprite: {fileID: 21300000, guid: e94532f7f529cb2448bb44387080d1e2, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 8b2ab8ac41e016f479d0014a8e8dca2c, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: a12096db967729847b5d7f5562ad29a4, type: 3}
+  - {fileID: 2188732956512051053, guid: c03e4a0c77bcf614b8cc5736f1e62145, type: 3}
   ammoMaterial: {fileID: 2100000, guid: a8f373dc317a30d40a68b73a78ce1d09, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}

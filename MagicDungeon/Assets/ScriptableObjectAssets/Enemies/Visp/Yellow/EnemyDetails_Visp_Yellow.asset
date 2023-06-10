@@ -24,7 +24,7 @@ MonoBehaviour:
   firingIntervalMax: 1
   firingDurationMin: 1
   firingDurationMax: 2
-  firingLineOfSightRequired: 0
+  firingLineOfSightRequired: 1
   enemyHealthDetailsArray:
   - dungeonLevel: {fileID: 11400000, guid: 68024a9efab406246b7ef5ec5d24e409, type: 2}
     enemyHealthAmount: 25
