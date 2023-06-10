@@ -18,15 +18,13 @@ public class EnemyMovementAI : MonoBehaviour
     private WaitForFixedUpdate waitForFixedUpdate;
     [HideInInspector] public float moveSpeed;
     private bool chasePlayer = false;
-    [HideInInspector] public int updateFrameNumber = 1; // default value.  This is set by the enemy spawner.
+    [HideInInspector] public int updateFrameNumber = 1;
 
     private List<Vector2Int> surroundingPositionList = new List<Vector2Int>();
 
     private void Awake()
     {
-        // Load components
         enemy = GetComponent<Enemy>();
-
         moveSpeed = movementDetails.GetMoveSpeed();
     }
 

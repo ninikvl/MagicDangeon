@@ -4,31 +4,31 @@ using UnityEngine;
 public class RoomEnemySpawnParameters
 {
     #region Tooltip
-    [Tooltip("Defines the dungeon level for this room with regard to how many enemies in total should be spawned")]
+    [Tooltip("Определяет уровень подземелья для этой комнаты в зависимости от того, сколько всего врагов должно быть порождено")]
     #endregion Tooltip
     public DungeonLevelSO dungeonLevel;
     #region Tooltip
-    [Tooltip("The minimum number of enemies to spawn in this room for this dungeon level.  The actual number will be a random value between the minimum and maximum values")]
+    [Tooltip("Минимальное количество врагов, которые могут появиться в этой комнате для данного уровня подземелья.  Фактическое число будет случайным значением между минимальным и максимальным значениями")]
     #endregion Tooltip
     public int minTotalEnemiesToSpawn;
     #region Tooltip
-    [Tooltip("The maximum number of enemies to spawn in this room for this dungeon level.  The actual number will be a random value between the minimum and maximum values.")]
+    [Tooltip("Максимальное количество врагов, которые могут появиться в этой комнате для данного уровня подземелья.  Фактическое число будет случайным значением между минимальным и максимальным значениями.")]
     #endregion Tooltip
     public int maxTotalEnemiesToSpawn;
     #region Tooltip
-    [Tooltip("The minimum number of concurrent enemies to spawn in this room for this dungeon level.  The actual number will be a random value between the minimum and maximum values.")]
+    [Tooltip("Минимальное количество одновременно появляющихся врагов в этой комнате для данного уровня подземелья.  Фактическое число будет случайным значением между минимальным и максимальным значениями.")]
     #endregion Tooltip
     public int minConcurrentEnemies;
     #region Tooltip
-    [Tooltip("The maximum number of concurrent enemies to spawn in this room for this dungeon level.  The actual number will be a random value between the minimum and maximum values. ")]
+    [Tooltip("Максимальное количество одновременно появляющихся врагов в этой комнате для данного уровня подземелья.  Фактическое число будет случайным значением между минимальным и максимальным значениями.")]
     #endregion Tooltip
     public int maxConcurrentEnemies;
     #region Tooltip
-    [Tooltip("The minimum spawn interval in seconds for enemies in this room for this dungeon level.  The actual number will be a random value between the minimum and maximum values.")]
+    [Tooltip("Минимальный интервал появления врагов в этой комнате для данного уровня подземелья в секундах.  Фактическое число будет случайным значением между минимальным и максимальным значениями.")]
     #endregion Tooltip
     public int minSpawnInterval;
     #region Tooltip
-    [Tooltip("The maximum spawn interval in seconds for enemies in this room for this dungeon level.  The actual number will be a random value between the minimum and maximum values.")]
+    [Tooltip("Максимальный интервал появления врагов в этой комнате для данного уровня подземелья в секундах.  Фактическое число будет случайным значением между минимальным и максимальным значениями.")]
     #endregion Tooltip
     public int maxSpawnInterval;
 }

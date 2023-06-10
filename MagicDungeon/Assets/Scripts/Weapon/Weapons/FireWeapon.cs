@@ -114,21 +114,70 @@ public class FireWeapon : MonoBehaviour
 
         if (currentAmmo != null)
         {
-            GameObject ammoPrefab = currentAmmo.ammoPrefabArray[Random.Range(0, currentAmmo.ammoPrefabArray.Length)];
-            float ammoSpeed = Random.Range(currentAmmo.ammoSpeedMin, currentAmmo.ammoSpeedMax);
-            IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
-            ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
-
-            if (!activeWeapon.GetCurrentWeapon().weaponDetails.hasInfiniteClipCapacity)
-            {
-                activeWeapon.GetCurrentWeapon().weaponClipRemainingAmmo--;
-                activeWeapon.GetCurrentWeapon().weaponRemainingAmmo--;
-            }
-
-            weaponFiredEvent.CallFireWeaponEvent(activeWeapon.GetCurrentWeapon());
+            StartCoroutine(FireAmmoRoutine(currentAmmo, aimAngle, weaponAimAngle, weaponAimDirectionVector));
         }
     }
-    
+
+    /// <summary>
+    /// Coroutine to spawn multiple ammo per shot if specified in the ammo details
+    /// </summary>
+    private IEnumerator FireAmmoRoutine(AmmoDetailsSO currentAmmo, float aimAngle, float weaponAimAngle, Vector3 weaponAimDirectionVector)
+    {
+        int ammoCounter = 0;
+
+        // Get random ammo per shot
+        int ammoPerShot = Random.Range(currentAmmo.ammoSpawnAmountMin, currentAmmo.ammoSpawnAmountMax + 1);
+
+        // Get random interval between ammo
+        float ammoSpawnInterval;
+
+        if (ammoPerShot > 1)
+        {
+            ammoSpawnInterval = Random.Range(currentAmmo.ammoSpawnIntervalMin, currentAmmo.ammoSpawnIntervalMax);
+        }
+        else
+        {
+            ammoSpawnInterval = 0f;
+        }
+
+        // Loop for number of ammo per shot
+        while (ammoCounter < ammoPerShot)
+        {
+            ammoCounter++;
+
+            // Get ammo prefab from array
+            GameObject ammoPrefab = currentAmmo.ammoPrefabArray[Random.Range(0, currentAmmo.ammoPrefabArray.Length)];
+
+            // Get random speed value
+            float ammoSpeed = Random.Range(currentAmmo.ammoSpeedMin, currentAmmo.ammoSpeedMax);
+
+            // Get Gameobject with IFireable component
+            IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
+
+            // Initialise Ammo
+            ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
+
+            // Wait for ammo per shot timegap
+            yield return new WaitForSeconds(ammoSpawnInterval);
+        }
+
+        // Reduce ammo clip count if not infinite clip capacity
+        if (!activeWeapon.GetCurrentWeapon().weaponDetails.hasInfiniteClipCapacity)
+        {
+            activeWeapon.GetCurrentWeapon().weaponClipRemainingAmmo--;
+            activeWeapon.GetCurrentWeapon().weaponRemainingAmmo--;
+        }
+
+        // Call weapon fired event
+        weaponFiredEvent.CallFireWeaponEvent(activeWeapon.GetCurrentWeapon());
+
+        //// Display weapon shoot effect
+        //WeaponShootEffect(aimAngle);
+
+        //// Weapon fired sound effect
+        //WeaponSoundEffect();
+    }
+
     /// <summary>
     /// —брос таймера задержки между выстрелами
     /// </summary>

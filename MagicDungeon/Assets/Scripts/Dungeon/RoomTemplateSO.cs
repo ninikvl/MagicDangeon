@@ -54,16 +54,16 @@ public class RoomTemplateSO : ScriptableObject
     #region Header ENEMY DETAILS
 
     [Space(10)]
-    [Header("ENEMY DETAILS")]
+    [Header("Детали врагов")]
 
     #endregion Header ENEMY DETAILS
     #region Tooltip
-    [Tooltip("Populate the list with all the enemies that can be spawned in this room by dungeon level, including the ratio (random) of this enemy type that will be spawned")]
+    [Tooltip("Заполните список всеми врагами, которые могут быть порождены в этой комнате, в зависимости от уровня подземелья, включая соотношение (случайное) этого типа врагов, которые будут порождены")]
     #endregion Tooltip
     public List<SpawnableObjectsByLevel<EnemyDetailsSO>> enemiesByLevelList;
 
     #region Tooltip
-    [Tooltip("Populate the list with the spawn parameters for the enemies.")]
+    [Tooltip("Заполните список параметрами появления врагов.")]
     #endregion Tooltip
     public List<RoomEnemySpawnParameters> roomEnemySpawnParametersList;
 
@@ -88,7 +88,7 @@ public class RoomTemplateSO : ScriptableObject
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(doorwaysList), doorwaysList);
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(spawnPosArray), spawnPosArray);
 
-        // Check enemies and room spawn parameters for levels
+        // проверка параметров появления врагов и комнат для уровней
         if (enemiesByLevelList.Count > 0 || roomEnemySpawnParametersList.Count > 0)
         {
             HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemiesByLevelList), enemiesByLevelList);
@@ -103,7 +103,7 @@ public class RoomTemplateSO : ScriptableObject
 
                 bool isEnemyTypesListForDungeonLevel = false;
 
-                // Validate enemy types list
+                // Проверка списка типов врагов
                 foreach (SpawnableObjectsByLevel<EnemyDetailsSO> dungeonObjectsByLevel in enemiesByLevelList)
                 {
                     if (dungeonObjectsByLevel.dungeonLevel == roomEnemySpawnParameters.dungeonLevel && dungeonObjectsByLevel.spawnableObjectRatioList.Count > 0)
@@ -127,7 +127,7 @@ public class RoomTemplateSO : ScriptableObject
             }
         }
 
-        // Check spawn positions populated
+        // проверка на заполненные позиции для появления
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(spawnPosArray), spawnPosArray);
     }
 

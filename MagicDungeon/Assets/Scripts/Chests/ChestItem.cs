@@ -18,7 +18,7 @@ public class ChestItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Initialize the chest item
+    /// инициализировать элемент сундука
     /// </summary>
     public void Initialize(Sprite sprite, string text, Vector3 spawnPosition, Color materializeColor)
     {
@@ -29,7 +29,7 @@ public class ChestItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Materialize the chest item
+    /// материализовать предмет из сундука
     /// </summary>
     private IEnumerator MaterializeItem(Color materializeColor, string text)
     {

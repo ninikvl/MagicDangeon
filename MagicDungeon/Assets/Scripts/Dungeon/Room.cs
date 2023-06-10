@@ -34,7 +34,7 @@ public class Room
     }
 
     /// <summary>
-    /// Get the number of enemies to spawn for this room in this dungeon level
+    /// получить количество врагов, которые появятся в этой комнате на этом уровне подземелья
     /// </summary>
     public int GetNumberOfEnemiesToSpawn(DungeonLevelSO dungeonLevel)
     {
@@ -50,7 +50,7 @@ public class Room
     }
 
     /// <summary>
-    /// Get the room enemy spawn parameters for this dungeon level - if none found then return null
+    /// Получить параметры появления врага в комнате для этого уровня подземелья - если ничего не найдено, верните значение null
     /// </summary>
     public RoomEnemySpawnParameters GetRoomEnemySpawnParameters(DungeonLevelSO dungeonLevel)
     {

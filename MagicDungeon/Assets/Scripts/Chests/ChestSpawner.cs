@@ -13,59 +13,59 @@ public class ChestSpawner : MonoBehaviour
 
     #region Header CHEST PREFAB
     [Space(10)]
-    [Header("CHEST PREFAB")]
+    [Header("Префаб сундука")]
     #endregion Header CHEST PREFAB
     #region Tooltip
-    [Tooltip("Populate with the chest prefab")]
+    [Tooltip("Заполните префаб сундука")]
     #endregion Tooltip
     [SerializeField] private GameObject chestPrefab;
 
     #region Header CHEST SPAWN CHANCE
     [Space(10)]
-    [Header("CHEST SPAWN CHANCE")]
+    [Header("Шанс спавна сундука")]
     #endregion Header CHEST SPAWN CHANCE
     #region Tooltip
-    [Tooltip("The minimum probability for spawning a chest")]
+    [Tooltip("Минимальная вероятность появления сундука")]
     #endregion Tooltip
     [SerializeField] [Range(0, 100)] private int chestSpawnChanceMin;
     #region Tooltip
-    [Tooltip("The maximum probability for spawning a chest")]
+    [Tooltip("Максимальная вероятность появления сундука")]
     #endregion Tooltip
     [SerializeField] [Range(0, 100)] private int chestSpawnChanceMax;
     #region Tooltip
-    [Tooltip(" You can override the chest spawn chance by dungeon level")]
+    [Tooltip("Вы можете изменить шанс появления сундука в зависимости от уровня подземелья")]
     #endregion Tooltip
     [SerializeField] private List<RangeByLevel> chestSpawnChanceByLevelList;
 
     #region Header CHEST SPAWN DETAILS
     [Space(10)]
-    [Header("CHEST SPAWN DETAILS")]
+    [Header("Деталии спавна сундука")]
     #endregion Header CHEST SPAWN DETAILS
     [SerializeField] private ChestSpawnEvent chestSpawnEvent;
     [SerializeField] private ChestSpawnPosition chestSpawnPosition;
     #region Tooltip
-    [Tooltip("The minimum number of items to spawn (note that a maximum of 1 of each type of ammo, health, and weapon will be spawned")]
+    [Tooltip("Минимальное количество предметов для создания (обратите внимание, что будет создано не более 1 каждого типа боеприпасов, здоровья и оружия")]
     #endregion Tooltip
     [SerializeField] [Range(0, 3)] private int numberOfItemsToSpawnMin;
     #region Tooltip
-    [Tooltip("The maximum number of items to spawn (note that a maximum of 1 of each type of ammo, health, and weapon will be spawned")]
+    [Tooltip("Максимальное количество предметов для создания (обратите внимание, что будет создано не более 1 для каждого типа боеприпасов, здоровья и оружия")]
     #endregion Tooltip
     [SerializeField] [Range(0, 3)] private int numberOfItemsToSpawnMax;
 
     #region Header CHEST CONTENT DETAILS
     [Space(10)]
-    [Header("CHEST CONTENT DETAILS")]
+    [Header("Деталии содержащихся в сундуке предметов")]
     #endregion Header CHEST CONTENT DETAILS
     #region Tooltip
-    [Tooltip("The weapons to spawn for each dungeon level and their spawn ratios")]
+    [Tooltip("Оружие, которое будет появляться на каждом уровне подземелья, и соотношение их появления")]
     #endregion Tooltip
     [SerializeField] private List<SpawnableObjectsByLevel<WeaponDetailsSO>> weaponSpawnByLevelList;
     #region Tooltip
-    [Tooltip("The range of health to spawn for each level")]
+    [Tooltip("Диапазон здоровья для появления на каждом уровне")]
     #endregion Tooltip
     [SerializeField] private List<RangeByLevel> healthSpawnByLevelList;
     #region Tooltip
-    [Tooltip("The range of ammo to spawn for each level")]
+    [Tooltip("Количество боеприпасов, которые будут появляться на каждом уровне")]
     #endregion Tooltip
     [SerializeField] private List<RangeByLevel> ammoSpawnByLevelList;
 
@@ -74,34 +74,27 @@ public class ChestSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        // Subscribe to room changed event
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
-
-        // Subscribe to room enemies defeated event
         StaticEventHandler.OnRoomEnemiesDefeated += StaticEventHandler_OnRoomEnemiesDefeated;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe from room changed event
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
-
-        // Unsubscribe from room enemies defeated event
         StaticEventHandler.OnRoomEnemiesDefeated -= StaticEventHandler_OnRoomEnemiesDefeated;
     }
 
     /// <summary>
-    /// Handle room changed event
+    /// Обработчик событий OnRoomChanged
     /// </summary>
     private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
-        // Get the room the chest is in if we don't already have it
+        // Получить комнату, в которой находится сундук
         if (chestRoom == null)
         {
             chestRoom = GetComponentInParent<InstantiatedRoom>().room;
         }
-
-        // If the chest is spawned on room entry then spawn chest
+        // Если сундук появился при входе в комнату
         if (!chestSpawned && chestSpawnEvent == ChestSpawnEvent.onRoomEntry && chestRoom == roomChangedEventArgs.room)
         {
             SpawnChest();
@@ -109,18 +102,16 @@ public class ChestSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Handle room enemies defeated event
+    /// Обработчик событий OnRoomEnemiesDefeated
     /// </summary>
     private void StaticEventHandler_OnRoomEnemiesDefeated(RoomEnemiesDefeatedArgs roomEnemiesDefeatedArgs)
     {
-        // Get the room the chest is in if we don't already have it
+        // Получить комнату, в которой находится сундук
         if (chestRoom == null)
         {
             chestRoom = GetComponentInParent<InstantiatedRoom>().room;
         }
-
-        // If the chest is spawned when enemies are defeated and the chest is in the room that the
-        // enemies have been defeated
+        // сундук появляется, когда враги побеждены,
         if (!chestSpawned && chestSpawnEvent == ChestSpawnEvent.onEnemiesDefeated && chestRoom == roomEnemiesDefeatedArgs.room)
         {
             SpawnChest();
@@ -128,61 +119,59 @@ public class ChestSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Spawn the chest prefab
+    /// Создание префаба судука
     /// </summary>
     private void SpawnChest()
     {
         chestSpawned = true;
 
-        // Should chest be spawned based on specified chance? If not return.
+        // Должен ли сундук создаваться на основе указанного шанса?
         if (!RandomSpawnChest()) return;
 
-        // Get Number Of Ammo,Health, & Weapon Items To Spawn (max 1 of each)
+        // Получитение количества боеприпасов, здоровья и предметов оружия для Спавна (максимум по 1 для каждого)
         GetItemsToSpawn(out int ammoNum, out int healthNum, out int weaponNum);
 
-        // Instantiate chest
+        // создать экземпляр сундука
         GameObject chestGameObject = Instantiate(chestPrefab, this.transform);
 
-        // Position chest
+        // Положение сундука
         if (chestSpawnPosition == ChestSpawnPosition.atSpawnerPosition)
         {
             chestGameObject.transform.position = this.transform.position;
         }
         else if (chestSpawnPosition == ChestSpawnPosition.atPlayerPosition)
         {
-            // Get nearest spawn position to player
+            // получить ближайшую позицию игрока
             Vector3 spawnPosition = HelperUtilities.GetSpawnPositionToPlayer(GameManager.Instance.GetPlayer().transform.position);
 
-            // Calculate some random variation
+            // вычислить случайное изменение
             Vector3 variation = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
 
             chestGameObject.transform.position = spawnPosition + variation;
         }
 
-        // Get Chest component
         Chest chest = chestGameObject.GetComponent<Chest>();
 
-        // Initialize chest
+        // Инициализировать сундук
         if (chestSpawnEvent == ChestSpawnEvent.onRoomEntry)
         {
-            // Don't use materialize effect
             chest.Initialize(false, GetHealthPercentToSpawn(healthNum), GetWeaponDetailsToSpawn(weaponNum), GetAmmoPercentToSpawn(ammoNum));
         }
         else
         {
-            // use materialize effect
             chest.Initialize(true, GetHealthPercentToSpawn(healthNum), GetWeaponDetailsToSpawn(weaponNum), GetAmmoPercentToSpawn(ammoNum));
         }
     }
 
     /// <summary>
-    /// Check if a chest should be spawned based on the chest spawn chance - returns true if chest should be spawned false otherwise
+    /// проверяет, должен ли быть создан сундук, исходя из вероятности появления сундука - возвращает значение true, 
+    /// если сундук должен быть создан, в противном случае значение false
     /// </summary>
     private bool RandomSpawnChest()
     {
         int chancePercent = Random.Range(chestSpawnChanceMin, chestSpawnChanceMax + 1);
 
-        // Check if an override chance percent has been set for the current level
+        // проверяет, установлен ли процент вероятности переопределения для текущего уровня
         foreach (RangeByLevel rangeByLevel in chestSpawnChanceByLevelList)
         {
             if (rangeByLevel.dungeonLevel == GameManager.Instance.GetCurrentDungeonLevel())
@@ -192,7 +181,6 @@ public class ChestSpawner : MonoBehaviour
             }
         }
 
-        // get random value between 1 and 100
         int randomPercent = Random.Range(1, 100 + 1);
 
         if (randomPercent <= chancePercent)
@@ -206,7 +194,7 @@ public class ChestSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Get the number of items to spawn - max 1 of each - max 3 in total
+    /// получить количество предметов для появления - максимум 1 из каждого - всего не более 3
     /// </summary>
     private void GetItemsToSpawn(out int ammo, out int health, out int weapons)
     {
@@ -243,7 +231,7 @@ public class ChestSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Get ammo percent to spawn
+    /// получить процент боезапаса для появления
     /// </summary>
     private int GetAmmoPercentToSpawn(int ammoNumber)
     {
@@ -262,13 +250,13 @@ public class ChestSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Get health percent to spawn
+    /// Получить количество здоровья для появления
     /// </summary>
     private int GetHealthPercentToSpawn(int healthNumber)
     {
-        if (healthNumber == 0) return 0;
+        if (healthNumber == 0) 
+            return 0;
 
-        // Get ammo spawn percent range for level
         foreach (RangeByLevel spawnPercentByLevel in healthSpawnByLevelList)
         {
             if (spawnPercentByLevel.dungeonLevel == GameManager.Instance.GetCurrentDungeonLevel())
@@ -281,14 +269,13 @@ public class ChestSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Get the weapon details to spawn - return null if no weapon is to be spawned or the player already has the weapon
+    /// Получить сведения об оружии для создания - вернуть значение null, 
+    /// если оружие не должно быть создано или у игрока уже есть оружие
     /// </summary>
     private WeaponDetailsSO GetWeaponDetailsToSpawn(int weaponNumber)
     {
         if (weaponNumber == 0) return null;
 
-        // Create an instance of the class used to select a random item from a list based on the
-        // relative 'ratios' of the items specified
         RandomSpawnableObject<WeaponDetailsSO> weaponRandom = new RandomSpawnableObject<WeaponDetailsSO>(weaponSpawnByLevelList);
 
         WeaponDetailsSO weaponDetails = weaponRandom.GetItem();
