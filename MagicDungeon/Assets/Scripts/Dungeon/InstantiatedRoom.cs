@@ -43,9 +43,12 @@ public class InstantiatedRoom : MonoBehaviour
         {
             this.room.isPreviouslyVisited = true;
             StaticEventHandler.CallRoomChangedEvent(room);
+            //Minimap minimap = new Minimap();
+            //minimap.SetPositionBossMinimapIcon();
 
         }
-        
+
+        //Minimap.SetPositionBossMinimapIcon();
         //Если previousToBoss то на крате иконка босса
     }
 

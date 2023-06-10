@@ -96,6 +96,10 @@ public class GameResources : MonoBehaviour
     //[Tooltip("The score prefab")]
     //#endregion
     //public GameObject scorePrefab;
+    #region Tooltip
+    [Tooltip("Заполняется объектом из Minimap")]
+    #endregion
+    public GameObject bossMinimapIcon;
 
     #region Header SPECIAL TILEMAP TILES
     [Space(10)]
