@@ -15,7 +15,7 @@ MonoBehaviour:
   playerCharacterName: The Wizard
   playerPrefab: {fileID: 7755023254301170716, guid: 9b559e98073993944a14de9509d26a99, type: 3}
   runtimeAnimatorController: {fileID: 9100000, guid: 68c292abb5bacaa42bace59c2c27a780, type: 2}
-  playerHealthAmount: 5
+  playerHealthAmount: 40
   isImmuneAfterHit: 1
   hitImmunityTime: 1.5
   startingWeapon: {fileID: 11400000, guid: 82a68c1ad98d4ff4995b585181aa8cc6, type: 2}

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
-  m_Name: WeaponDetails_Sword
+  m_Name: WeaponDetails_MagicWandIgnate
   m_EditorClassIdentifier: 
-  weaponName: Sword
-  weaponSprite: {fileID: 21300000, guid: fc796b29bfdcbc84b8be3b088196d8b6, type: 3}
+  weaponName: Bone Magic Wand
+  weaponSprite: {fileID: 21300000, guid: b82ac73bc4a29914f9f547edd4c6884e, type: 3}
   weaponShootPosition: {x: 0, y: 1.1, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: a92b54c1ab915744ab065276f76e7206, type: 2}
-  hasInfiniteAmmo: 1
-  hasInfiniteClipCapacity: 1
-  weaponClipAmmoCapacity: 6
-  weaponAmmoCapacity: 100
-  weaponFireRate: 0.2
+  weaponCurrentAmmo: {fileID: 11400000, guid: d6dd7539cc28baa4786e78c93749b8a5, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 8
+  weaponAmmoCapacity: 150
+  weaponFireRate: 0.3
   weaponPrechargeTime: 0
-  weaponReloadTime: 0
+  weaponReloadTime: 1.5

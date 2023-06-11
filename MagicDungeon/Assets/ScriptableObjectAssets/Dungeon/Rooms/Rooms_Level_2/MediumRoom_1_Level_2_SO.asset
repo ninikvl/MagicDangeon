@@ -64,9 +64,9 @@ MonoBehaviour:
   - dungeonLevel: {fileID: 11400000, guid: 8f51b32fd1d2cdf46bee0e953ef8fc30, type: 2}
     spawnableObjectRatioList:
     - dungeonObject: {fileID: 11400000, guid: 907e23bc5004aea408326cef0f5ba5b6, type: 2}
-      ratio: 1000
-    - dungeonObject: {fileID: 11400000, guid: f0ce3b540cce59944bcc1b3556f85272, type: 2}
-      ratio: 10
+      ratio: 1
+    - dungeonObject: {fileID: 11400000, guid: 638d676fdc7ce6247b10943cc6f0df53, type: 2}
+      ratio: 100
   roomEnemySpawnParametersList:
   - dungeonLevel: {fileID: 11400000, guid: 8f51b32fd1d2cdf46bee0e953ef8fc30, type: 2}
     minTotalEnemiesToSpawn: 5
