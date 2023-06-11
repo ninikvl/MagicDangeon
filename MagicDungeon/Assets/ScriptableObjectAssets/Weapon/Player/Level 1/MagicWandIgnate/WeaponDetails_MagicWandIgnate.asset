@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
+  m_Name: WeaponDetails_MagicWandIgnate
+  m_EditorClassIdentifier: 
+  weaponName: Magic Wand Ignate
+  weaponSprite: {fileID: 21300000, guid: fa76733769444c140a8e89c03b1fd77f, type: 3}
+  weaponShootPosition: {x: 0, y: 0.5, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 62d0f2aac406a7245947e137164e9b8a, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 5
+  weaponAmmoCapacity: 50
+  weaponFireRate: 1
+  weaponPrechargeTime: 0
+  weaponReloadTime: 2
