@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdc367e2dd8b594e84b4e95ff92cfc6, type: 3}
   m_Name: EnemyDetails_Golem
   m_EditorClassIdentifier: 
-  enemyName: Golem1
+  enemyName: Golem
   enemyPrefab: {fileID: 3804191819702775362, guid: 1a105677ef84a5944a9a46b1992aabff, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
