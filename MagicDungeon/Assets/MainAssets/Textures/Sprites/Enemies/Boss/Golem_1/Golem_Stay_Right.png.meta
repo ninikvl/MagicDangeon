@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-guid: f5dd57b9df8078f4b8536665871982fa
+guid: a99890ba0ea155342a284bd2831baca7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2435671428230103423
-    second: Golem_Move_Left_0
+      213: -4589339835380155460
+    second: Golem_Stay_Right_0
   - first:
-      213: 5971732077034582141
-    second: Golem_Move_Left_1
+      213: -2363532200713855164
+    second: Golem_Stay_Right_1
   - first:
-      213: -3962681970726026309
-    second: Golem_Move_Left_2
-  - first:
-      213: 7514446484810726260
-    second: Golem_Move_Left_3
-  - first:
-      213: -7279154693602089281
-    second: Golem_Move_Left_4
-  - first:
-      213: 5928946126426356212
-    second: Golem_Move_Left_5
-  - first:
-      213: -874642161387255911
-    second: Golem_Move_Left_6
-  - first:
-      213: -6600911628892481027
-    second: Golem_Move_Left_7
+      213: -6482507293804653178
+    second: Golem_Stay_Right_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Golem_Move_Left_0
+      name: Golem_Stay_Right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 32
         height: 48
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -129,19 +114,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18eb6c2adb1c23ed0800000000000000
-      internalID: -2435671428230103423
+      spriteID: cbbbd9e2cb36f40c0800000000000000
+      internalID: -4589339835380155460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_Move_Left_1
+      name: Golem_Stay_Right_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
-        width: 48
+        width: 32
         height: 48
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -150,19 +135,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d70b3793faadfd250800000000000000
-      internalID: 5971732077034582141
+      spriteID: 44fd0496cfb033fd0800000000000000
+      internalID: -2363532200713855164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_Move_Left_2
+      name: Golem_Stay_Right_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 0
-        width: 48
+        width: 32
         height: 48
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -171,113 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb3c7092eb9b109c0800000000000000
-      internalID: -3962681970726026309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_Move_Left_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47b73d2c34da84860800000000000000
-      internalID: 7514446484810726260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_Move_Left_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb6eabe6f5f3bfa90800000000000000
-      internalID: -7279154693602089281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_Move_Left_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f9321ec619d74250800000000000000
-      internalID: 5928946126426356212
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_Move_Left_6
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 997cee89695acd3f0800000000000000
-      internalID: -874642161387255911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_Move_Left_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df95e1eb8d9d464a0800000000000000
-      internalID: -6600911628892481027
+      spriteID: 68515ea46f18906a0800000000000000
+      internalID: -6482507293804653178
       vertices: []
       indices: 
       edges: []

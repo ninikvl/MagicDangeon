@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e689f4e3bd8ba14d918a9d9b9e5488d, type: 3}
   m_Name: MovementDetails_Golem
   m_EditorClassIdentifier: 
-  minMoveSpeed: 1
-  maxMoveSpeed: 4
+  minMoveSpeed: 2
+  maxMoveSpeed: 2
   blinkSpeed: 0
   blinkDistance: 0
   blinkColldownTime: 0
