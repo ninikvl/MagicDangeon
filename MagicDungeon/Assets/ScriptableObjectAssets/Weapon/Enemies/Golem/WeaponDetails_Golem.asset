@@ -15,11 +15,11 @@ MonoBehaviour:
   weaponName: Golem
   weaponSprite: {fileID: 21300000, guid: 2fcbea32b2566ed47ad17f6866b87c67, type: 3}
   weaponShootPosition: {x: 0, y: 0, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: 6c0de4269679eee44acf669af1654c31, type: 2}
-  hasInfiniteAmmo: 0
-  hasInfiniteClipCapacity: 0
+  weaponCurrentAmmo: {fileID: 11400000, guid: 8c701d4148acdef4380228de5f1d293a, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 1
   weaponClipAmmoCapacity: 6
   weaponAmmoCapacity: 100
-  weaponFireRate: 0.2
+  weaponFireRate: 0.05
   weaponPrechargeTime: 0
   weaponReloadTime: 0

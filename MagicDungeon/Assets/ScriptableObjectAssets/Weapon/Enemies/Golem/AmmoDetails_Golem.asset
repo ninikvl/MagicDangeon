@@ -21,20 +21,20 @@ MonoBehaviour:
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
   ammoDamage: 1
-  ammoSpeedMin: 10
-  ammoSpeedMax: 15
-  ammoRange: 25
+  ammoSpeedMin: 5
+  ammoSpeedMax: 12
+  ammoRange: 35
   isAmmoSriteRotation: 0
   ammoSpriteRotationSpeed: 0
   ammoPatternRotationSpeed: 1
-  ammoSpreadMin: 1
-  ammoSpreadMax: 4
-  ammoSpawnAmountMin: 4
-  ammoSpawnAmountMax: 5
-  ammoSpawnIntervalMin: 1
-  ammoSpawnIntervalMax: 2
-  isAmmoTrail: 0
-  ammoTrailTime: 0
-  ammoTrailMaterial: {fileID: 0}
-  ammoTrailStartWidth: 0.4
-  ammoTrailEndWidth: 0.4
+  ammoSpreadMin: 0
+  ammoSpreadMax: 60
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 1
+  ammoTrailTime: 0.1
+  ammoTrailMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
+  ammoTrailStartWidth: 0.23
+  ammoTrailEndWidth: 0
