@@ -48,7 +48,7 @@ public class AimWeapon : MonoBehaviour
         {
             case AimDirection.UpLeft:
                 weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / 5f - 15f);
-                weaponRotationPointTransform.localScale = new Vector3(1f, 1f, 0f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
                 break;
             case AimDirection.Left:
                 weaponRotationPointTransform.localScale = new Vector3(1f, -1f, 0f);
@@ -56,12 +56,12 @@ public class AimWeapon : MonoBehaviour
 
             case AimDirection.Up:
                 weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / 5f - 15f);
-                weaponRotationPointTransform.localScale = new Vector3(1f, 1f, 0f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
                 break;
 
             case AimDirection.UpRight:
                 weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / 5f - 15f);
-                weaponRotationPointTransform.localScale = new Vector3(1f, 1f, 0f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
                 break;
 
             case AimDirection.Right:
@@ -70,7 +70,7 @@ public class AimWeapon : MonoBehaviour
 
             case AimDirection.Down:
                 weaponRotationPointTransform.eulerAngles = new Vector3(0f, 0f, aimAngle / -5f -15f);
-                weaponRotationPointTransform.localScale = new Vector3(1f, 1f, 0f);
+                weaponRotationPointTransform.localScale = new Vector3(-1f, 1f, 0f);
                 break;
         }
     }
