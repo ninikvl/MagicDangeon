@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
   m_Name: WeaponDetails_MagicWandIgnate
   m_EditorClassIdentifier: 
-  weaponName: Bone Magic Wand
-  weaponSprite: {fileID: 21300000, guid: b82ac73bc4a29914f9f547edd4c6884e, type: 3}
+  weaponName: Magic Wand Ignate
+  weaponSprite: {fileID: 21300000, guid: fa76733769444c140a8e89c03b1fd77f, type: 3}
   weaponShootPosition: {x: 0, y: 1.1, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: d6dd7539cc28baa4786e78c93749b8a5, type: 2}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 62d0f2aac406a7245947e137164e9b8a, type: 2}
   hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
-  weaponClipAmmoCapacity: 8
-  weaponAmmoCapacity: 150
-  weaponFireRate: 0.3
+  weaponClipAmmoCapacity: 5
+  weaponAmmoCapacity: 50
+  weaponFireRate: 1
   weaponPrechargeTime: 0
-  weaponReloadTime: 1.5
+  weaponReloadTime: 2

@@ -176,7 +176,7 @@ public class Chest : MonoBehaviour, IUseable
     {
         InstantiateItem();
 
-        chestItem.Initialize(GameResources.Instance.heartIcon, healthPercent.ToString() + "%", itemSpawnPoint.position, materializeColor);
+        chestItem.Initialize(GameResources.Instance.heartIcon, healthPercent.ToString(), itemSpawnPoint.position, materializeColor);
     }
 
 

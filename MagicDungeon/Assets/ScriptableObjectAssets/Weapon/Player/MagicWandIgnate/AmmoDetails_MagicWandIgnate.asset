@@ -12,27 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ac7eafde2802844bfc0d7c85dc268b, type: 3}
   m_Name: AmmoDetails_MagicWandIgnate
   m_EditorClassIdentifier: 
-  ammoName: MagicWandBone Ammo
+  ammoName: MagicWandIgnate Ammo
   isPlayerAmmo: 0
-  ammoSprite: {fileID: 21300000, guid: 99e8ba7868bc2394ca7a239da638ee8f, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 0496ceae7795ccc4a9aa70b4b59197be, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: 3414390acc828f54ca8908e9c336d192, type: 3}
-  ammoMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2188732956512051053, guid: 5ae4134e07543d94fa4ad14763b31afc, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
-  ammoDamage: 7
-  ammoSpeedMin: 13
-  ammoSpeedMax: 13
-  ammoRange: 18
-  ammoRotationSpeed: 1
+  ammoDamage: 30
+  ammoSpeedMin: 18
+  ammoSpeedMax: 20
+  ammoRange: 50
+  isAmmoSriteRotation: 1
+  ammoSpriteRotationSpeed: 5
+  ammoPatternRotationSpeed: 1
   ammoSpreadMin: 1
   ammoSpreadMax: 3
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0
   ammoSpawnIntervalMax: 0
-  isAmmoTrail: 0
-  ammoTrailTime: 0
-  ammoTrailMaterial: {fileID: 0}
-  ammoTrailStartWidth: 0
-  ammoTrailEndWidth: 0
+  isAmmoTrail: 1
+  ammoTrailTime: 10
+  ammoTrailMaterial: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
+  ammoTrailStartWidth: 0.434
+  ammoTrailEndWidth: 0.152

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1148333899017436834}
   - component: {fileID: 4832728411338677522}
   m_Layer: 0
-  m_Name: ChestSpawner
+  m_Name: ChestSpawner 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
     min: 0
     max: 100
   - dungeonLevel: {fileID: 11400000, guid: 8f51b32fd1d2cdf46bee0e953ef8fc30, type: 2}
-    min: 0
+    min: 100
     max: 100
   chestSpawnEvent: 0
   chestSpawnPosition: 0
