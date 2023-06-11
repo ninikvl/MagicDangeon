@@ -72,6 +72,11 @@ public class ChestSpawner : MonoBehaviour
     private bool chestSpawned = false;
     private Room chestRoom;
 
+    private void Awake()
+    {
+        
+    }
+
     private void OnEnable()
     {
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;

@@ -4507,7 +4507,7 @@ MonoBehaviour:
   dungeonLevelsList:
   - {fileID: 11400000, guid: 68024a9efab406246b7ef5ec5d24e409, type: 2}
   - {fileID: 11400000, guid: 8f51b32fd1d2cdf46bee0e953ef8fc30, type: 2}
-  currentDungeonLevelListIndex: 0
+  currentDungeonLevelListIndex: 1
   gameState: 0
   previousGameState: 0
 --- !u!4 &2026362871

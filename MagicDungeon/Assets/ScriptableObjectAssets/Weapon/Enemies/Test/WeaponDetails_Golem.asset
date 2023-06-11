@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
   m_Name: WeaponDetails_Golem
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: Golem
   weaponSprite: {fileID: 21300000, guid: 2fcbea32b2566ed47ad17f6866b87c67, type: 3}
   weaponShootPosition: {x: 0, y: 0, z: 0}
-  weaponCurrentAmmo: {fileID: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 6c0de4269679eee44acf669af1654c31, type: 2}
   hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
   weaponClipAmmoCapacity: 6

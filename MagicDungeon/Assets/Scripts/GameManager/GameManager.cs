@@ -457,20 +457,30 @@ public class GameManager : SingletonMonobehavior<GameManager>
     /// </summary>
     private IEnumerator LevelCompleted()
     {
-        // Play next level
-        gameState = GameState.playingLevel;
+        //// Play next level
+        //gameState = GameState.playingLevel;
 
-        // Wait 2 seconds
-        yield return new WaitForSeconds(2f);
+        //// Wait 2 seconds
+        //yield return new WaitForSeconds(2f);
 
-        // When player presses the return key proceed to the next level
-        while (!Input.GetKeyDown(KeyCode.Return))
-        {
-            yield return null;
-        }
+        //// When player presses the return key proceed to the next level
+        //while (!Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    yield return null;
+        //}
 
         yield return null; // to avoid enter being detected twice
 
+        //// Increase index to next level
+        //currentDungeonLevelListIndex++;
+
+        //PlayDungeonLevel(currentDungeonLevelListIndex);
+    }
+
+    public void UseExit()
+    {
+        // Play next level
+        gameState = GameState.playingLevel;
         // Increase index to next level
         currentDungeonLevelListIndex++;
 
