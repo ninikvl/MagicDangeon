@@ -3999,6 +3999,15 @@ MonoBehaviour:
   - poolSize: 40
     prefab: {fileID: 2188732956512051053, guid: 90a46d4e1c747e540889a19d712d89ee, type: 3}
     componentType: IFireable
+  - poolSize: 40
+    prefab: {fileID: 2188732956512051053, guid: f5c8506f2e6d8044db06eb3d1389a0e4, type: 3}
+    componentType: IFireable
+  - poolSize: 500
+    prefab: {fileID: 2188732956512051053, guid: a0855589495ddc14eb9b84881f3a29fc, type: 3}
+    componentType: IFireable
+  - poolSize: 40
+    prefab: {fileID: 2188732956512051053, guid: 6cfafb9f76b1b36489bf235e7908a985, type: 3}
+    componentType: IFireable
 --- !u!4 &1636668672
 Transform:
   m_ObjectHideFlags: 0
@@ -4513,7 +4522,7 @@ MonoBehaviour:
   dungeonLevelsList:
   - {fileID: 11400000, guid: 68024a9efab406246b7ef5ec5d24e409, type: 2}
   - {fileID: 11400000, guid: 8f51b32fd1d2cdf46bee0e953ef8fc30, type: 2}
-  currentDungeonLevelListIndex: 1
+  currentDungeonLevelListIndex: 0
   gameState: 0
   previousGameState: 0
 --- !u!4 &2026362871

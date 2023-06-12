@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40125c148ea9636419996d66739ebec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestPrefab: {fileID: 0}
+  chestPrefab: {fileID: 1505023365463200768, guid: a26b4c4bfa28b464382efad914187d33, type: 3}
   chestSpawnChanceMin: 0
   chestSpawnChanceMax: 0
   chestSpawnChanceByLevelList: []

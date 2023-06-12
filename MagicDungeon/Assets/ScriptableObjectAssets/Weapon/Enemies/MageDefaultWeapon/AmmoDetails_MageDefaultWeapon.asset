@@ -16,7 +16,7 @@ MonoBehaviour:
   isPlayerAmmo: 0
   ammoSprite: {fileID: 21300000, guid: bf1b109d6221c564bbd0eda91ab6d75a, type: 3}
   ammoPrefabArray:
-  - {fileID: 2188732956512051053, guid: a0855589495ddc14eb9b84881f3a29fc, type: 3}
+  - {fileID: 2188732956512051053, guid: 6cfafb9f76b1b36489bf235e7908a985, type: 3}
   ammoMaterial: {fileID: 2100000, guid: a8f373dc317a30d40a68b73a78ce1d09, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
