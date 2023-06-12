@@ -24,8 +24,10 @@ MonoBehaviour:
   ammoSpeedMin: 6
   ammoSpeedMax: 11
   ammoRange: 25
-  ammoRotationSpeed: 1
-  ammoSpreadMin: 10
+  isAmmoSriteRotation: 0
+  ammoSpriteRotationSpeed: 0
+  ammoPatternRotationSpeed: 1
+  ammoSpreadMin: 0
   ammoSpreadMax: 20
   ammoSpawnAmountMin: 3
   ammoSpawnAmountMax: 5
