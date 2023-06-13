@@ -1386,7 +1386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 18, y: -28}
+  m_AnchoredPosition: {x: 18, y: -30}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &533427968
@@ -3957,7 +3957,7 @@ MonoBehaviour:
   - poolSize: 30
     prefab: {fileID: 2188732956512051053, guid: 29dcffd3025170146bfa3c47f8d4350d, type: 3}
     componentType: IFireable
-  - poolSize: 30
+  - poolSize: 50
     prefab: {fileID: 2188732956512051053, guid: 8e7e7fafadcf10e48bd21817b1a4d08b, type: 3}
     componentType: IFireable
   - poolSize: 30
@@ -4007,6 +4007,21 @@ MonoBehaviour:
     componentType: IFireable
   - poolSize: 40
     prefab: {fileID: 2188732956512051053, guid: 6cfafb9f76b1b36489bf235e7908a985, type: 3}
+    componentType: IFireable
+  - poolSize: 100
+    prefab: {fileID: 2188732956512051053, guid: e011faf1b214be246a1f59246d51349e, type: 3}
+    componentType: IFireable
+  - poolSize: 30
+    prefab: {fileID: 2188732956512051053, guid: 31f8e3dc199f64c4fb1f88ea6ffc8f14, type: 3}
+    componentType: IFireable
+  - poolSize: 50
+    prefab: {fileID: 2188732956512051053, guid: 17bd8b3f09b2a634fa92c5a956a47fb9, type: 3}
+    componentType: IFireable
+  - poolSize: 80
+    prefab: {fileID: 2188732956512051053, guid: 1d504af4caa384f4b9cab959318a4917, type: 3}
+    componentType: IFireable
+  - poolSize: 40
+    prefab: {fileID: 2188732956512051053, guid: eba11e10689cd1142b851fa67a4c7df9, type: 3}
     componentType: IFireable
 --- !u!4 &1636668672
 Transform:
@@ -4522,7 +4537,8 @@ MonoBehaviour:
   dungeonLevelsList:
   - {fileID: 11400000, guid: 68024a9efab406246b7ef5ec5d24e409, type: 2}
   - {fileID: 11400000, guid: 8f51b32fd1d2cdf46bee0e953ef8fc30, type: 2}
-  currentDungeonLevelListIndex: 0
+  - {fileID: 11400000, guid: 2f1067452a2b34f4597093274aa4a222, type: 2}
+  currentDungeonLevelListIndex: 2
   gameState: 0
   previousGameState: 0
 --- !u!4 &2026362871

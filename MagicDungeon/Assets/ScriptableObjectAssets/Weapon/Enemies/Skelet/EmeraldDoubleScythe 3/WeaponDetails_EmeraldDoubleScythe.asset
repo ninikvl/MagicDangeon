@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
+  m_Name: WeaponDetails_EmeraldDoubleScythe
+  m_EditorClassIdentifier: 
+  weaponName: Emerald Double Scythe
+  weaponSprite: {fileID: 21300000, guid: f158a7fce98cbae4b956574abd4fcddf, type: 3}
+  weaponShootPosition: {x: 0, y: 1, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: cfde00d91aa9bac4892266e42af640c3, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 1
+  weaponClipAmmoCapacity: 50
+  weaponAmmoCapacity: 800
+  weaponFireRate: 0.8
+  weaponPrechargeTime: 0
+  weaponReloadTime: 1.2

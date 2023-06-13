@@ -59,6 +59,8 @@ public class GameManager : SingletonMonobehavior<GameManager>
         playerDetails = GameResources.Instance.currentPlayer.playerDetails;
 
         InstatiatePlayer();
+
+        Application.targetFrameRate = 75;
     }
 
     /// <summary>

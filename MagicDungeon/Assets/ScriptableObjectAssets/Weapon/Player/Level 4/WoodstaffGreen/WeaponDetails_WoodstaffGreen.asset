@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
+  m_Name: WeaponDetails_WoodstaffGreen
+  m_EditorClassIdentifier: 
+  weaponName: Wood Staff Green
+  weaponSprite: {fileID: 21300000, guid: e1fc4e32b4477d441be7eee2ba676511, type: 3}
+  weaponShootPosition: {x: 0, y: 0.8, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 72caf583d29b73343bc2c9cc6d2a2d6d, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 20
+  weaponAmmoCapacity: 600
+  weaponFireRate: 0.05
+  weaponPrechargeTime: 0
+  weaponReloadTime: 2

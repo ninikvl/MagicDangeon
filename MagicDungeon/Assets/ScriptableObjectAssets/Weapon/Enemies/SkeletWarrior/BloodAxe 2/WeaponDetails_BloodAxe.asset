@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbecb484b5b17e4fb54bc5c2792adb5, type: 3}
+  m_Name: WeaponDetails_BloodAxe
+  m_EditorClassIdentifier: 
+  weaponName: BloodAxe
+  weaponSprite: {fileID: 21300000, guid: 6e0f6407520ce4d4092477a5b36236e9, type: 3}
+  weaponShootPosition: {x: 0, y: 0.7, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: c3cb830843e8bd2468b584d4049606da, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 1
+  weaponClipAmmoCapacity: 50
+  weaponAmmoCapacity: 800
+  weaponFireRate: 1.5
+  weaponPrechargeTime: 0
+  weaponReloadTime: 1.2

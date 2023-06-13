@@ -9026,7 +9026,7 @@ Transform:
   m_Children:
   - {fileID: 4603254633577131567}
   - {fileID: 4641884735082720320}
-  - {fileID: 3705974901538766059}
+  - {fileID: 4032950399509579804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27270,10 +27270,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChestSpawner OnDefeat SmallRoom 1lvl
       objectReference: {fileID: 0}
+    - target: {fileID: 6911867131528597054, guid: 297305a897fd1ae4c88990b378424d23, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911867131528597054, guid: 297305a897fd1ae4c88990b378424d23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911867131528597054, guid: 297305a897fd1ae4c88990b378424d23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.43
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 297305a897fd1ae4c88990b378424d23, type: 3}
---- !u!4 &3705974901538766059 stripped
+--- !u!4 &4032950399509579804 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6589413892731386569, guid: 297305a897fd1ae4c88990b378424d23, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6911867131528597054, guid: 297305a897fd1ae4c88990b378424d23, type: 3}
   m_PrefabInstance: {fileID: 7501881577316288034}
   m_PrefabAsset: {fileID: 0}

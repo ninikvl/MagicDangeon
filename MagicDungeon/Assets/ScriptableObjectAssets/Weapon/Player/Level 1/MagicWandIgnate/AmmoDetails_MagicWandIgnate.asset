@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AmmoDetails_MagicWandIgnate
   m_EditorClassIdentifier: 
   ammoName: MagicWandIgnate Ammo
-  isPlayerAmmo: 0
+  isPlayerAmmo: 1
   ammoSprite: {fileID: 21300000, guid: 3828183669e8e09408456379f05f3b7e, type: 3}
   ammoPrefabArray:
   - {fileID: 2188732956512051053, guid: f5c8506f2e6d8044db06eb3d1389a0e4, type: 3}

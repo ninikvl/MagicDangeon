@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ac7eafde2802844bfc0d7c85dc268b, type: 3}
+  m_Name: AmmoDetails_EmeraldSword
+  m_EditorClassIdentifier: 
+  ammoName: EmeraldSword Ammo
+  isPlayerAmmo: 0
+  ammoSprite: {fileID: 21300000, guid: 0496ceae7795ccc4a9aa70b4b59197be, type: 3}
+  ammoPrefabArray:
+  - {fileID: 2188732956512051053, guid: 982ffd0f44d9bc54da10bed1cdbd0af6, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: a8f373dc317a30d40a68b73a78ce1d09, type: 2}
+  ammoChargeTime: 0.5
+  ammoChargeMaterial: {fileID: 2100000, guid: 33a55999e44f4724191171c59fc64319, type: 2}
+  ammoDamage: 1
+  ammoSpeedMin: 8
+  ammoSpeedMax: 12
+  ammoRange: 20
+  isAmmoSriteRotation: 1
+  ammoSpriteRotationSpeed: 5
+  ammoPatternRotationSpeed: 1
+  ammoSpreadMin: 0
+  ammoSpreadMax: 15
+  ammoSpawnAmountMin: 2
+  ammoSpawnAmountMax: 2
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 0
+  ammoTrailTime: 0
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0

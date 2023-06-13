@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ac7eafde2802844bfc0d7c85dc268b, type: 3}
+  m_Name: AmmoDetails_BoneStaff
+  m_EditorClassIdentifier: 
+  ammoName: BoneStaff Ammo
+  isPlayerAmmo: 0
+  ammoSprite: {fileID: 21300000, guid: d1f20efb883395d438c89f3b57841432, type: 3}
+  ammoPrefabArray:
+  - {fileID: 2188732956512051053, guid: 3828149c6d266224db6d47752b189b20, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: a8f373dc317a30d40a68b73a78ce1d09, type: 2}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 1
+  ammoSpeedMin: 6
+  ammoSpeedMax: 8
+  ammoRange: 30
+  isAmmoSriteRotation: 1
+  ammoSpriteRotationSpeed: 5
+  ammoPatternRotationSpeed: 1
+  ammoSpreadMin: 0
+  ammoSpreadMax: 40
+  ammoSpawnAmountMin: 4
+  ammoSpawnAmountMax: 6
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 0
+  ammoTrailTime: 0
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0

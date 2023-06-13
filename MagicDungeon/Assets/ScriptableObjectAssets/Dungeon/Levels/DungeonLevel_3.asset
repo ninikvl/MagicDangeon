@@ -13,5 +13,33 @@ MonoBehaviour:
   m_Name: DungeonLevel_3
   m_EditorClassIdentifier: 
   levelName: asd
-  roomTemplateList: []
-  roomNodeGraphList: []
+  roomTemplateList:
+  - {fileID: 11400000, guid: a20dfc0cecaa68b4baf3f0c58b47361e, type: 2}
+  - {fileID: 11400000, guid: e2b0f216afadbb24eac9d98ceb4fd806, type: 2}
+  - {fileID: 11400000, guid: fd4e65496aeb2be49be45c9723655c66, type: 2}
+  - {fileID: 11400000, guid: 1562b0db9a929d24e8ca753ddb074009, type: 2}
+  - {fileID: 11400000, guid: fcc71818f858c4c41b38ed411597b647, type: 2}
+  - {fileID: 11400000, guid: 00a7fb22607ec7b458cb6660fcf021b7, type: 2}
+  - {fileID: 11400000, guid: 54ebbc7011c88d04191268ad7b3ca504, type: 2}
+  - {fileID: 11400000, guid: a9bfb898bed081d49ab8759efa6c321e, type: 2}
+  - {fileID: 11400000, guid: c5e078b9edfc0f54f9c25c0e3600b7be, type: 2}
+  - {fileID: 11400000, guid: 60311ab3bd4f2024481787befab62fcd, type: 2}
+  - {fileID: 11400000, guid: 7402b1c4c7a5f504ebf48a0ff8b76b3f, type: 2}
+  - {fileID: 11400000, guid: 00178c202cb320b44a61cb6513c79dcc, type: 2}
+  - {fileID: 11400000, guid: 6b7f831ceef7eb747b521eef2dd7927f, type: 2}
+  - {fileID: 11400000, guid: 9886649007e5d7042aef5f6b210d5fa3, type: 2}
+  - {fileID: 11400000, guid: 9a1a4c81de173534193196bfd1b52a4b, type: 2}
+  - {fileID: 11400000, guid: f38f3f31233ccb04287b374dc5ee9f07, type: 2}
+  - {fileID: 11400000, guid: e63119c8d263c0a499865a928fa27061, type: 2}
+  - {fileID: 11400000, guid: 5cee54eb0ade3fa43bf5f899ba05ff8d, type: 2}
+  - {fileID: 11400000, guid: 51923ff2c70ba1c49ae0252d2da9b8ef, type: 2}
+  - {fileID: 11400000, guid: ceb25da337a527e4f9f6d8c9f4b2c9d4, type: 2}
+  - {fileID: 11400000, guid: 707c0944964897e438a80d95c93f438f, type: 2}
+  - {fileID: 11400000, guid: 134511ae4943c1149bb64cdde57cb1c9, type: 2}
+  - {fileID: 11400000, guid: ff08e221af287644086a9d02e2e801a7, type: 2}
+  roomNodeGraphList:
+  - {fileID: 11400000, guid: 2e7b31e572649154f8b6f68324f97411, type: 2}
+  - {fileID: 11400000, guid: ef0cf8f223d96d74292b8d4c2007f0fe, type: 2}
+  - {fileID: 11400000, guid: 289e39537d6ab3f41a2348180f8ac984, type: 2}
+  - {fileID: 11400000, guid: 6936b4d3137c68c4d8be9c31411e2c56, type: 2}
+  - {fileID: 11400000, guid: 82f56c39f3dd21647bd38c7f98c1bc3b, type: 2}
