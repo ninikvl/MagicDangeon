@@ -414,7 +414,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
         else
         // else display the message until the return button is pressed
         {
-            while (!Input.GetKeyDown(KeyCode.Return))
+            while (!Input.GetKeyDown(KeyCode.Space))
             {
                 yield return null;
             }
@@ -500,31 +500,32 @@ public class GameManager : SingletonMonobehavior<GameManager>
         // Disable player
         GetPlayer().playerControl.DisablePlayer();
 
-        //int rank = HighScoreManager.Instance.GetRank(gameScore);
+        int rank = HighScoreManager.Instance.GetRank(gameScore);
 
-        //string rankText;
+        string rankText;
 
-        //// Test if the score is in the rankings
-        //if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
-        //{
-        //    rankText = "YOUR SCORE IS RANKED " + rank.ToString("#0") + " IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+        // Test if the score is in the rankings
+        if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
+        {
+            rankText = "YOUR SCORE IS RANKED " + rank.ToString("#0") + " IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
 
-        //    string name = GameResources.Instance.currentPlayer.playerName;
+            string name = GameResources.Instance.currentPlayer.playerName;
 
-        //    if (name == "")
-        //    {
-        //        name = playerDetails.playerCharacterName.ToUpper();
-        //    }
+            if (name == "")
+            {
+                name = playerDetails.playerCharacterName.ToUpper();
+            }
 
-        //    // Update scores
-        //    HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore }, rank);
+            // Update scores
+            HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + 
+                " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore }, rank);
 
 
-        //}
-        //else
-        //{
-        //    rankText = "YOUR SCORE ISN'T RANKED IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
-        //}
+        }
+        else
+        {
+            rankText = "YOUR SCORE ISN'T RANKED IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+        }
 
         // Wait 1 seconds
         yield return new WaitForSeconds(1f);
@@ -537,7 +538,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
 
         yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0") /*+ "\n\n" + rankText*/, Color.white, 4f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("PRESS RETURN TO RESTART THE GAME", Color.white, 0f));
+        yield return StartCoroutine(DisplayMessageRoutine("PRESS SPACE TO RESTART THE GAME", Color.white, 0f));
 
         // Set game state to restart game
         gameState = GameState.restartGame;
@@ -553,29 +554,29 @@ public class GameManager : SingletonMonobehavior<GameManager>
         // Disable player
         GetPlayer().playerControl.DisablePlayer();
 
-        //// Get rank
-        //int rank = HighScoreManager.Instance.GetRank(gameScore);
-        //string rankText;
+        // Get rank
+        int rank = HighScoreManager.Instance.GetRank(gameScore);
+        string rankText;
 
-        //// Test if the score is in the rankings
-        //if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
-        //{
-        //    rankText = "YOUR SCORE IS RANKED " + rank.ToString("#0") + " IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+        // Test if the score is in the rankings
+        if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
+        {
+            rankText = "YOUR SCORE IS RANKED " + rank.ToString("#0") + " IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
 
-        //    string name = GameResources.Instance.currentPlayer.playerName;
+            string name = GameResources.Instance.currentPlayer.playerName;
 
-        //    if (name == "")
-        //    {
-        //        name = playerDetails.playerCharacterName.ToUpper();
-        //    }
+            if (name == "")
+            {
+                name = playerDetails.playerCharacterName.ToUpper();
+            }
 
-        //    // Update scores
-        //    HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore }, rank);
-        //}
-        //else
-        //{
-        //    rankText = "YOUR SCORE ISN'T RANKED IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
-        //}
+            // Update scores
+            HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore }, rank);
+        }
+        else
+        {
+            rankText = "YOUR SCORE ISN'T RANKED IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+        }
 
 
         // Wait 1 seconds
@@ -591,12 +592,12 @@ public class GameManager : SingletonMonobehavior<GameManager>
             enemy.gameObject.SetActive(false);
         }
 
-        // Display game lost
-        yield return StartCoroutine(DisplayMessageRoutine("BAD LUCK " + GameResources.Instance.currentPlayer.playerName + "! YOU HAVE SUCCUMBED TO THE DUNGEON", Color.white, 2f));
+        //// Display game lost
+        //yield return StartCoroutine(DisplayMessageRoutine("BAD LUCK " + GameResources.Instance.currentPlayer.playerName + "! YOU HAVE SUCCUMBED TO THE DUNGEON", Color.white, 2f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0") /*+ "\n\n" + rankText*/, Color.white, 4f));
+        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("PRESS RETURN TO RESTART THE GAME", Color.white, 0f));
+        yield return StartCoroutine(DisplayMessageRoutine("PRESS SPACE TO RESTART THE GAME", Color.white, 0f));
 
         // Set game state to restart game
         gameState = GameState.restartGame;

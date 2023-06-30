@@ -107,11 +107,6 @@ public class InstantiatedRoom : MonoBehaviour
                 ignoreAmmoTilemap = tilemap;
             }
         }
-        
-        foreach (string idChild in room.childRoomIdList)
-        {
-            
-        }
     }
 
     /// <summary>

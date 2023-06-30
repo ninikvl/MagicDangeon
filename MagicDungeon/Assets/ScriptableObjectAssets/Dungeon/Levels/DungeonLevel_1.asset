@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f648341962374749a00b953fd7d47ee, type: 3}
   m_Name: DungeonLevel_1
   m_EditorClassIdentifier: 
-  levelName: "\u0414\u0438\u043F\u043B\u043E\u043C\u043D\u0430\u044F \u0440\u0430\u0431\u043E\u0442\u0430"
+  levelName: The Beginners' Hall
   roomTemplateList:
   - {fileID: 11400000, guid: 0811427c377e1114b8b4194ea3335f63, type: 2}
   - {fileID: 11400000, guid: f176d325c2c225f4bbc708dd72aabdad, type: 2}

@@ -92,10 +92,10 @@ public class GameResources : MonoBehaviour
     [Tooltip("Populate with ammo icon prefab")]
     #endregion
     public GameObject ammoIconPrefab;
-    //#region Tooltip
-    //[Tooltip("The score prefab")]
-    //#endregion
-    //public GameObject scorePrefab;
+    #region Tooltip
+    [Tooltip("The score prefab")]
+    #endregion
+    public GameObject scorePrefab;
     #region Tooltip
     [Tooltip("Заполняется объектом из Minimap")]
     #endregion

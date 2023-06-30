@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f648341962374749a00b953fd7d47ee, type: 3}
   m_Name: DungeonLevel_2
   m_EditorClassIdentifier: 
-  levelName: "\u041D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u0447\u0442\u043E-\u0442\u043E
-    \u043D\u0430\u043F\u0438\u0441\u0430\u043B"
+  levelName: Toxic Ruins
   roomTemplateList:
   - {fileID: 11400000, guid: 474231182b59d024b982234a65cbb476, type: 2}
   - {fileID: 11400000, guid: 343414a202e97394e94180ee0de4b0ef, type: 2}

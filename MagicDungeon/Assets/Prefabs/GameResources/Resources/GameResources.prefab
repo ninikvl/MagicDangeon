@@ -57,6 +57,8 @@ MonoBehaviour:
   heartPrefab: {fileID: 9142516888701839656, guid: 5992a97580d2bb94aa47793857b92d76, type: 3}
   heartEmptyPrefab: {fileID: 9142516888701839656, guid: 2126c2ce4f7362b42b6f741681ba03c2, type: 3}
   ammoIconPrefab: {fileID: 8506673717780857146, guid: 76a7ff85bf1839d4fbaa4e45a3e45e45, type: 3}
+  scorePrefab: {fileID: 3200602702114612697, guid: 501c44c3c13ba884195e1a6c249a199d, type: 3}
+  bossMinimapIcon: {fileID: 0}
   enemyUnwalkableCollisionTilesArray:
   - {fileID: 11400000, guid: 37e2c9e0227bfbc409cd632b9bd0c81f, type: 2}
   - {fileID: 11400000, guid: 98f177f8276c38b429705e6720c48672, type: 2}

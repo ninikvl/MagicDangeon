@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f648341962374749a00b953fd7d47ee, type: 3}
   m_Name: DungeonLevel_3
   m_EditorClassIdentifier: 
-  levelName: asd
+  levelName: The Hidden Hall
   roomTemplateList:
   - {fileID: 11400000, guid: a20dfc0cecaa68b4baf3f0c58b47361e, type: 2}
   - {fileID: 11400000, guid: e2b0f216afadbb24eac9d98ceb4fd806, type: 2}
