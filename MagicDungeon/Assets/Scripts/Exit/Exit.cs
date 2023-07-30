@@ -7,5 +7,6 @@ public class Exit : MonoBehaviour, IUseable
     public void UseItem()
     {
         GameManager.Instance.UseExit();
+        gameObject.SetActive(false);
     }
 }

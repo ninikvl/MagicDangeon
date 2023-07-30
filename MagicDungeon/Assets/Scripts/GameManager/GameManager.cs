@@ -241,7 +241,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
             case GameState.gameLost:
                 if (previousGameState != GameState.gameLost)
                 {
-                    StopAllCoroutines(); // Prevent messages if you clear the level just as you get killed
+                    StopAllCoroutines(); 
                     StartCoroutine(GameLost());
                 }
                 break;
@@ -252,10 +252,10 @@ public class GameManager : SingletonMonobehavior<GameManager>
                 break;
 
             case GameState.dungeonOverviewMap:
-                // Key released
+                // Ключ отпущен
                 if (Input.GetKeyUp(KeyCode.Tab))
                 {
-                    // Clear dungeonOverviewMap
+                    // Очистить dungeonOverviewMap
                     DungeonMap.Instance.ClearDungeonOverViewMap();
                 }
                 break;
@@ -321,7 +321,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
     }
 
     /// <summary>
-    /// Pause game menu - also called from resume game button on pause menu
+    /// Меню паузы в игре - вызывается с помощью кнопки возобновить игру в меню паузы
     /// </summary>
     public void PauseGameMenu()
     {
@@ -330,7 +330,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
             pauseMenu.SetActive(true);
             GetPlayer().playerControl.DisablePlayer();
 
-            // Set game state
+            // Установить игровое состояние
             previousGameState = gameState;
             gameState = GameState.gamePaused;
         }
@@ -339,7 +339,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
             pauseMenu.SetActive(false);
             GetPlayer().playerControl.EnablePlayer();
 
-            // Set game state
+            // Установить игровое состояние
             gameState = previousGameState;
             previousGameState = GameState.gamePaused;
 
@@ -365,7 +365,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
 
         player.gameObject.transform.position = HelperUtilities.GetSpawnPositionToPlayer(player.gameObject.transform.position);
 
-        // Display Dungeon Level Text
+        // Отобразить текст уровня подземелья
         StartCoroutine(DisplayDungeonLevelText());
     }
 
@@ -479,14 +479,24 @@ public class GameManager : SingletonMonobehavior<GameManager>
         //PlayDungeonLevel(currentDungeonLevelListIndex);
     }
 
+    /// <summary>
+    /// Переход на следующий уровеь
+    /// </summary>
     public void UseExit()
     {
-        // Play next level
         gameState = GameState.playingLevel;
-        // Increase index to next level
+        // увеличение индекса до следующего уровня
         currentDungeonLevelListIndex++;
 
-        PlayDungeonLevel(currentDungeonLevelListIndex);
+        if (currentDungeonLevelListIndex < dungeonLevelsList.Count)
+        {
+            PlayDungeonLevel(currentDungeonLevelListIndex);
+        }
+        else
+        {
+            currentDungeonLevelListIndex--;
+            gameState = GameState.gameWon;
+        }
     }
 
 
@@ -517,7 +527,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
             }
 
             // Update scores
-            HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + 
+            HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex ).ToString() + 
                 " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore }, rank);
 
 

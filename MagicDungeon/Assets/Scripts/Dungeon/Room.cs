@@ -24,7 +24,6 @@ public class Room
     public bool isPreviouslyVisited = false;
     public bool isPreviouslyToBoss = false;
     public bool isPreviouslyCorridorToBoss = false;
-
     public Door[] doorArray;
 
     public Room()
@@ -50,7 +49,7 @@ public class Room
     }
 
     /// <summary>
-    /// Получить параметры появления врага в комнате для этого уровня подземелья - если ничего не найдено, верните значение null
+    /// Получить параметры появления врага в комнате для этого уровня подземелья - если ничего не найдено, то возвращает значение null
     /// </summary>
     public RoomEnemySpawnParameters GetRoomEnemySpawnParameters(DungeonLevelSO dungeonLevel)
     {

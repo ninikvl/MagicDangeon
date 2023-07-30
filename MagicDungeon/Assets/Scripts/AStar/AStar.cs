@@ -30,7 +30,6 @@ public static class AStar
         {
             return CreatePathStack(endPathNode, room);
         }
-
         return null;
     }
 
@@ -65,9 +64,7 @@ public static class AStar
             // Вычисление стоимости для каждого соседа текущего узла
             EvaluateCurrentNodeNeighbours(currentNode, targetNode, gridNodes, openNodeList, closedNodeHashSet, instantiatedRoom);
         }
-
         return null;
-
     }
 
 
@@ -97,7 +94,6 @@ public static class AStar
 
             nextNode = nextNode.parentNode;
         }
-
         return movementPathStack;
     }
 

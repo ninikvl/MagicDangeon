@@ -45,62 +45,59 @@ public class EnemyMovementAI : MonoBehaviour
 
 
     /// <summary>
-    /// Use AStar pathfinding to build a path to the player - and then move the enemy to each grid location on the path
+    /// »спользу€ алгоритм AStar, прокладываетс€ путь к игроку, а затем происходит перемещение врага в каждое место сетки на пути
     /// </summary>
     private void MoveEnemy()
     {
-        // Movement cooldown timer
+        // “аймер восстановлени€ движени€
         currentEnemyPathRebuildCooldown -= Time.deltaTime;
 
-        // Check distance to player to see if enemy should start chasing
+        // ѕроверка рассто€ние до игрока, чтобы увидеть, должен ли враг начать преследование
         if (!chasePlayer && Vector3.Distance(transform.position, GameManager.Instance.GetPlayer().GetPlayerPosition()) < 
             enemy.enemyDetails.chaseDistance)
         {
             chasePlayer = true;
         }
 
-        // If not close enough to chase player then return
+        // когда игрок окажетс€ недостаточно близко, чтобы преследовать его
         if (!chasePlayer)
             return;
 
-        // Only process A Star path rebuild on certain frames to spread the load between enemies
+        // ѕерестройка пути A* только на определенных кадрах, чтобы распределить нагрузку между врагами
         if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber) 
             return;
 
-        // if the movement cooldown timer reached or player has moved more than required distance
-        // then rebuild the enemy path and move the enemy
+        // если истек таймер восстановлени€ движени€ или игрок переместилс€ на большее, чем требуетс€, рассто€ние
+        // происходит создание нового пути врага
         if (currentEnemyPathRebuildCooldown <= 0f || (Vector3.Distance(playerReferencePosition, 
             GameManager.Instance.GetPlayer().GetPlayerPosition()) > Settings.playerMoveDistanceToRebuildPath))
         {
-            // Reset path rebuild cooldown timer
+            // —бросить путь, перестроить таймер восстановлени€
             currentEnemyPathRebuildCooldown = Settings.enemyPathRebuildCooldown;
 
-            // Reset player reference position
+            // —бросить исходное положение игрока
             playerReferencePosition = GameManager.Instance.GetPlayer().GetPlayerPosition();
 
-            // Move the enemy using AStar pathfinding - Trigger rebuild of path to player
+            // ѕереместить врага, использу€ AStar pathfinding 
             CreatePath();
 
-            // If a path has been found move the enemy
+            // ≈сли путь найден, то враг перемещаетс€ 
             if (movementSteps != null)
             {
                 if (moveEnemyRoutine != null)
                 {
-                    // Trigger idle event
                     enemy.stayEvent.CallStayEvent();
                     StopCoroutine(moveEnemyRoutine);
                 }
-
-                // Move enemy along the path using a coroutine
+                // ѕереместить врага вдоль пути, использу€ корутину.
                 moveEnemyRoutine = StartCoroutine(MoveEnemyRoutine(movementSteps));
-
             }
         }
     }
 
 
     /// <summary>
-    /// Coroutine to move the enemy to the next location on the path
+    ///  орутина дл€ перемещени€ врага к следующей точки пути.
     /// </summary>
     private IEnumerator MoveEnemyRoutine(Stack<Vector3> movementSteps)
     {
@@ -108,23 +105,21 @@ public class EnemyMovementAI : MonoBehaviour
         {
             Vector3 nextPosition = movementSteps.Pop();
 
-            // while not very close continue to move - when close move onto the next step
             while (Vector3.Distance(nextPosition, transform.position) > 0.2f)
             {
-                // Trigger movement event
+                // ¬ызвать событие перемещени€.
                 enemy.movementToPositionEvent.CallMovementToPositionEvent(nextPosition, transform.position, moveSpeed, 
                     (nextPosition - transform.position).normalized);
 
-                yield return waitForFixedUpdate;  // moving the enmy using 2D physics so wait until the next fixed update
+                // ѕеремещение врага с использованием 2D физики, ожида€ следующего фиксированного обновлени€.
+                yield return waitForFixedUpdate;  
+                
 
             }
-
             yield return waitForFixedUpdate;
         }
-
-        // End of path steps - trigger the enemy idle event
+        // «авершение последовательности шагов на пути - вызов событи€ бездействи€ врага.
         enemy.stayEvent.CallStayEvent();
-
     }
 
     /// <summary>

@@ -75,7 +75,6 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
                 InstiateRoomgameObjects();
             }
         }
-
         return dungeonBuildSuccessful;
     }
 
@@ -101,7 +100,7 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
     }
 
     /// <summary>
-    /// Попытка построить уровень с помощью выбранного графа комнат
+    /// Попытка построить макет уровня с помощью выбранного графа комнат
     /// Возвращает правду, если удалость сгенерировать макет
     /// Возвращает ложь, если попытка сгенерировать не удалась
     /// </summary>
@@ -134,7 +133,7 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
     }
 
     /// <summary>
-    /// Обрабатывает комны в очереди узлов комнат
+    /// Обрабатывает комнаты в очереди узлов комнат
     /// Возвращает истинну, если нету наложений
     /// </summary>
     private bool ProcessRoomsInOpenRoomNodeQueue(RoomNodeGraphSO roomNodeGraph, Queue<RoomNodeSO> openRoomNodeQueue, bool noRoomOverlaps)
@@ -162,10 +161,10 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
                 //Получение родительского узла
                 Room parentRoom = dungeonBuilderRoomDictionary[roomNode.parentRoomNodeIDList[0]];
 
+                //Проверка на наложение
                 noRoomOverlaps = CanPlaceRoomWithNoOverlaps(roomNode, parentRoom);
             }
         }
-
         return noRoomOverlaps;
     }
 
@@ -292,7 +291,7 @@ public class DungeonBuilder : SingletonMonobehavior<DungeonBuilder>
 
         if (overLappingRroom == null)
         {
-            //Двери подключены и не более не доступны для размещения новых комнат
+            //Двери подключены и более не доступны для размещения новых комнат
             doorwayParent.isConnected = true;
             doorwayParent.isUnavailable = true;
 
